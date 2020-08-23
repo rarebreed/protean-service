@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: es-deployment
+spec:
+  selector:
+    matchLabels:
+      component: khadga
+  template:
+    metadata:
+      labels:
+        component: khadga
+    spec:
+      containers:
+      - name: es-retro-v7.8
+        image: rarebreed/khadga:0.1.5
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 7001
+        readinessProbe:
+            httpGet:
+              path: /health
+              port: 7001

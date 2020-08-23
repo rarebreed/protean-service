@@ -1,0 +1,50 @@
+---
+name: "Ruptured Spleen"
+player: "Sean Toner"
+attributes:
+  primary:
+    force: 10.0
+    speed: 10.0
+    health: 10.0
+    fitness: 10.0
+    kinesthesis: 10.0
+    agility: 10.0
+    dexterity: 10.0
+    comeliness: 10.0
+    presence: 10.0
+    analysis: 10.0
+    memory: 10.0
+    insight: 10.0
+    creativity: 10.0
+    discipline: 10.0
+    focus: 10.0
+    mass: 85.0
+    height: 181.0
+  secondary:
+    sight: 0
+    hearing: 0
+    tactile: 0
+    olfactory: 0
+    taste: 0
+    intuition: 0
+    coolness: 0
+  derived:
+    endurance: 0.0  # 
+    neurological: 0.0  #
+    trauma: 0.0
+    structural:
+      head: 0
+      r_arm: 0
+      l_arm: 0
+      r_leg: 0
+      l_leg: 0
+      torso: 0
+      abdomen: 0
+    poda: 0.0  # Predict, Observe, Decide, Act
+    reaction: 0
+    move: 0
+    power: 0 # force * speed * mass
+    strength: 0  # based on height/mass and force
+psyche:
+
+  

@@ -1,0 +1,19 @@
+services:
+  khadga:
+    host: 0.0.0.0
+    port: 7001
+logging:
+  level: Debug
+tls:
+  set: true
+  ca_path: "config/khadga-test.crt"
+  key_path: "config/khadga-test-pvt.key"
+db:
+  tables:
+    users: test_users
+    posts: test_posts
+    accounts: test_accounts
+    uploads: test_uploads
+    comments: test_comments
+  port: 5432
+  tls: false
