@@ -126,3 +126,17 @@ pub fn explode(roll: &Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>) -> V
     }
     eroll
 }
+
+#[cfg(tests)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn pool4d6() {
+        println!("Testing pool");
+        let pool = DiePool::pool(6);
+        let roll = pool.roll(4);
+
+        println!("roll {}", roll);
+    }
+}

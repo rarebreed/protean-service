@@ -35,4 +35,4 @@ version = "0.2"
 
 [dependencies.warp]
 features = ["tls"]
-version = "0.2.4"
+version = "0.2.5"

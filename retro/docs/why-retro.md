@@ -8,7 +8,7 @@ around 1980 at the ripe old age of 8.  My father was an avid historical miniatur
 started to play some games including this new fangled D&D.  I was more curious about what my father and older brother
 were doing rather than actually wanting to play myself.  But I was curious enough that I asked my parents to buy me
 the Dungeon Master's Guide, Player's Handbook, Monster Manual, and Deities and Demigods.  While a lot of the text went
-over my head, I was especially enraptured by Deities and Demigods and the Monster Manual.  But I only got to play about
+over my head, I was especially enraptured by Deities and Demigods and the Monster Manual.  However, I only played about
 2 or 3 sessions with some of my friends around the 3rd grade.  I have no recollection of what we played (I do recall
 that I was the DM), but it must have been enjoyable.
 

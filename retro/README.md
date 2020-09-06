@@ -5,15 +5,15 @@ building an RPG game suitable either for CRPG's or PPRPG's.  It is far more crun
 game you will have seen before.  Are you tired of:
 
 - Hit Points as a health abstraction? (what do you mean I can't slit his throat while he is unconscious?)
-- Combat feels the same, because there is not a lot of tactical depth, other than choosing what maneuver to do?
+- Combat feeling the same, because there is no interplay of speed, power, and stability in the actions you choose?
 - No differentiation between how easy it is to hit, and what protection armor affords?
 - Initiative systems that don't factor in not just when actions start, but when they finish?
 - Weapons that all feel the same, because they only cover damage, range, cost, and maybe one or two other things?
-- Wonder how a character can be a PhD in Xenobiology, but somehow wind up with Heavy Weapons skill?
+- How a character can be a PhD in Xenobiology, but somehow wind up with Heavy Weapons skill?
 - Characters who epitomize "fools rush in where angels fear to tread" because there is no mechanic (or desire) to 
   restrict character behavior?
 - Personality traits that are just role playing fluff, and have no mechanics to penalize or reward their use?
-- Characters who never get tired, because either your game's rules for encumberance are too complex, or doesn't even have
+- Characters who never get tired, because either your game's rules for encumberance are too complex, or doesn't have
   them at all?
 - Skill systems that treat all skills as equally easy to learn?
 - Skill systems that do not distinguish between breadth and depth?
@@ -31,7 +31,9 @@ when describing examples of how the rules work.
 I remember when complete games came with 64-96 pages of rules.  Nowadays, they come with 300-600 pages for the corebook!
 I don't think it is impossible to create a game which has tons of crunch, and yet is also small both in page size, and
 is keeping inside the RAM in your head.  A part of why I think this is possible, is because a lot of the rules are
-in fact intuitive.
+in fact intuitive.  Also, because there are many game attributes, you need less special one off rules, or unique feats
+to cover the same game rules.  In other words, while the game might initially appear to have way more datum than you 
+need, this is in fact a good thing, because it requires less special rules.
 
 ## PPRPG, CRPG or CARPG
 
@@ -39,6 +41,7 @@ If you aren't familiar with those acronyms, the first 2 are probably somewhat co
 
 - PPRPG: Paper and Pen Role Playing Game
 - CRPG: Computer Roleplaying Game
+- CARPG: Computer Assisted Roleplaying Game
 
 The last one, CARPG is probably new, because AFAIK, I just made it up.  It stands for Computer Assisted Role Playing
 Game.  In a PPRPG, you don't need anything electronic at all.  Just some paper, pens, the rules, dice, and possibly
