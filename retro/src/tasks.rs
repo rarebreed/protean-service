@@ -66,23 +66,17 @@ impl DiePool {
 impl DieTraits for DiePool {
     fn roll(self: &Self, num: u32) -> Vec<u32> {
         let dice_roll = (self.dice)(num);
-        dice_roll.into_iter()
+        let mut rolled = dice_roll.into_iter()
             .map(|amt| {
                 (self.calculate)(amt)
             })
-            .flat_map(|amt| {
-                match self.exploding {
-                    Some(thresh) if amt >= thresh => {
-                        let mut additional = (self.dice)(1);
-                        additional.append(&mut vec![amt]);
-                        additional
-                    },
-                    _ => {
-                        vec![amt]
-                    }
-                }
-            })
-            .collect()
+            .collect();
+
+        if let Some(thresh) = self.exploding {
+            exploding(&mut rolled, thresh, |num_d| { dice(num_d, self.facings) })
+        }else {
+            rolled
+        } 
     }
 }
 
@@ -98,7 +92,7 @@ pub fn die(size: u32) -> impl Fn() -> u32 {
 /// Rolls a dum of dice of a certain size. dice(10, 6) means roll 10d6.  dice(6, 10) means roll 6d10
 pub fn dice(num: u32, size: u32) -> Vec<u32> {
     let d = die(size);
-    (1..num)
+    (0..num)
         .map(|_| { d() })
         .collect()
 }
@@ -127,16 +121,50 @@ pub fn explode(roll: &Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>) -> V
     eroll
 }
 
-#[cfg(tests)]
+/// Searches through the dice roll and checks if any values >= to the threshold
+///
+/// If any are, it will create roll one die, for each value >= to the thresh.  It will recursively check this new list
+/// of die roll(s).  Once there are no more exploding dice, it will append the rolls all together.
+pub fn exploding(roll: &mut Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>) -> Vec<u32> {
+    let mut eroll: Vec<u32> = vec![];
+    
+    for d in roll.iter() {
+        // eroll.push(*d);
+        if *d >= thresh {
+            eroll.append(&mut die(1));
+        }
+    }
+
+    let roll_more = eroll.iter().any(|result| {
+        *result >= thresh
+    });
+    let mut exploded = if roll_more {
+        let mut new_roll = exploding(&mut eroll, thresh, die);
+        eroll.append(&mut new_roll);
+        eroll
+    } else {
+        eroll
+    };
+    
+    // This is kind of expensive to do, but I think this is better than returning a reference
+    roll.append(&mut exploded);
+    let mut final_roll: Vec<u32> = vec![];
+    for r in roll {
+        final_roll.push(*r);
+    };
+    final_roll
+}
+
+#[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn pool4d6() {
         println!("Testing pool");
-        let pool = DiePool::pool(6);
+        let pool = DiePool::pool(6).exploding(Some(6));
         let roll = pool.roll(4);
 
-        println!("roll {}", roll);
+        println!("roll {:?}", roll);
     }
 }

@@ -62,18 +62,22 @@ pub enum DamageEffects {
     Dehydration,
     /// Hemorraghic shock.  Ex-Sanguination.  How long until bleed out?
     Shock(u32),
+    /// Physical damage, eg broken bones, torn 
     Structural {
         damage_type: StructuralDamageType,
         condition: Condition
     },
+    /// Damage to sensory input
     Sensory {
         sense: Senses,
         condition: Condition
     },
+    /// Various neurologic effects like pain, unconsciousness, or sickened
     Neurological {
         effect: NeurologicalEffect,
         severity: u16
     },
+    /// Incapacitation of an organ (typically leading to death)
     OrganFailure(u32)
 }
 
