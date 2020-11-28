@@ -1,9 +1,7 @@
 use crate::{
     Attribute,
     Trait,
-    Senses,
-    EMSpectrum,
-    AuditorySpectrum
+    Senses
 };
 
 pub enum WeaponClass {
@@ -12,7 +10,7 @@ pub enum WeaponClass {
     Ranged
 }
 
-pub enum DamageType {
+pub enum DamageMedium {
     Energy,
     Kinetic,
     Radiation,
@@ -50,10 +48,14 @@ pub enum NeurologicalEffect {
     Unconsciousness,
     Stunned,
     Sickened,
-    Weakened
+    Weakened,
+    Sensory(Senses)
 }
+
+
+
 /// 
-pub enum DamageEffects {
+pub enum DamageEffect {
     /// unable to breathe
     Asphyxiation,
     /// No nutrients or caloric intake, leading to eventual death
@@ -102,10 +104,11 @@ pub enum Condition {
 }
 
 pub struct DamageClass {
-    pub damage_type: DamageType,
-    pub power: u16
+    pub damage_type: DamageMedium,
+    pub power: f32
 }
 
 pub struct Weapon {
-    pub integrity: Condition
+    pub integrity: Condition,
+    pub damage: Attribute<DamageClass, DamageEffect>
 }

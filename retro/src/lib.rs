@@ -6,12 +6,15 @@ pub enum CharacteristicType {
     SecondaryCharacteristics,
     MentalPrimaryCharacteristics,
     SocialCharacteristics,
-    Psyche,
-    Principle
+    PersonalityType,
+    Principles,
+    Equipment
 }
+
 /// A Trait is a trait for specifying what you can do with generic data
 ///
-/// Many values that make up a character, or other entities like weapons, vehicles, or gadgets
+/// Many values that make up a character, or other entities like weapons, vehicles, or gadgets are built by implementing
+/// this trait
 pub trait Trait {
     type Value;
     type Range;
@@ -45,7 +48,7 @@ pub enum Ranged<T> {
         max: T
     },
     /// An Attribute which can take on an enumerated selection of values
-    /// FIXME: Not sure if rust can specify a type bound that T must be of type enum
+    /// FIXME: I kind of need a higher kinded type here.  Ie, Categorized(DamageEffects)
     Categorized(T),
     /// The Attribute can only take on a singular value
     Absolute(T)
@@ -56,8 +59,7 @@ pub enum Ranged<T> {
 /// The most common use of Attributes is to define a character's Characteristics, for example speed or wit.  It is also
 /// commonly used to define other statistics, like a weapon's damage, or weight.
 #[derive(Serialize, Deserialize, Clone)]
-pub struct Attribute<T, R> 
-    where T: Into<f32> {
+pub struct Attribute<T, R> {
     name: String,
     value: T,
     range: Ranged<R>,
@@ -74,8 +76,8 @@ pub struct Attribute<T, R>
 /// - Principles like honor or duty
 /// - Weapon values, like damage or reliability
 /// - Vehicle stats like maneuverability or speed
-impl<T, R> Attribute<T, R> 
-    where T: Into<f32>{
+///
+impl<T, R> Attribute<T, R> {
     /// A default kind of Attribute mostly used for Character Attribute
     pub fn new(name: String, value: T, parent: CharacteristicType, range: Ranged<R>) -> Self {
         Attribute {
@@ -126,7 +128,7 @@ impl<T, R> Trait for Attribute<T, R>
     }
 
     fn cost<F>(val: Self::Value, fun: F) -> f32 
-      where F: Fn(Self::Value) -> f32{
+      where F: Fn(Self::Value) -> f32 {
         fun(val)
     }
 }

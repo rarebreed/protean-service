@@ -8,7 +8,7 @@ use crate::{
         //SecondaryCharacteristics as Secondary,
         MentalPrimaryCharacteristics as Mental,
         SocialCharacteristics as Social,
-        //Psyche as PsycheType,
+        PersonalityType,
         //Principle as PrincipalType,
         self
     },
@@ -22,7 +22,7 @@ use crate::{
     }
 };
 
-pub struct Psyche {
+pub struct Personality {
     attr: Attribute<f32, f32>
 }
 
@@ -35,7 +35,9 @@ pub struct Psyche {
 /// - skepticism: how trusting is a character?  Are they gullible, or require a lot of convincing?
 /// - adaptability: how open-minded a character is.  An adaptable character can change their mind and admit when wrong
 /// - sociability: is the character a loner or needs to be around others? Introversion/Extroversion marker
-impl Trait for Psyche {
+/// - curiosity: does the character question the world, or does he or she just accept what has been told?
+///
+impl Trait for Personality {
     type Value = f32;
     type Range = f32;
     type Parent = CharacteristicType;
