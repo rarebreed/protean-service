@@ -1,6 +1,6 @@
 use crate::{
     Attribute,
-    Trait,
+    //Trait,
     Senses
 };
 

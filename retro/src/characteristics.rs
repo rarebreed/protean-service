@@ -1,4 +1,23 @@
 //! This module describes characteristics in game terms
+///
+/// # Characteristics
+///
+/// Characteristics are a major component of a Character in the game.  It broadly defines _innate_ capabilities of the
+/// Character.  Retro is a little unique in that it has far more Characteristics than any RPG I am aware of.  The reason
+/// for this is to more granularize the capabilities that define what people can do.  For example, most games on the
+/// market today have some kind of Dexterity attribute which defines both eye-hand coordination, as well as overall body
+/// movement (in some games, defined as separate attribute Agility for example).  If your game only has a single
+/// attribute that covers both hand-eye coordination as well as whole body movement, we are led to believe that a master
+/// stage magician should also be a world class gymnast and vice-versa.
+///
+/// Along with the definition of Characteristics comes the notion of the _law of averages_.  Since retro is designed
+/// primarily for a humano-centric universe, with only the occasional preternatural being involved, these averages are
+/// based around what the human average is.  While the scores are linear in scope and ability, it is exponential in
+/// cost.
+///
+/// ## Playing the numbers
+///
+/// Retro uses an open-ended scale, but generally, scores range from 0-20 with 10 being average.
 
 use serde::{Serialize, Deserialize};
 
@@ -8,7 +27,7 @@ use crate::{
         //SecondaryCharacteristics as Secondary,
         MentalPrimaryCharacteristics as Mental,
         SocialCharacteristics as Social,
-        PersonalityType,
+        //PersonalityType,
         //Principle as PrincipalType,
         self
     },

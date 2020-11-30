@@ -13,18 +13,6 @@
 
 use rand::Rng;
 
-pub enum TaskType {
-    Gradual,
-    Team,
-    Normal // Normal tasks are all opposed, even against just the environment
-}
-
-pub struct Task {
-    pub name: String,
-    pub difficulty: u32,
-    pub t_type: TaskType
-}
-
 pub trait DieTraits {
     // fn value(self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self;
     // fn exploding(self: Self, opt: Option<u32>) -> Self;
@@ -82,7 +70,6 @@ impl DieTraits for DiePool {
 
 /// Function that will return from 1-size to simulate a single die
 pub fn die(size: u32) -> impl Fn() -> u32 {
-    //let size = self.size;
     move || {
         let mut rng = rand::thread_rng();
         rng.gen_range(1, size+1)
@@ -129,7 +116,6 @@ pub fn exploding(roll: &mut Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>
     let mut eroll: Vec<u32> = vec![];
     
     for d in roll.iter() {
-        // eroll.push(*d);
         if *d >= thresh {
             eroll.append(&mut die(1));
         }
@@ -160,11 +146,33 @@ mod tests {
     use super::*;
 
     #[test]
-    fn pool4d6() {
+    fn pool4d10() {
         println!("Testing pool");
-        let pool = DiePool::pool(6).exploding(Some(6));
+        let pool = DiePool::pool(20).exploding(Some(19));
         let roll = pool.roll(4);
 
         println!("roll {:?}", roll);
+    }
+
+    #[test]
+    fn average() {
+        let mut avg: Vec<u32> = vec![];
+        let pool = DiePool::pool(20).exploding(Some(19));
+        for n in 0..500 {
+            let roll = pool.roll(5);
+            let successes = roll.iter()
+                .fold(0u32, |acc, next| {
+                    if *next >= 10 { acc + 1 } else { acc }
+                });
+            avg.push(successes);
+            println!("{}: Successes = {} from {:?}", n, successes, roll);
+        }
+
+        let sum_avg = avg.into_iter()
+            .fold(0u32, |acc, next| {
+                acc + next
+            }) as f32;
+        let calc_avg = sum_avg / 500.0;
+        println!("Calculated average is {}", calc_avg);
     }
 }
