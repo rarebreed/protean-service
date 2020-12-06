@@ -55,23 +55,134 @@ This sense of being lost is one of the main tenets of the story, and hence why t
 While making people realize they are lost is a major revelation in itself, it can't be all that the story is about.
 The journey to find our way back home is at least as important.
 
-## Mysticism and reality
+## The world
 
-I have long been fighting over the kind of world to put this story in.  The three major I have are:
+I have long been fighting over the kind of world to put this story in.  The three major kinds I have are:
 
 - A fantasy world, albeit one that is mostly realistic
-- Our own world, perhaps in the past or today
+- Our own real world, perhaps in an alternate past or present
 - A not too distant future that is realistic
 
 One thing however is certain: I do not want this world to have any supernatural powers.  As I wrote in the readme to the
 project, I wanted to have a world without fantastic powers.  A world where training, your principles and your actions
-left your mark on the world.  While there might be some preternatural _powers_, for example heightened senses, body
+left your mark on the world.  While there might be some _preternatural_ powers, for example heightened senses, body
 control (ie, toleration of cold or heat) and other above normal human talents might be displayed, it is nevertheless
 based on at least plausible reality.  If this was fantasy, it would be more Conan than D&D.  If it was sci-fi, it would
 be more Traveller 2300AD than Starfinder.
 
-The world also had to feel familiar, and yet also different.
+The world also had to feel familiar, and yet also different.  If the world is too different, then it faces at least two
+different problems:
 
-I'll go ahead and toss out the 2nd one.  While there is some appeal to setting the story in our world.  While I could
-have tweaked it to have been in the past, I don't believe our current world would work, at least, not without some
-catastrophic event to alter the course of history.
+- There's a disconnect between our own world and the fictional world
+- It requires more supposition and backfill to explain how the world works
+
+The latter part can be a boon too in some ways, as it allows one to craft the world you want including all the back
+story and history needed to explain the rationale of the world.  The trick I think, is to create a world that we readers
+can relate to.  I think one of the great strengths of the Star Trek universe compared to Star Wars, is that it could be
+real at some distant point in our future.  This is the great strength of science fiction, as it gives us a chance to
+imagine how _we could be_.
+
+But, for this story, I want the reader to reflect on _where we are_ and _how we got here_.  I have often said, you can't
+know where you are going unless you know where you are, and you can't know where you are, unless you know where you have
+been.  I'm also fond of a saying of Lao Tzu who said:
+
+```
+If you are suffering, you are thinking of the past.
+If you are worrying, you are thinking of the future.
+If you are are thinking in the present, you will be at peace.
+```
+
+As such, I ruled out a futuristic world, because to be quite honest, I'm not sure humanity has much of a future left.
+If anything, that's another message I want to get across.
+
+So that leaves us with a fantasy world or an alternate history world.  Why not both?  A world based in history, but not
+quite of it is appealing.  
+
+## The Setting and theme
+
+There are a couple of themes that have interested me, and I would like to explore them with the game.
+
+- Finding your way home (think Voyager or Battlestar Galactica)
+- Being hunted and pursued (think BSG, Star Wars and Avatar the Last Airbender)
+- Student/Master relationship (think Avatar, the Jedis, Karate Kid)
+- Loss of way of life
+    - by force (American Indians, Meiji era Japan)
+    - by techno shock (Industrial revolution)
+
+The setting will be a low-magic fantasy world.  By low-magic, it doesn't mean that the magic is not powerful.  Rather,
+it means that the magic is difficult, rare, and time consuming.  Think Lord of the Rings rather than D&D.  Having a low
+magic world gives us two features:
+
+- People are still people, and can't rely on fancy magical powers much if at all
+- Magic becomes truly something special because it is rare
+- It gives a way to introduce things in the world which would not otherwise be possible
+
+The actual setting is loosely based on 1600s Malaysia and Indonesia.  This was an area and era interesting for a couple
+of reasons. The Dutch and Spanish had recently just invaded and the entire region was a potpurri of cultures and
+religions.  There was the older Majapahit and Sri Vijayan empires in the Malay archipelago, but there were the
+neighboring Chams of Vietnam, the Angkors in Cambodians and the "savage" Filipinos (NB, I am part pinoy, so no flames
+please...AFAWK, the Filipinos didn't have a strong central empire before the Spaniards arrived).  There were also
+Annamese from Vietnam, the Mandarins from China, the Chola from India and Arabic traders.  Buddhism and Hinduism were
+slowly dying out, being forced out by Islam from Indian and Arabic traders.
+
+I also wanted for a specific reason to _not_ have a white ethnocentric culture and setting.  These settings have been
+done to death.  For that matter, so have Japanese and to a lesser degree Chinese settings.  Very few people know about
+any of the other Asiatic cultures.  And even the Japanese or Chinese based don't truly give a flavor of Shintoism,
+Zen/Chan or Taoism.  I think this is a great tragedy.  There is a lot we could learn from these other cultures and
+religions.
+
+In fact, I think a huge reason Star Wars was so popular, was it was the first mainstream movie that exposed a Western
+audience to a mystic "religion" that was primarily based on Buddhism and Taoism.  In fact, the setting will have its
+own version of Jedis, and in fact, more than one version.
+
+### About being woke
+
+I will endeavor to be socially sensitive for the setting and game.  This is not because I am afraid of SJW police
+beating down my door, but simply because I want to show how we're all in this together.  That being said, I might say
+some things that do offend others.  This is not intentional.  I would ask you to also realize that it's impossible to
+appeal to everyone, and being offended is ultimately owned by the person feeling offended.
+
+There is a great story about the Buddha, where the Buddha gets insulted by a Brahman zealot.  Basically, the Buddha
+just listens, and then asks the Brahman if he has a guest, and the guest does not take the food that is offered.  What
+happens to the food that is not taken?  The Brahman said that the food will come back to him.  So the Buddha said, it is
+with insults
+
+```
+In the same way, Brahmin, that with which you have insulted me, who is not insulting; that with which you have taunted me, who is not taunting; that with which you have berated me, who is not berating: that I don't accept from you. It's all yours, Brahmin. It's all yours. 
+```
+
+The Brahman then said that even so, the Buddha still got angry, even if the Buddha did not insult him back.  To which
+the Buddha replied
+
+```
+Whence is there anger
+for one free from anger, tamed, living in tune
+one released through right knowing, calmed and Such.
+
+You make things worse when you flare up at someone who's angry.
+Whoever doesn't flare up at someone who's angry
+wins a battle hard to win.
+
+You live for the good of both 
+your own and other's 
+when, knowing the other's provoked, 
+you mindfully grow calm.
+
+When you work the cure of both
+your own and other's
+those who think you a fool
+know nothing of Dhamma. 
+```
+
+If you feel insulted at something someone says, this says as much about you, as it does the insulter.  Yes, this is a 
+difficult practice, but it is one we must cultivate in today's world.
+
+### The Factions
+
+Every setting has to have its factions.  These can be the major players at a very large scale, like countries or empires
+but they can also be religious affiliations, or schools of thought which can transcend borders.  Factions can also be
+comprised of Orders which are divisions within the faction.  Here is a basic listing of the major factions and orders.
+
+The major factions:
+
+- 
