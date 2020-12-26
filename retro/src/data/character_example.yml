@@ -3,7 +3,8 @@ name: "Ruptured Spleen"
 player: "Sean Toner"
 faction:
   region: ""
-  ethnicity: ""
+  ethnicity:
+    - ""
   belief: ""
 attributes:
   primary:

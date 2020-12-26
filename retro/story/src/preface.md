@@ -107,7 +107,7 @@ There are a couple of themes that have interested me, and I would like to explor
 - Student/Master relationship (think Avatar, the Jedis, Karate Kid)
 - Loss of way of life
     - by force (American Indians, Meiji era Japan)
-    - by techno shock (Industrial revolution)
+    - by techno shock (Industrial revolution, Information revolution, Bio revolution)
 
 The setting will be a low-magic fantasy world.  By low-magic, it doesn't mean that the magic is not powerful.  Rather,
 it means that the magic is difficult, rare, and time consuming.  Think Lord of the Rings rather than D&D.  Having a low
@@ -120,20 +120,21 @@ magic world gives us two features:
 The actual setting is loosely based on 1600s Malaysia and Indonesia.  This was an area and era interesting for a couple
 of reasons. The Dutch and Spanish had recently just invaded and the entire region was a potpurri of cultures and
 religions.  There was the older Majapahit and Sri Vijayan empires in the Malay archipelago, but there were the
-neighboring Chams of Vietnam, the Angkors in Cambodians and the "savage" Filipinos (NB, I am part pinoy, so no flames
+neighboring Chams of Vietnam, the Angkors in Cambodia and the "savage" Filipinos (NB, I am part pinoy, so no flames
 please...AFAWK, the Filipinos didn't have a strong central empire before the Spaniards arrived).  There were also
 Annamese from Vietnam, the Mandarins from China, the Chola from India and Arabic traders.  Buddhism and Hinduism were
-slowly dying out, being forced out by Islam from Indian and Arabic traders.
+slowly dying out, being forced out by Islam from Indian and Arabic traders.  And let's not forget the arrival of the
+Europeans as future colonizers.
 
-I also wanted for a specific reason to _not_ have a white ethnocentric culture and setting.  These settings have been
+I also wanted, for a specific reason, to _not_ have a white ethnocentric culture and setting.  These settings have been
 done to death.  For that matter, so have Japanese and to a lesser degree Chinese settings.  Very few people know about
-any of the other Asiatic cultures.  And even the Japanese or Chinese based don't truly give a flavor of Shintoism,
-Zen/Chan or Taoism.  I think this is a great tragedy.  There is a lot we could learn from these other cultures and
-religions.
+any of the other Asiatic cultures.  And even the Japanese or Chinese based settings don't truly give a flavor of
+Shintoism, Zen/Chan or Taoism.  I think this is a great tragedy.  There is a lot we could learn from these other
+cultures and religions.
 
 In fact, I think a huge reason Star Wars was so popular, was it was the first mainstream movie that exposed a Western
-audience to a mystic "religion" that was primarily based on Buddhism and Taoism.  In fact, the setting will have its
-own version of Jedis, and in fact, more than one version.
+audience to a mystic "religion" that was primarily based on Buddhism and Taoism.  The setting will have its own version
+of Jedis, and in fact, more than one version.
 
 ### About being woke
 
@@ -148,7 +149,9 @@ happens to the food that is not taken?  The Brahman said that the food will come
 with insults
 
 ```
-In the same way, Brahmin, that with which you have insulted me, who is not insulting; that with which you have taunted me, who is not taunting; that with which you have berated me, who is not berating: that I don't accept from you. It's all yours, Brahmin. It's all yours. 
+In the same way, Brahmin, that with which you have insulted me, who is not insulting; that with which you have taunted 
+me, who is not taunting; that with which you have berated me, who is not berating: that I don't accept from you. It's 
+all yours, Brahmin. It's all yours. 
 ```
 
 The Brahman then said that even so, the Buddha still got angry, even if the Buddha did not insult him back.  To which
@@ -159,17 +162,17 @@ Whence is there anger
 for one free from anger, tamed, living in tune
 one released through right knowing, calmed and Such.
 
-You make things worse when you flare up at someone who's angry.
+You make things worse when you flare up at someone who is angry.
 Whoever doesn't flare up at someone who's angry
 wins a battle hard to win.
 
 You live for the good of both 
-your own and other's 
-when, knowing the other's provoked, 
+your own and others 
+when, knowing the other is provoked, 
 you mindfully grow calm.
 
 When you work the cure of both
-your own and other's
+your own and others
 those who think you a fool
 know nothing of Dhamma. 
 ```
