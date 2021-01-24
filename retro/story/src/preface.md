@@ -108,6 +108,7 @@ There are a couple of themes that have interested me, and I would like to explor
 - Loss of way of life
     - by force (American Indians, Meiji era Japan)
     - by techno shock (Industrial revolution, Information revolution, Bio revolution)
+- Redemption/salvation for a past misdeed
 
 The setting will be a low-magic fantasy world.  By low-magic, it doesn't mean that the magic is not powerful.  Rather,
 it means that the magic is difficult, rare, and time consuming.  Think Lord of the Rings rather than D&D.  Having a low
@@ -124,7 +125,7 @@ neighboring Chams of Vietnam, the Angkors in Cambodia and the "savage" Filipinos
 please...AFAWK, the Filipinos didn't have a strong central empire before the Spaniards arrived).  There were also
 Annamese from Vietnam, the Mandarins from China, the Chola from India and Arabic traders.  Buddhism and Hinduism were
 slowly dying out, being forced out by Islam from Indian and Arabic traders.  And let's not forget the arrival of the
-Europeans as future colonizers.
+Europeans as future colonizers.  The setting is anachronistic in some areas so as to make for a more interesting story.
 
 I also wanted, for a specific reason, to _not_ have a white ethnocentric culture and setting.  These settings have been
 done to death.  For that matter, so have Japanese and to a lesser degree Chinese settings.  Very few people know about
@@ -135,6 +136,12 @@ cultures and religions.
 In fact, I think a huge reason Star Wars was so popular, was it was the first mainstream movie that exposed a Western
 audience to a mystic "religion" that was primarily based on Buddhism and Taoism.  The setting will have its own version
 of Jedis, and in fact, more than one version.
+
+Despite the focus on south-east Asia, Europeans are a part of the setting, though perhaps in a light that players from
+the west may not be exactly comfortable with: that of an oppressor and invader.  While the setting is fantasy based, I
+also wanted a historicity to it.  I do not have any illusions that this will not be a popular game, and as I explain
+below, the real world has become too polarized for people to accept any form of criticism or even a showing of their
+"side" in a bad light.  Nevertheless, this is a story I wish to tell.
 
 ### About being woke
 
@@ -180,12 +187,45 @@ know nothing of Dhamma.
 If you feel insulted at something someone says, this says as much about you, as it does the insulter.  Yes, this is a 
 difficult practice, but it is one we must cultivate in today's world.
 
+### About being racist
+
+As mentioned earlier, one of the main "bad guys" in the setting are the white colonizers.  Although the world is a
+fantasy world, it is based fairly heavily on the real one.  One of the central themes of the game is loss of a way of
+life, and this will be reflected in the game.
+
+Unfortunately, too many people refuse to see the ill that their own people have done, flat out rejecting facts in
+defense of their "tribe".  Too many people in the United States do not want to hear about slavery or the Native American
+Indian genocide.  They believe that educating children in school with these facts is "anti-American".  Another faction
+is willing to concede that such events happened, but "don't blame me for what my great-great-great-great-grandfather
+did".  While there is a point to this, the refusal to 
+
 ### The Factions
 
 Every setting has to have its factions.  These can be the major players at a very large scale, like countries or empires
 but they can also be religious affiliations, or schools of thought which can transcend borders.  Factions can also be
 comprised of Orders which are divisions within the faction.  Here is a basic listing of the major factions and orders.
 
-The major factions:
+The major cultural/regional factions:
+
+- Cholam: From the Chola empire of southern India
+- Kampa: The champa, from the southern region of Vietnam
+- Mahapajit: What would today be parts of Malaysia, and Indonesia
+- Daiannam: Northern vietnam
+- Vijayas: What would today be parts of the Philippines (vassal of Majapakit)
+- Sulu: The very southern reaches of today's Mindanao (vassal of Majapakit)
+- Athudhya: Parts of Thailand and Burma
+- Kambuja: Parts of what would be Cambodia
+
+The major profession factions:
+
+- Nobility
+- Warrior
+- Farmer
+- Artisan/Craftsman
+- Merchant
+- Priest/Mage/Shaman
+- Sage/Wiseman
+
+Major religious factions:
 
 - 

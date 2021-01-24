@@ -72,7 +72,7 @@ impl DieTraits for DiePool {
 pub fn die(size: u32) -> impl Fn() -> u32 {
     move || {
         let mut rng = rand::thread_rng();
-        rng.gen_range(1, size+1)
+        rng.gen_range(1..size+1)
     }
 }
 

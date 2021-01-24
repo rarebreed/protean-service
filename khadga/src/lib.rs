@@ -7,4 +7,3 @@ pub mod jwt;
 pub mod message;
 pub mod signaling;
 pub mod state;
-pub mod pgdb;

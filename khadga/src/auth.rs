@@ -24,10 +24,7 @@
 //! user's system.
 
 use crate::{data::User,
-            jwt::jwt::{create_jwt, JWTResponse},
-            pgdb::{pgdb,
-                   models}};
-use tokio_postgres::{Client};
+            jwt::jwt::{create_jwt, JWTResponse}};
 use chrono::{Utc, Duration};
 use serde::{Deserialize,
             Serialize};
@@ -72,8 +69,6 @@ pub struct RegisterParams {
 struct AuthPost {
     token: String
 }
-
-
 
 /// FIXME: This method is now deprecated, but might return once we have a freemium/premium model
 /*
@@ -166,7 +161,27 @@ pub async fn make_verify_request(
         .send()
         .await;
 
-    // Lookup user in database.  If he doesn't exist, generate a user.
+    // FIXME: This whole section needs to be redone.  We won't be using Postgres to store user details, so we need some
+    // other database to store this information.  The question is, what database?  I would prefer not to get tied down
+    // to a particular cloud vendor's solution.  This means that most likely, we will need to host our own db servers,
+    // but that has its own disadvantages.
+    //
+    // First off, what kind of data do we need to store, and what kind of information do we want from it?
+    // 
+    // - User information such as name, email, location, preferred settings
+    // - Data for the game setting:
+    //     - Documentation or notes (group ownership/editing)
+    //     - Binary data like maps, jpegs etc.
+    // - Data for the game engine:
+    //     - World information (maps, models, etc)
+    //     - Character information
+    //
+    // A columnar database has a few advantages as the data is easily stored as (avro)parquet.  Real time would also be
+    // nice, since for the game world, we need to have constant updates.  Some nice to haves for the database:
+    //
+    // - Real time data ingestion with low latency (more OLAP than OLTP)
+    // - Prefer latency and availability over consistency
+    // - Relations in data 
     let db_client: Client;
     match pgdb::establish_connection("test_db").await {
         Ok((client, _)) => {

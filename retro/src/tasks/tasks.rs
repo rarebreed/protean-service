@@ -45,7 +45,7 @@
 //!
 //! The general rule of thumb is that changing the target number for non-adverserial tasks should be changed only when
 //! skill matters less, and the task is more one of luck.  For example, what's the difference between a task difficulty
-//! with a TN of 15 and a pool of 2, versus a TN of 10 and a pool of 4?  In a non-adversarial contest, what is the pool
+//! with a TN of 15 and a pool of 2, versus a TN of 10 and a pool of 4?  In a non-adverserial contest, what is the pool
 //! and TN even based off of?
 //!
 //! Take for example shooting at a non-moving distant target.  In broad daylight with minimal winds, the various factors
@@ -58,7 +58,6 @@
 //!
 //! Actually the distance and size of the target for a non-moving object boil down to one value, which is _effective
 //! size_.  We will go over more detail about this in the full combat section
-
 
 pub enum TaskType {
     Gradual,   
