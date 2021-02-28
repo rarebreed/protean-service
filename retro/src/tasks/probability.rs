@@ -12,6 +12,7 @@
 //!   .roll(10)
 
 use rand::Rng;
+use std::collections::{HashMap};
 
 pub trait DieTraits {
     // fn value(self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self;
@@ -146,7 +147,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn pool4d10() {
+    fn pool4d20() {
         println!("Testing pool");
         let pool = DiePool::pool(20).exploding(Some(19));
         let roll = pool.roll(4);
@@ -154,25 +155,41 @@ mod tests {
         println!("roll {:?}", roll);
     }
 
+    fn get_successes(pool: &DiePool, dice: u32, target: u32) -> (u32, Vec<u32>) {
+        let roll = pool.roll(dice);
+        let successes = roll.iter()
+            .fold(0u32, |acc, next| {
+                if *next <= target { acc + 1 } else { acc }
+            });
+        (successes, roll)
+    }
+
     #[test]
-    fn average() {
+    fn average10of20() {
         let mut avg: Vec<u32> = vec![];
         let pool = DiePool::pool(20).exploding(Some(19));
-        for n in 0..500 {
-            let roll = pool.roll(5);
-            let successes = roll.iter()
-                .fold(0u32, |acc, next| {
-                    if *next >= 10 { acc + 1 } else { acc }
-                });
+        for n in 0..100000 {
+            let (successes, roll) = get_successes(&pool, 5, 10);
             avg.push(successes);
-            println!("{}: Successes = {} from {:?}", n, successes, roll);
+            //println!("{}: Successes = {} from {:?}", n, successes, roll);
         }
 
-        let sum_avg = avg.into_iter()
+        let sum_avg = avg.iter()
             .fold(0u32, |acc, next| {
                 acc + next
             }) as f32;
-        let calc_avg = sum_avg / 500.0;
+        let calc_avg = sum_avg / 100000.0;
         println!("Calculated average is {}", calc_avg);
+
+        let mut scores: HashMap<u32, u32> = HashMap::new();
+        let foo = avg.into_iter().fold(&mut scores, |acc, next| {
+            if !acc.contains_key(&next) {
+                acc.insert(next, 1);
+            } else {
+                acc.insert(next, acc[&next] + 1);
+            };
+            acc
+        });
+        println!("Score is {:#?}", scores);
     }
 }

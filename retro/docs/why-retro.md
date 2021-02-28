@@ -106,12 +106,12 @@ magical, mystical or innate nature, or it comes from advanced technology (which 
 indistinguishable from magic)
 
 That's not what appeals to me in games, or even in watching movies.  I generally speaking love martial arts movies,
-except when they go into the fantastical wuxia type stuff.  To me, my jaw drops when I see Jackie Chan in his peak being
-able to do what he does __in real__.  The same with Tony Jaa.  I am orders of magnitude more impressed with seeing this
-level of skill displayed than watching some crazy FX to simulate powers.  I think the last movie or series I enjoyed
-where the main story involved magical powers was the animated Avatar: The Last Airbender.  Series about high tech is a
-little more palatable to me, at least because it's plausible, plus, the characters often don't have access to their
-"powers".
+except when they go into the fantastical wuxia type stuff.  My jaw drops when I see Jackie Chan in his peak being able
+to do what he does __in real__.  The same with Tony Jaa.  I am orders of magnitude more impressed with seeing this level
+of skill displayed by real humans than watching some crazy FX to simulate powers.  I think the last movie or series I
+enjoyed where the main story involved magical powers was the animated Avatar: The Last Airbender.  Series about high
+tech is a little more palatable to me, at least because it's plausible, plus, the characters often don't have access to
+their "powers".
 
 And this trend where games cater mostly to characters having some kind of extraordinary power made me wonder:  why?  Is
 the market demanding this, or is this what game designers are offering?  As I showed in the kinds of games above, close
@@ -151,23 +151,93 @@ Are we really that bored with reality as it is?  I often see in forums that peop
 Reality sucks, and life is hard.  But does that mean we have to run away from reality?  I even question the very idea
 that games should only be about "fun".
 
-Have you ever read a good book, watched a good movie, or saw a TV series that you felt made you question things, and
-helped improve your life?  Exercise isn't "fun" for many people, at least while they are doing it, but it is something
-that improves your life.  Why do we limit games as _just_ entertainment?  Why can't games be provocative and motivating,
+Have you ever read a good book, watched a good movie, or saw a TV series that made you question things, and helped
+improve your life?  Exercise isn't "fun" for many people, at least while they are doing it, but it is something that
+improves your life.  Why do we limit games as _just_ entertainment?  Why can't games be provocative and motivating,
 making us think about things?  Roleplaying at its core is not entertainment, it's "what if?".
 
 Perhaps I'm just an oddball.  In Buddhism, seeking happiness is not what we should strive for.  Rather we should seek
-understanding, which in turn begets peace.  With happiness, like all things in life, it can be taken away from you.  If
-you are able to find peace, it can't be taken from you.  For me, the role playing sessions I treasured were not like
-fishing tales boasting of how with only 2 HP left, I was able to slay the dragon or defeat the Lich Lord.  They came
-from small moments, like watching how players would react to a little Vietnamese running up to them.
+understanding, which in turn begets peace.  Happiness, like all things in life, can be taken away from you.  If you are
+able to find peace, however, it can't be taken from you.  The role playing sessions I treasured were not like fishing
+tales boasting of how with only 2 HP left, I was able to slay the dragon or defeat the Lich Lord.  They came from small
+moments, like watching how players would react to a little Vietnamese boy running up to them.  Was he carrying a
+grenade?
 
 It seems like we are all so desperate to feel special, to feel powerful in this crazy world, that we have forgotten that
 we are all actually the same.  And that's a good thing, not a bad thing.
 
-So this game's rules will always be about settings with little to no super or preternatural beings or powers.  You wont
-find spell users, or force users, or even some guy who can climb into some exoskeleton power armor with the power to
-demolish an entire tank company.  You will not see Elder Gods, 100 ton mecha, or wuxia jumping across tree tops.
+So this game's focus will be about settings with little to no super or preternatural beings or powers.  If there is
+magic, it will be background or something that the characters can not wield easily.  For technologically advanced
+settings, there will be mind uploads (immortality), no magical nanotechnology (nanites still need energy and follow
+all the rules of the universe), and as with all technology, there will be a price to pay.
 
 What you will see, are down to earth characters, who like everyone else has to make decisions with the tools and
-capabilities they have at hand.  If you think that sounds boring, then you are selling yourself short.
+capabilities they have at hand.  If you think that sounds boring, then you are selling yourself short.  Heroes are not
+people with amazing abilities, they are people who make tough choices in tough situations to help people in need. It is
+in fact, the difficulty of what the hero faces that makes them and their action amazing, not always how they did it.
+
+## Goals of retro
+
+Retro has been in the back of my mind for over 20 years.  While I don't play as many games as I used to, I am still an
+avid reader and buyer of games.  I still see the same designs over and over which I have become disillusioned with.
+So it might be easiest to describe the things I don't like about many game systems, and how retro improves on it.
+
+- Not granular enough in attributes
+- Not granular enough in attribute ratings or skill levels
+- Having artificial cut-offs (ie, divide by 5 and round up means people will get 13 instead of 15)
+- Dice system that are linear in probability
+- Skill systems that do not differentiate between innate and learned skills
+- Complete knowledge of probability (no fog of war in determining chances)
+- Initiative systems that don't factor in courage
+- Initiative systems that only consider how soon a character can act, rather than how long the action takes
+- Lack of personality traits to enforce and/or reward character behavior
+- Character creation systems that allow choices of skills without any constraints (how did the professor get Artillery?)
+- Damage systems that are ablative rather than inhibiting
+- Damage systems that dont differentiate between different kinds of damage
+- Systems that do not take fatigue into consideration
+- Systems that claim to be generic but require reams and reams of special one-off rules
+- Combat systems that lack tactical flavor (a swing is a swing)
+- Weapons that all feel generic, because they don't have enough attributes that matter
+
+### Lack of Granularity in Attributes
+
+Far too many game systems nowadays have only a handful of attributes, some as few as 3 (eg, mind, body, spirit).  This
+lack of specialization leads to numerous special "advantages" to account for differentiation.  For example, suppose your
+game system has Dexterity that implies both hand-eye coordination and overall body gracefulness.  So if you rank very
+high in this attributes, does that mean you could be a world class surgeon and a gymnast?  Probably not, but that's 
+what happens when your system is relegated to just a few attributes.
+
+Another disadvantage of having too few attributes is that many characters start to feel the same.
+
+#### How retro solves this
+
+I think that many will balk when they first see how many attributes retro has.  But this amount of detail gives more
+flavor and variance between characters.  It also makes it clear that a character can be lean but powerful, but lacking
+in raw strength, or someone who has a superb memory, but might not be able to think outside of the box.
+
+This solution also makes many "advantages" that most other games have become unnecessary.  You no longer need to take
+a limitation or advantage on an attribute.
+
+### Lack of Granularity in ratings and skills
+
+Closely related to the lack of specialization of attributes, is having too narrow a range for attribute or skill ratings.
+For example, some systems might have an attribute or skill range from 0-5.  But think about it, are people really only
+rated in 6 buckets?  Having too narrow a range means that your probability of success also starts to get wonky, because
+there's not enough variance possible when you roll dice.  The difference between an "average" rating of 2 and 5 either
+becomes too small to make a noticeable difference, or too large.
+
+#### How retro solves this
+
+In retro, both attributes are rated from 1-20 and skills from 0-10.  This gives enough variance to make the difference
+between a neophyte and a master much more clear.
+
+### Artificial cutoffs
+
+Many game systems use some form of artificial cut off to streamline the system.  For example the 2d20 system maxes out
+the number of dice you can roll to 5.  The Hero System makes you divide some attributes by 5 (round up or down) to 
+determine some other value.  The consequence of these cutoffs is it creates a min-maxers dream.  Why buy a level of 15
+when a 13 will give you the same?
+
+#### How retro solves this
+
+Precision is always kept in retro.

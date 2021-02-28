@@ -165,21 +165,21 @@ The Brahman then said that even so, the Buddha still got angry, even if the Budd
 the Buddha replied
 
 ```
-Whence is there anger
-for one free from anger, tamed, living in tune
-one released through right knowing, calmed and Such.
+Whence there is anger,
+for one free from anger, 
+tamed, living in tune
+one released through right knowing, 
+calmed and Such.
 
 You make things worse when you flare up at someone who is angry.
-Whoever doesn't flare up at someone who's angry
+Whoever does not flare up at someone who is angry
 wins a battle hard to win.
 
-You live for the good of both 
-your own and others 
-when, knowing the other is provoked, 
+You live for the good of both your own and others when, 
+knowing the other is provoked, 
 you mindfully grow calm.
 
-When you work the cure of both
-your own and others
+When you work the cure of both your own and others
 those who think you a fool
 know nothing of Dhamma. 
 ```
@@ -197,7 +197,76 @@ Unfortunately, too many people refuse to see the ill that their own people have 
 defense of their "tribe".  Too many people in the United States do not want to hear about slavery or the Native American
 Indian genocide.  They believe that educating children in school with these facts is "anti-American".  Another faction
 is willing to concede that such events happened, but "don't blame me for what my great-great-great-great-grandfather
-did".  While there is a point to this, the refusal to 
+did".  While there is a point to this, the refusal to concede the inequality does _no one_ any good.
+
+### About reality consensus
+
+The internet and various news outlets has made it very easy for people to live in "echo chambers" and only hear the 
+things that we want to hear.  Cognitive dissonance is an extremely uncomfortable thing, so disconcerting, that people
+will fight, kill, and die to avoid it at times.
+
+One of the main goals of Buddhism is to see the world as it is, not how you hope, want, or expect it to be.  Being able
+to actually see the world as it is is hard enough, but I think perhaps the even more difficult part is, _wanting_ to
+see the world as it is rather than how you hope for it to be.
+
+The old adage goes:
+
+```
+I'll believe it when I see it
+```
+
+But I think the opposite is more true
+
+```
+I'll see it, when I believe it
+```
+
+And modern neuroscience is actually pointing to the latter being more true.  Our brains are huge prediction machines.
+There is too much information to process at once, so we predict what the world should be like based on several clues
+given to us by information coming to our senses (both internally and externally...ie, a "gut" feeling).  When new 
+information comes in that violates our prediction, our brain makes a choice: re-evaluate the predictions given the new
+information, or toss out the new data and stick with the original prediction?
+
+Making new predictions can be costly, in terms of actual energy, time, and in cognitive dissonance.  As a result, many
+people (ie brains) will choose not to make new models based on new data even when their predictions fail.  People will
+actually reject the new data out of hand.  This is why science is very difficult for some people.  People want safety,
+comfort and assurances.  Constantly changing course based on new data is scary for many people.  It makes them feel like
+there are too many unknowns, that we don't really know what we are doing, or that things aren't going "according to
+plan".
+
+But, the price of a non-shared reality is too great.  If we as a society can not agree on certain facts, then it will be
+next to impossible to live without civil strife.  One has a right to have their own opinions, but not their own facts.
+As such, I will point out where I stand on the reality divide:
+
+- Climate change is real, and very likely, it's humanity's fault
+- Racial injustice is real as is white privilege
+- If there was fraud in the 2020 election, it was not enough to overturn it, and Biden won fair and square
+
+
+### About existential crisis
+
+It has dawned on me, over the course of the pandemic as I write this, that people are at wit's end.  I very honestly
+believe that a sort of existential crisis has been provoked by a multitude of stressors:
+
+- Disinformation from social media, biased "news" sources, and the internet in general
+- A collapse of "how things used to be"
+  - Even pre-pandemic, the loss of jobs to automation, outsourcing, or technology in general
+  - A change of how we used to live life due to covid restrictions
+- Racial inequality protests which pitted the reality of actual injustices vs. defiance against blame and guilt
+
+But I think there's an even deeper sense of loss of a way of life, and it can be seen in how easy it has become for
+people to become entrenched in conspiracy theories.  This loss of a way of life is actually an existential crisis which
+touches on humanity's most deep seated questions:
+
+- What is the meaning of life if there is no God?
+- What happens when I die?
+
+When I talk to Christians, many believe that morality must come from a divine set of rules handed down to us through
+sacred scriptures.  They also point out that science can not explain the ineffable: what consciousness is, what the
+universe was before the Big Bang, etc.  But I think they miss the point.  The fundamental question that they fail to 
+ask, is that they do not even ask what we are.  We think we know, but truthfully, we do not.
+
+One of the central themes of the game setting is to provoke players to ask, "What truly am I?".
 
 ### The Factions
 
@@ -209,10 +278,10 @@ The major cultural/regional factions:
 
 - Cholam: From the Chola empire of southern India
 - Kampa: The champa, from the southern region of Vietnam
-- Mahapajit: What would today be parts of Malaysia, and Indonesia
-- Daiannam: Northern vietnam
-- Vijayas: What would today be parts of the Philippines (vassal of Majapakit)
-- Sulu: The very southern reaches of today's Mindanao (vassal of Majapakit)
+- Mahapajit: From the Majapahit empire, what would today be parts of Malaysia, and Indonesia
+- Daiannam: Northern vietnam (Annam)
+- Vijayas: What would today be parts of the Philippines (vassal of Majapahit)
+- Sulu: The very southern reaches of today's Mindanao (vassal of Majapahit)
 - Athudhya: Parts of Thailand and Burma
 - Kambuja: Parts of what would be Cambodia
 

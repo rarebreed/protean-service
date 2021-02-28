@@ -9,6 +9,7 @@ edition = "2018"
 [dependencies]
 serde_yaml = "0.8.14"
 rand = "0.8.0"
+num-traits = "0.2"
 
 [dependencies.serde]
 features = ["derive"]

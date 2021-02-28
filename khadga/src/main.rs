@@ -35,10 +35,10 @@ async fn main() {
     });
 
     let users: Users = Arc::new(Mutex::new(HashMap::new()));
-    let users2 = warp::any().map(move || users.clone());
+    let users2 = 
+      warp::any().map(move || users.clone());
 
-    // This is the main chat endpoint.  When the front end needs to perform chat, it will call
-    // this endpoint.
+    // This is the main chat endpoint.  When the front end needs to perform chat, it will call this endpoint.
     let chat = warp::path("chat")
         /* .and(warp::cookie("jwt")) */
         .and(warp::ws())
@@ -50,11 +50,10 @@ async fn main() {
             ws.on_upgrade(move |socket| user_connected(socket, users, username))
         });
 
-    // This is the main entry point to the application
-    // Note the relative path.  The path is relative to where you are executing/launching khadga
-    // from.  In this case, if we run `cargo run`, this path will work.  However, if we run like
-    // `./target/debug/khadga`  it will not.  But, if we cd to target, then run `./debug/khadga`
-    // it will work.  This is confusing, and something to keep in mind.
+    // This is the main entry point to the application Note the relative path.  The path is relative to where you are
+    // executing/launching khadga from.  In this case, if we run `cargo run`, this path will work.  However, if we run
+    // like `./target/debug/khadga`  it will not.  But, if we cd to target, then run `./debug/khadga` it will work.
+    // This is confusing, and something to keep in mind.
     let start = warp::fs::dir("../vision/dist");
 
     let log = warp::log("khadga");

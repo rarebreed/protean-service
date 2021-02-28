@@ -41,7 +41,7 @@ need, this is in fact a good thing, because it requires less special rules.
 
 If you aren't familiar with those acronyms, the first 2 are probably somewhat common and stand for:
 
-- PPRPG: Paper and Pen Role Playing Game
+- PPRPG: Paper and Pen Role Playing Game (AKA TTRPG or Table Top Role Playing Games)
 - CRPG: Computer Roleplaying Game
 - CARPG: Computer Assisted Roleplaying Game
 
