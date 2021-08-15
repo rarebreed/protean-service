@@ -73,7 +73,7 @@
 //! following:
 //! 
 //! - If there is an inherent or internal modifier, it should adjust that actor's roll
-//! - If there is an external modifier it should adjust the opposing party's roll
+//! - If there is an external modifier can adjust either party's roll but never both
 //! 
 //! Examples of external factors are visibility, footing, timing or distance.  Examples of internal factors are being
 //! wounded, fatigued, or dizzy.  If someone is shooting in poor visibility, this will be bonus to the defenders roll
