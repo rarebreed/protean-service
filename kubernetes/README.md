@@ -19,7 +19,7 @@ Each of the services will run in their respective pods and will perform the foll
 - nginx: load balancer for khadga
   - Deployment type
   - Ingress object
-- elasticsearch: database storage for documents
+- elasticsearch: database storage for documents/data
   - 2 nodes with 1 replica shard
 - hdfs: storage blob (only for testing.  Use cloud storage for production)
   - 2 nodes

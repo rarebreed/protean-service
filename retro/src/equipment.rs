@@ -6,7 +6,7 @@ pub enum WeaponClass {
     Ranged,
 }
 
-pub enum DamageType {
+pub enum DamageMedium {
     Energy,
     Kinetic,
     Radiation,
@@ -45,9 +45,13 @@ pub enum NeurologicalEffect {
     Stunned,
     Sickened,
     Weakened,
+    Sensory(Senses)
 }
-///
-pub enum DamageEffects {
+
+
+
+/// 
+pub enum DamageEffect {
     /// unable to breathe
     Asphyxiation,
     /// No nutrients or caloric intake, leading to eventual death
@@ -56,14 +60,17 @@ pub enum DamageEffects {
     Dehydration,
     /// Hemorraghic shock.  Ex-Sanguination.  How long until bleed out?
     Shock(u32),
+    /// Physical damage, eg broken bones, torn 
     Structural {
         damage_type: StructuralDamageType,
         condition: Condition,
     },
+    /// Damage to sensory input
     Sensory {
         sense: Senses,
         condition: Condition,
     },
+    /// Various neurologic effects like pain, unconsciousness, or sickened
     Neurological {
         effect: NeurologicalEffect,
         severity: u16,
@@ -92,10 +99,11 @@ pub enum Condition {
 }
 
 pub struct DamageClass {
-    pub damage_type: DamageType,
+    pub damage_type: DamageMedium,
     pub power: u16,
 }
 
 pub struct Weapon {
     pub integrity: Condition,
+    pub damage: Attribute<DamageClass, DamageEffect>
 }

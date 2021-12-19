@@ -5,18 +5,20 @@ building an RPG game suitable either for CRPG's or PPRPG's.  It is far more crun
 game you will have seen before.  Are you tired of:
 
 - Hit Points as a health abstraction? (what do you mean I can't slit his throat while he is unconscious?)
-- Combat feels the same, because there is not a lot of tactical depth, other than choosing what maneuver to do?
+- Combat feeling the same, because there is no interplay of speed, power, and stability in the actions you choose?
 - No differentiation between how easy it is to hit, and what protection armor affords?
+- Everyone gets (at least) one turn per round, even though some beings are supernaturally fast?
 - Initiative systems that don't factor in not just when actions start, but when they finish?
 - Weapons that all feel the same, because they only cover damage, range, cost, and maybe one or two other things?
-- Wonder how a character can be a PhD in Xenobiology, but somehow wind up with Heavy Weapons skill?
+- How a character can be a PhD in Xenobiology, but somehow wind up with Heavy Weapons skill?
 - Characters who epitomize "fools rush in where angels fear to tread" because there is no mechanic (or desire) to 
   restrict character behavior?
 - Personality traits that are just role playing fluff, and have no mechanics to penalize or reward their use?
-- Characters who never get tired, because either your game's rules for encumberance are too complex, or doesn't even have
+- Characters who never get tired, because either your game's rules for encumberance are too complex, or doesn't have
   them at all?
 - Skill systems that treat all skills as equally easy to learn?
 - Skill systems that do not distinguish between breadth and depth?
+- Systems that encourage min-maxing by having cutoffs (eg, a 10 is as good as a 13, because they both give you +2)?
 
 And that's just a few of the pain points that retro is trying to solve.  Another point retro is trying to solve may seem
 a bit counter intuitive, given that it will stress realism and simulation.  Retro is designed to be small and modular,
@@ -30,17 +32,20 @@ when describing examples of how the rules work.
 
 I remember when complete games came with 64-96 pages of rules.  Nowadays, they come with 300-600 pages for the corebook!
 I don't think it is impossible to create a game which has tons of crunch, and yet is also small both in page size, and
-is keeping inside the RAM in your head.  A part of why I think this is possible, is because a lot of the rules are
-in fact intuitive.
+can be kept inside the RAM in your head.  A part of why I think this is possible is because a lot of the rules are
+in fact intuitive.  Also, because there are many game attributes, you need less special one-off rules, or unique feats
+to cover the same game rules.  In other words, while the game might initially appear to have way more datum than you 
+need, this is in fact a good thing, because it requires less special rules.
 
 ## PPRPG, CRPG or CARPG
 
 If you aren't familiar with those acronyms, the first 2 are probably somewhat common and stand for:
 
-- PPRPG: Paper and Pen Role Playing Game
+- PPRPG: Paper and Pen Role Playing Game (AKA TTRPG or Table Top Role Playing Games)
 - CRPG: Computer Roleplaying Game
+- CARPG: Computer Assisted Roleplaying Game
 
-The last one, CARPG is probably new, because AFAIK, I just made it up.  It stands for Computer Assisted Role Playing
+The last one, CARPG, is probably new because AFAIK, I just made it up.  It stands for Computer Assisted Role Playing
 Game.  In a PPRPG, you don't need anything electronic at all.  Just some paper, pens, the rules, dice, and possibly
 maps, screens, and other gaming miscellania.  Retro isn't really meant for this kind of play style, though in theory,
 you could print out the rules and character sheets.
@@ -61,11 +66,14 @@ the web:
 
 - Web server backend for websockets, authentication and WebRTC
 - Database(s) for storing game state, blogs and other collaboration content
+  - Offline database for historical data (eg, collaboration content)
+  - Near real-time database for in-game data (eg, character position, status, chats)
 - Front end SPA containing:
   - Character designer and sheets
   - Chat and video conference
   - 3d map with webgl
   - chatbot
+- AI enemies and chatbots for single player play
 
 Most likely, I will retrofit the existing khadga app for this.  In fact, I may wind up adding this to the multirepo in
 the khadga project.

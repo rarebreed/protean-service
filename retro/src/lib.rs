@@ -8,9 +8,15 @@ pub enum CharacteristicType {
     SocialCharacteristics,
     Psyche,
     Principle,
+    PersonalityType,
+    Principles,
+    Equipment
 }
-/// A Trait is a trait for specifying what you can do with generic data for many values that make up a character, or
-/// other entities like weapons, vehicles, or gadgets
+
+/// A Trait is a trait for specifying what you can do with generic data
+///
+/// Many values that make up a character, or other entities like weapons, vehicles, or gadgets are built by implementing
+/// this trait
 pub trait Trait {
     type Value;
     type Range;
@@ -19,7 +25,7 @@ pub trait Trait {
     /// the name is a read-only field, so there's only a getter
     fn name(self: &Self) -> &str;
 
-    /// The value is a _score_ defining some value on a spectrum.  The spectrum has a range defined as a Tuple of a
+    /// The value is a _score_ defining some value on a Range.  The Range has a range defined as a Tuple of a 
     /// minimum and a maximum (if the upper has a value), or an enum defining possible values
     fn set_value(self: &mut Self, val: Self::Value) -> ();
     fn value(self: &Self) -> &Self::Value;
@@ -30,25 +36,30 @@ pub trait Trait {
     fn parent(self: &Self) -> &Self::Parent;
     fn set_parent(self: &mut Self, parent: Self::Parent) -> ();
 
-    fn cost(val: Self::Value) -> f32;
+    /// Some values are determined randomnly, but there is always a cost/value associated with the trait/value
+    fn cost<F>(val: Self::Value, fun: F) -> f32
+      where F: Fn(Self::Value) -> f32;
 }
 
 #[derive(Serialize, Deserialize, Clone)]
-/// Specified the range that an Attribute can take
+/// Specifies the range that an Attribute can take
 pub enum Ranged<T> {
     /// An Attribute that varies across a range of values with a min and max (inclusive)
     Spectrum { min: T, max: T },
     /// An Attribute which can take on an enumerated selection of values
-    /// FIXME: Not sure if rust can specify a type bound that T must be of type enum
+    /// FIXME: I kind of need a higher kinded type here.  Ie, Categorized(DamageEffects)
     Categorized(T),
     /// The Attribute can only take on a singular value
     Absolute(T),
 }
 
+/// An Attribute is used to define some data point
+///
+/// The most common use of Attributes is to define a character's Characteristics, for example speed or wit.  It is also
+/// commonly used to define other statistics, like a weapon's damage, or weight.
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Attribute<T, R>
-where
-    T: Into<f32>,
+where T: Into<f32>,
 {
     name: String,
     value: T,
@@ -120,8 +131,9 @@ where
         self.parent = parent;
     }
 
-    fn cost(val: Self::Value) -> f32 {
-        0.0
+    fn cost<F>(val: Self::Value, fun: F) -> f32 
+      where F: Fn(Self::Value) -> f32 {
+        fun(val)
     }
 }
 
@@ -149,11 +161,3 @@ pub enum Senses {
 pub mod characteristics;
 pub mod equipment;
 pub mod tasks;
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}

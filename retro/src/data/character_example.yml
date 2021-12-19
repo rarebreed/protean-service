@@ -1,23 +1,32 @@
 ---
 name: "Ruptured Spleen"
 player: "Sean Toner"
+faction:
+  region: ""
+  ethnicity:
+    - ""
+  belief: ""
 attributes:
   primary:
-    force: 10.0
-    speed: 10.0
-    health: 10.0
-    fitness: 10.0
-    kinesthesis: 10.0
-    agility: 10.0
-    dexterity: 10.0
-    comeliness: 10.0
-    presence: 10.0
-    analysis: 10.0
-    memory: 10.0
-    insight: 10.0
-    creativity: 10.0
-    discipline: 10.0
-    focus: 10.0
+    physical:
+      force: 10.0
+      speed: 10.0
+      health: 10.0
+      fitness: 10.0
+      kinesthesis: 10.0
+      agility: 10.0
+      dexterity: 10.0
+    social:
+      comeliness: 10.0
+      presence: 10.0
+      class: 10.0
+    mental:
+      analysis: 10.0
+      memory: 10.0
+      insight: 10.0
+      creativity: 10.0
+      discipline: 10.0
+      focus: 10.0
     mass: 85.0
     height: 181.0
   secondary:
@@ -45,6 +54,19 @@ attributes:
     move: 0
     power: 0 # force * speed * mass
     strength: 0  # based on height/mass and force
-psyche:
-
+personality:
+  ego: 10.0
+  emotion: 10.0
+  empathy: 10.0
+  trust: 10.0
+  adaptable: 10.0
+  sociability: 10.0
+  curiosity: 10.0
+principles:
+  honesty: 10.0
+  kindness: 10.0
+  selfless: 10.0
+  duty: 10.0
+  principled: 10.0
+status:
   

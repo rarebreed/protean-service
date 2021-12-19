@@ -50,6 +50,7 @@ pub async fn user_connected(ws: WebSocket, users: Users, username: String) {
         "{}: Setting up async task to forward rx to user_ws_tx",
         username
     );
+    
     tokio::task::spawn(rx.forward(user_ws_tx).map(|result| {
         if let Err(e) = result {
             error!("websocket send error: {}", e);
