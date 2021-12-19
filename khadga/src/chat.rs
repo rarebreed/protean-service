@@ -1,24 +1,18 @@
 // #![deny(warnings)]
-use crate::message::{self,
-                     CommandRequestMsg,
-                     ConnectionMsg,
-                     Message as KMessage,
-                     MessageEvent::{self,
-                                    CommandRequest}};
-use std::{collections::HashMap,
-          sync::Arc};
+use crate::message::{
+    self, CommandRequestMsg, ConnectionMsg, Message as KMessage,
+    MessageEvent::{self, CommandRequest},
+};
+use std::{collections::HashMap, sync::Arc};
 
-use futures::{FutureExt,
-              StreamExt};
-use log::{debug,
-          error,
-          info};
+use futures::{FutureExt, StreamExt};
+use log::{debug, error, info};
 use serde_json;
-use tokio::{sync::{mpsc,
-                   Mutex},
-            time::Duration};
-use warp::{ws::{Message,
-                WebSocket}};
+use tokio::{
+    sync::{mpsc, Mutex},
+    time::Duration,
+};
+use warp::ws::{Message, WebSocket};
 
 /// Our state of currently connected users.
 ///

@@ -1,8 +1,9 @@
-use serde::{Deserialize,
-            Serialize};
-use chrono::{Utc};
-use std::{fmt::{self, Display, Formatter},
-          convert::{From}};
+use chrono::Utc;
+use serde::{Deserialize, Serialize};
+use std::{
+    convert::From,
+    fmt::{self, Display, Formatter},
+};
 
 /// Message that is sent to/from websocket
 ///
@@ -31,7 +32,7 @@ pub struct Message<T> {
     pub recipients: Vec<String>,
     pub body: T,
     pub event_type: MessageEvent,
-    pub time: i64
+    pub time: i64,
 }
 
 impl<T> Message<T> {
@@ -41,7 +42,7 @@ impl<T> Message<T> {
             recipients,
             body,
             event_type: evt_type,
-            time: Utc::now().timestamp_millis()
+            time: Utc::now().timestamp_millis(),
         }
     }
 
@@ -73,7 +74,7 @@ impl Display for MessageEvent {
             MessageEvent::CommandRequest => write!(fmt, "{}", "CommandRequest"),
             MessageEvent::CommandReply => write!(fmt, "{}", "CommandReply"),
             MessageEvent::Message => write!(fmt, "{}", "Message"),
-            MessageEvent::Data => write!(fmt, "{}", "Data")
+            MessageEvent::Data => write!(fmt, "{}", "Data"),
         }
     }
 }
@@ -86,7 +87,7 @@ impl From<MessageEvent> for String {
             MessageEvent::CommandRequest => "CommandRequest".into(),
             MessageEvent::CommandReply => "CommandReply".into(),
             MessageEvent::Message => "Message".into(),
-            MessageEvent::Data => "Data".into()
+            MessageEvent::Data => "Data".into(),
         }
     }
 }
@@ -100,7 +101,7 @@ impl From<&str> for MessageEvent {
             "CommandReply" => MessageEvent::CommandReply,
             "Message" => MessageEvent::Message,
             "Data" => MessageEvent::Data,
-            _ => panic!("")
+            _ => panic!(""),
         }
     }
 }
@@ -114,10 +115,10 @@ impl From<String> for MessageEvent {
             "CommandReply" => MessageEvent::CommandReply,
             "Message" => MessageEvent::Message,
             "Data" => MessageEvent::Data,
-            _ => panic!("")
+            _ => panic!(""),
         }
     }
-} 
+}
 
 #[derive(Serialize, Deserialize)]
 pub struct ConnectionMsg {
@@ -203,7 +204,6 @@ impl<T> CommandReplyMsg<T> {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -227,9 +227,10 @@ mod tests {
                     }
                 },
                 args: ["something"]
-            }"#.into()
+            }"#
+            .into(),
         );
-        
+
         let from_str_msg: String = serde_json::to_string(&msg).expect("Could not deserilaize");
         println!("CommandRequest Message as str: {}", from_str_msg);
 
@@ -248,14 +249,15 @@ mod tests {
             "recipients": ["manjusri"]
         }"#;
 
-        let msg: Message<CommandRequestMsg<String>> = serde_json::from_str(strmsg).expect("Could not parse");
+        let msg: Message<CommandRequestMsg<String>> =
+            serde_json::from_str(strmsg).expect("Could not parse");
         println!("CommandRequest Message: {:#?}", msg);
 
         let cmsg: Message<String> = serde_json::from_str(&from_str_msg).expect("Failed to parse");
         println!("Back from conversion: {:#?}", cmsg);
-        
+
         let ping_msg = r#"{"sender":"khadga","recipients":[],"event_type":"CommandReply","time":1584316937601,"body":"{\"cmd\":{\"op\":\"pong\",\"ack\":false,\"id\":\"placeoftheway\"},\"args\":[]}"}"#;
-        
+
         let msg: Message<String> = serde_json::from_str(ping_msg).expect("Could not serialize");
         println!("Ping Message: {:#?}", msg);
     }

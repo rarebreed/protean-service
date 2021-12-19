@@ -1,10 +1,7 @@
 //! Defines the configuration data structure we will use
 
-use config::{Config,
-             ConfigError,
-             File};
-use serde::{Deserialize,
-            Serialize};
+use config::{Config, ConfigError, File};
+use serde::{Deserialize, Serialize};
 use std::fmt;
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -71,14 +68,14 @@ pub struct Tables {
     pub posts: String,
     pub accounts: String,
     pub uploads: String,
-    pub comments: String
+    pub comments: String,
 }
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct DataBase {
     pub tables: Tables,
     pub port: u16,
-    pub tls: bool
+    pub tls: bool,
 }
 
 impl fmt::Display for Tables {
@@ -149,8 +146,7 @@ impl fmt::Display for MimirConfig {
         write!(
             f,
             "host: {}\nport: {}",
-            self.node_ip_service_service_host,
-            self.node_ip_service_service_port
+            self.node_ip_service_service_host, self.node_ip_service_service_port
         )
     }
 }
@@ -162,7 +158,7 @@ pub struct Settings {
     pub tls: TLS,
     pub host: String,
     pub port: u16,
-    pub db: DataBase
+    pub db: DataBase,
 }
 
 impl fmt::Display for Settings {
@@ -184,10 +180,10 @@ impl Settings {
         let assign = |hostname: &str| {
             std::env::set_var("MIMIR_NODE_IP_SERVICE_SERVICE_HOST", hostname);
             std::env::set_var("MIMIR_NODE_IP_SERVICE_SERVICE_PORT", "3000");
-            
-            for (k, v) in std::env::vars().filter(|(key, _)| {
-                return key.starts_with("MIMIR_NODE_IP_SERVICE_SERVICE")
-            }) {
+
+            for (k, v) in std::env::vars()
+                .filter(|(key, _)| return key.starts_with("MIMIR_NODE_IP_SERVICE_SERVICE"))
+            {
                 println!("{} = {}", k, v);
             }
         };
@@ -197,7 +193,9 @@ impl Settings {
             if val.to_lowercase() == "true" {
                 config.merge(File::with_name("config/khadga-dev.yml"))?;
                 assign("localhost");
-                config.merge(config::Environment::with_prefix("MIMIR_NODE_IP_SERVICE_SERVICE"))?;
+                config.merge(config::Environment::with_prefix(
+                    "MIMIR_NODE_IP_SERVICE_SERVICE",
+                ))?;
             }
         }
 
@@ -205,7 +203,9 @@ impl Settings {
             if val.to_lowercase() == "true" {
                 config.merge(File::with_name("config/khadga-stack.yml"))?;
                 assign("mimir");
-                config.merge(config::Environment::with_prefix("MIMIR_NODE_IP_SERVICE_SERVICE"))?;
+                config.merge(config::Environment::with_prefix(
+                    "MIMIR_NODE_IP_SERVICE_SERVICE",
+                ))?;
             }
         }
 
@@ -228,11 +228,14 @@ mod tests {
             khadga_host = "localhost".into();
         }
 
-        let Settings { host: mimir_host, db, .. } = settings;
+        let Settings {
+            host: mimir_host,
+            db,
+            ..
+        } = settings;
         println!(
-            "khadga_host = {}, settings.services.khadga.host = {}", 
-            khadga_host,
-            mimir_host
+            "khadga_host = {}, settings.services.khadga.host = {}",
+            khadga_host, mimir_host
         );
         println!("database = {}", db);
         assert_eq!(khadga_host, mimir_host);

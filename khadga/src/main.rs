@@ -1,16 +1,16 @@
-use khadga::{auth::login,
-             chat::{user_connected,
-                    Users},
-             config::Settings};
+use khadga::{
+    auth::login,
+    chat::{user_connected, Users},
+    config::Settings,
+};
 use log::info;
-use std::{collections::HashMap,
-          net::SocketAddr,
-          sync::Arc};
+use std::{collections::HashMap, net::SocketAddr, sync::Arc};
 use tokio::sync::Mutex;
-use warp::{http::{Response,
-                  StatusCode},
-           ws::Ws,
-           Filter};
+use warp::{
+    http::{Response, StatusCode},
+    ws::Ws,
+    Filter,
+};
 
 #[tokio::main]
 async fn main() {
@@ -44,11 +44,13 @@ async fn main() {
         .and(warp::ws())
         .and(warp::path::param().map(|username: String| username))
         .and(users2)
-        .map(|/* cookie: String, */ ws: Ws, username: String, users: Users| {
-            /* info!("Cookie is: {}", cookie); */
-            info!("User {} starting chat", username);
-            ws.on_upgrade(move |socket| user_connected(socket, users, username))
-        });
+        .map(
+            |/* cookie: String, */ ws: Ws, username: String, users: Users| {
+                /* info!("Cookie is: {}", cookie); */
+                info!("User {} starting chat", username);
+                ws.on_upgrade(move |socket| user_connected(socket, users, username))
+            },
+        );
 
     // This is the main entry point to the application
     // Note the relative path.  The path is relative to where you are executing/launching khadga
@@ -59,11 +61,7 @@ async fn main() {
 
     let log = warp::log("khadga");
 
-    let app = chat
-        .or(health)
-        .or(start)
-        .or(login())
-        .with(log);
+    let app = chat.or(health).or(start).or(login()).with(log);
 
     let host: SocketAddr = khadga_addr
         .parse()

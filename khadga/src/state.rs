@@ -1,20 +1,18 @@
-use chrono::{DateTime,
-             Utc};
-use std::{collections::HashMap,
-          fmt::{self,
-                Display,
-                Formatter},
-          sync::Arc,
-          ops::{Add}};
-use tokio::sync::{mpsc,
-                  Mutex};
+use chrono::{DateTime, Utc};
+use std::{
+    collections::HashMap,
+    fmt::{self, Display, Formatter},
+    ops::Add,
+    sync::Arc,
+};
+use tokio::sync::{mpsc, Mutex};
 use warp::ws::Message;
 
 pub type Sender = mpsc::UnboundedSender<Result<Message, warp::Error>>;
 
 pub struct MessageInventory {
     pub data_sent: usize,
-    pub message_time: DateTime<Utc>
+    pub message_time: DateTime<Utc>,
 }
 
 impl MessageInventory {
@@ -27,7 +25,7 @@ impl MessageInventory {
 
         MessageInventory {
             data_sent,
-            message_time: time
+            message_time: time,
         }
     }
 }

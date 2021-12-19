@@ -1,15 +1,9 @@
-use crate::{
-    Attribute,
-    Trait,
-    Senses,
-    EMSpectrum,
-    AuditorySpectrum
-};
+use crate::{Attribute, AuditorySpectrum, EMSpectrum, Senses, Trait};
 
 pub enum WeaponClass {
     Unarmed,
     Melee,
-    Ranged
+    Ranged,
 }
 
 pub enum DamageType {
@@ -17,17 +11,17 @@ pub enum DamageType {
     Kinetic,
     Radiation,
     Pathogen,
-    Chemical
+    Chemical,
 }
 
 pub enum StructuralDamageType {
     Muscular,
     Bones,
-    ConnectiveTissue
+    ConnectiveTissue,
 }
 
 /// Trauma is immediate and destructive forms of damage
-/// 
+///
 /// Weapons and other inflictions (disease, falling, being on fire) all cause certain kinds of damage.  This enum
 /// covers the various kinds of damage that can be inflicted
 pub enum Trauma {
@@ -50,9 +44,9 @@ pub enum NeurologicalEffect {
     Unconsciousness,
     Stunned,
     Sickened,
-    Weakened
+    Weakened,
 }
-/// 
+///
 pub enum DamageEffects {
     /// unable to breathe
     Asphyxiation,
@@ -64,17 +58,17 @@ pub enum DamageEffects {
     Shock(u32),
     Structural {
         damage_type: StructuralDamageType,
-        condition: Condition
+        condition: Condition,
     },
     Sensory {
         sense: Senses,
-        condition: Condition
+        condition: Condition,
     },
     Neurological {
         effect: NeurologicalEffect,
-        severity: u16
+        severity: u16,
     },
-    OrganFailure(u32)
+    OrganFailure(u32),
 }
 
 /// Condition of equipment, part, organ, etc
@@ -94,14 +88,14 @@ pub enum Condition {
     /// Factory new
     Pristine,
     /// The equipment has been made more durable
-    Reinforced(u16)
+    Reinforced(u16),
 }
 
 pub struct DamageClass {
     pub damage_type: DamageType,
-    pub power: u16
+    pub power: u16,
 }
 
 pub struct Weapon {
-    pub integrity: Condition
+    pub integrity: Condition,
 }

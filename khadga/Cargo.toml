@@ -5,8 +5,8 @@ name = "khadga"
 version = "0.1.0"
 
 [dependencies]
-config = "0.10.1"
-env_logger = "0.7.1"
+config = "0.11.0"
+env_logger = "0.9.0"
 futures = "0.3.5"
 jsonwebtoken = "7.2.0"
 dotenv = "0.15.0"
@@ -14,8 +14,7 @@ lazy_static = "1.4.0"
 log = "0.4.11"
 pretty_env_logger = "0.4.0"
 serde_json = "1.0.57"
-tokio-postgres = { version = "0.5.5", features = ["with-chrono-0_4"] }
-juniper = "0.14"
+juniper = "0.15.7"
 
 [dependencies.chrono]
 features = ["serde"]
@@ -23,7 +22,7 @@ version = "0.4"
 
 [dependencies.reqwest]
 features = ["json"]
-version = "0.10"
+version = "0.11.6"
 
 [dependencies.serde]
 features = ["derive"]
@@ -31,8 +30,8 @@ version = "1.0.115"
 
 [dependencies.tokio]
 features = ["macros", "rt-threaded"]
-version = "0.2"
+version = "1.13.0"
 
 [dependencies.warp]
 features = ["tls"]
-version = "0.2.4"
+version = "0.3.1"

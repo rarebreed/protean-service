@@ -4,11 +4,8 @@
 //! Instead of using passwords for authentication, users will upload a public key from an RSA pair
 //! This is more secure than using a password, but not as invasive a MFA.
 
-use serde::{Deserialize,
-            Serialize};
-use std::fmt::{self,
-               Display,
-               Formatter};
+use serde::{Deserialize, Serialize};
+use std::fmt::{self, Display, Formatter};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct User {
@@ -27,7 +24,7 @@ impl User {
         first_name: String,
         last_name: String,
         email: String,
-        token: String
+        token: String,
     ) -> Self {
         let user_name = uname.clone();
         User {

@@ -1,16 +1,11 @@
 use chrono::prelude::*;
-use jsonwebtoken::{decode,
-                   encode,
-                   errors::{Error as JWTError,
-                            ErrorKind},
-                   DecodingKey,
-                   EncodingKey,
-                   Header,
-                   Validation};
-use log::{error,
-          info};
-use serde::{Deserialize,
-            Serialize};
+use jsonwebtoken::{
+    decode, encode,
+    errors::{Error as JWTError, ErrorKind},
+    DecodingKey, EncodingKey, Header, Validation,
+};
+use log::{error, info};
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
 struct Claims {
@@ -25,7 +20,7 @@ struct Claims {
 #[derive(Deserialize, Serialize)]
 pub struct JWTResponse {
     pub token: String,
-    pub expiry: i64
+    pub expiry: i64,
 }
 
 /// By default, jsonwebtoken expects the exp field to be a usize.  It is however more convenient to
@@ -33,10 +28,11 @@ pub struct JWTResponse {
 mod jwt_numeric_date {
     use chrono::{DateTime, TimeZone, Utc};
     use serde::{self, Deserialize, Deserializer, Serializer};
-    
+
     /// Serializes a DateTime<Utc> to a Unix timestamp (milliseconds since 1970/1/1T00:00:00T)
     pub fn serialize<S>(date: &DateTime<Utc>, serializer: S) -> Result<S::Ok, S::Error>
-        where S: Serializer,
+    where
+        S: Serializer,
     {
         let timestamp = date.timestamp();
         serializer.serialize_i64(timestamp)
@@ -44,7 +40,8 @@ mod jwt_numeric_date {
 
     /// Attempts to deserialize an i64 and use as a Unix timestamp
     pub fn deserialize<'de, D>(deserializer: D) -> Result<DateTime<Utc>, D::Error>
-        where D: Deserializer<'de>,
+    where
+        D: Deserializer<'de>,
     {
         Utc.timestamp_opt(i64::deserialize(deserializer)?, 0)
             .single() // If there are multiple or no valid DateTimes from timestamp, return None
@@ -54,7 +51,7 @@ mod jwt_numeric_date {
 
 /// FIXME: This will eventually be some kind of secret key that will be stored in a Docker secret or
 /// perhaps pull it from the database
-pub static SECRET: &[u8;9] = b"secretkey";
+pub static SECRET: &[u8; 9] = b"secretkey";
 
 /// Generates a JSON web token using defaults
 pub fn create_jwt(user: &str, email: &str) -> Result<String, JWTError> {
@@ -77,10 +74,10 @@ pub fn create_jwt(user: &str, email: &str) -> Result<String, JWTError> {
         Ok(t) => {
             let resp = JWTResponse {
                 token: t,
-                expiry: exp
+                expiry: exp,
             };
             Ok(serde_json::to_string_pretty(&resp).expect("unable to decode"))
-        },
+        }
         Err(err) => {
             error!("Got error creating token: {}", err);
             Err(err)
@@ -90,7 +87,7 @@ pub fn create_jwt(user: &str, email: &str) -> Result<String, JWTError> {
 }
 
 /// Validator for a given user and supplied token
-/// 
+///
 /// FIXME: This is always panicking.  We need a way to handle this gracefully and return a Result
 pub fn validate_jwt(user: &str, token: &str) {
     let jwt: JWTResponse = serde_json::from_str(token).expect("unable to encode");
@@ -101,7 +98,8 @@ pub fn validate_jwt(user: &str, token: &str) {
         ..Validation::default()
     };
 
-    let token_data = match decode::<Claims>(&token, &DecodingKey::from_secret(SECRET), &validation) {
+    let token_data = match decode::<Claims>(&token, &DecodingKey::from_secret(SECRET), &validation)
+    {
         Ok(c) => c,
         Err(err) => {
             match *err.kind() {
@@ -110,14 +108,14 @@ pub fn validate_jwt(user: &str, token: &str) {
                 }
                 ErrorKind::InvalidIssuer => {
                     panic!("Issuer is invalid")
-                },
+                }
                 ErrorKind::ExpiredSignature => {
                     // For example, expired token.  In this case, we should check to see if user is
                     // still logged in and last message sent.
                     // TODO: If the above is true, automatically create a new token for the user
                     // and send the jwt back to the user
                     panic!("Expired token")
-                },
+                }
                 _ => {
                     eprintln!("{}", err);
                     panic!("Some other errors")
@@ -164,11 +162,7 @@ mod tests {
             iat: Utc::now(),
         };
 
-        let token = match encode(
-            &Header::default(),
-            &jwt,
-            &EncodingKey::from_secret(SECRET),
-        ) {
+        let token = match encode(&Header::default(), &jwt, &EncodingKey::from_secret(SECRET)) {
             Ok(t) => t,
             Err(err) => {
                 error!("Got error creating token: {}", err);

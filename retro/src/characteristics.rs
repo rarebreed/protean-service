@@ -1,29 +1,20 @@
 //! This module describes characteristics in game terms
 
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 use crate::{
-    CharacteristicType::{
-        PrimaryCharacteristics as Primary,
-        SecondaryCharacteristics as Secondary,
-        MentalPrimaryCharacteristics as Mental,
-        SocialCharacteristics as Social,
-        Psyche as PsycheType,
-        Principle as PrincipalType,
-        self
-    },
     Attribute,
+    CharacteristicType::{
+        self, MentalPrimaryCharacteristics as Mental, PrimaryCharacteristics as Primary,
+        Principle as PrincipalType, Psyche as PsycheType, SecondaryCharacteristics as Secondary,
+        SocialCharacteristics as Social,
+    },
+    Ranged::{self, Absolute, Categorized, Spectrum},
     Trait,
-    Ranged::{
-        self,
-        Spectrum,
-        Absolute,
-        Categorized
-    }
 };
 
 pub struct Psyche {
-    attr: Attribute<f32, f32>
+    attr: Attribute<f32, f32>,
 }
 
 impl Trait for Psyche {
@@ -47,7 +38,7 @@ impl Trait for Psyche {
         todo!()
     }
 
-    fn value_range(self: &Self) -> &Ranged<Self::Range>{
+    fn value_range(self: &Self) -> &Ranged<Self::Range> {
         &self.attr.range
     }
 
@@ -59,10 +50,9 @@ impl Trait for Psyche {
         todo!()
     }
 
-    fn cost<F>(val: Self::Value, fun: F) -> f32 
-    where F: Fn(Self::Value) -> f32{
-      fun(val)
-  }
+    fn cost(val: Self::Value) -> f32 {
+        0.0
+    }
 }
 
 #[derive(Serialize, Deserialize)]
@@ -74,14 +64,14 @@ pub struct PhysicalPrimaryCharacteristics {
     pub health: Attribute<f32, f32>,
     pub fitness: Attribute<f32, f32>,
     pub mass: Attribute<f32, f32>,
-    pub height: Attribute<f32, f32>
+    pub height: Attribute<f32, f32>,
 }
 
 impl Default for PhysicalPrimaryCharacteristics {
     fn default() -> Self {
         let range = Spectrum {
             min: 0.00f32,
-            max: 100.00f32
+            max: 100.00f32,
         };
 
         PhysicalPrimaryCharacteristics {
@@ -101,11 +91,14 @@ impl Default for PhysicalPrimaryCharacteristics {
                 parent: Primary,
             },
             height: Attribute::new(
-                "height".into(), 
-                150.0, 
-                Primary, 
-                Spectrum { min: 0.00, max: std::f32::MAX }
-            )
+                "height".into(),
+                150.0,
+                Primary,
+                Spectrum {
+                    min: 0.00,
+                    max: std::f32::MAX,
+                },
+            ),
         }
     }
 }
@@ -116,14 +109,14 @@ struct MentalPrimaryCharacteristics {
     pub insight: Attribute<f32, f32>,
     pub creativity: Attribute<f32, f32>,
     pub discipline: Attribute<f32, f32>,
-    pub focus: Attribute<f32, f32>
+    pub focus: Attribute<f32, f32>,
 }
 
 impl Default for MentalPrimaryCharacteristics {
     fn default() -> Self {
         let range = Spectrum {
             min: 0.00f32,
-            max: 100.00f32
+            max: 100.00f32,
         };
 
         MentalPrimaryCharacteristics {
@@ -146,7 +139,7 @@ impl Default for SocialPrimaryCharacteristics {
     fn default() -> Self {
         let range = Spectrum {
             min: 0.00f32,
-            max: 100.00f32
+            max: 100.00f32,
         };
 
         SocialPrimaryCharacteristics {
@@ -159,16 +152,15 @@ impl Default for SocialPrimaryCharacteristics {
 struct PrimaryCharacteristics {
     pub physical: PhysicalPrimaryCharacteristics,
     pub mental: MentalPrimaryCharacteristics,
-    pub social: SocialPrimaryCharacteristics
+    pub social: SocialPrimaryCharacteristics,
 }
-
 
 impl Default for PrimaryCharacteristics {
     fn default() -> Self {
         PrimaryCharacteristics {
             physical: PhysicalPrimaryCharacteristics::default(),
             mental: MentalPrimaryCharacteristics::default(),
-            social: SocialPrimaryCharacteristics::default()
+            social: SocialPrimaryCharacteristics::default(),
         }
     }
 }
@@ -183,6 +175,5 @@ pub struct SensoryCharacteristics {
 }
 
 struct SecondaryCharacteristics {
-    pub coolness: Attribute<f32, f32>
+    pub coolness: Attribute<f32, f32>,
 }
-
