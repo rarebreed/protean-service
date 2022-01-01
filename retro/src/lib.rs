@@ -77,8 +77,7 @@ where T: Into<f32>,
 /// - Principles like honor or duty
 /// -
 impl<T, R> Attribute<T, R>
-where
-    T: Into<f32>,
+where T: Into<f32>,
 {
     /// A default kind of Attribute mostly used for Character Attribute
     pub fn new(name: String, value: T, parent: CharacteristicType, range: Ranged<R>) -> Self {

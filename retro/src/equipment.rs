@@ -100,7 +100,13 @@ pub enum Condition {
 
 pub struct DamageClass {
     pub damage_type: DamageMedium,
-    pub power: u16,
+    pub power: f32,
+}
+
+impl Into<f32> for DamageClass {
+    fn into(self) -> f32 {
+        self.power
+    }
 }
 
 pub struct Weapon {

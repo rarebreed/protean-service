@@ -3,3 +3,7 @@
 members = [
   "retro"
 ]
+
+exclude = [
+  "kubernetes"
+]

@@ -50,8 +50,9 @@ impl Trait for Psyche {
         todo!()
     }
 
-    fn cost(val: Self::Value) -> f32 {
-        0.0
+    fn cost<F>(val: Self::Value, fun: F) -> f32
+      where F: Fn(Self::Value) -> f32 {
+        todo!()
     }
 }
 

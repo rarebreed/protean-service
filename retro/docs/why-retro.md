@@ -187,7 +187,7 @@ in fact, the difficulty of what the hero faces that makes them and their action 
 
 ## Goals of retro
 
-Retro has been in the back of my mind for over 20 years.  While I don't play as many games as I used to, I am still an
+Retro has been in the back of my mind for over 25 years.  While I don't play as many games as I used to, I am still an
 avid reader and buyer of games.  I still see the same designs over and over which I have become disillusioned with.
 So it might be easiest to describe the things I don't like about many game systems, and how retro improves on it.
 
