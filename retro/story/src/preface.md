@@ -68,7 +68,9 @@ project, I wanted to have a world without fantastic powers.  A world where train
 left your mark on the world.  While there might be some _preternatural_ powers, for example heightened senses, body
 control (ie, toleration of cold or heat) and other above normal human talents might be displayed, it is nevertheless
 based on at least plausible reality.  If this was fantasy, it would be more Conan than D&D.  If it was sci-fi, it would
-be more Traveller 2300AD than Starfinder.
+be more Traveller 2300AD than Starfinder.  While magic could exist, it could not be easily harnessed, in much the same
+way that although electricity is ubiquitous in modern society, one doesn't have energy guns, or use it to to power uo
+to defeat ones opponents.  Like Tolkein's magic, it could be felt or sensed, but not controlled.
 
 The world also had to feel familiar, and yet also different.  If the world is too different, then it faces at least two
 different problems:
@@ -105,6 +107,7 @@ There are a couple of themes that have interested me, and I would like to explor
 - Finding your way home (think Voyager or Battlestar Galactica)
 - Being hunted and pursued (think BSG, Star Wars and Avatar the Last Airbender)
 - Student/Master relationship (think Avatar, the Jedis, Karate Kid)
+- To question your own society and upbringing
 - Loss of way of life
     - by force (American Indians, Meiji era Japan)
     - by techno shock (Industrial revolution, Information revolution, Bio revolution)
@@ -112,10 +115,10 @@ There are a couple of themes that have interested me, and I would like to explor
 
 The setting will be a low-magic fantasy world.  By low-magic, it doesn't mean that the magic is not powerful.  Rather,
 it means that the magic is difficult, rare, and time consuming.  Think Lord of the Rings rather than D&D.  Having a low
-magic world gives us two features:
+magic world gives us several features:
 
 - People are still people, and can't rely on fancy magical powers much if at all
-- Magic becomes truly something special because it is rare
+- Magic becomes a resource not on a personal, but societal level
 - It gives a way to introduce things in the world which would not otherwise be possible
 
 The actual setting is loosely based on 1600s Malaysia and Indonesia.  This was an area and era interesting for a couple
@@ -131,24 +134,28 @@ I also wanted, for a specific reason, to _not_ have a white ethnocentric culture
 done to death.  For that matter, so have Japanese and to a lesser degree Chinese settings.  Very few people know about
 any of the other Asiatic cultures.  And even the Japanese or Chinese based settings don't truly give a flavor of
 Shintoism, Zen/Chan or Taoism.  I think this is a great tragedy.  There is a lot we could learn from these other
-cultures and religions.
+cultures and religions and perhaps just as importanlt, lessons from what happend in history.
 
 In fact, I think a huge reason Star Wars was so popular, was it was the first mainstream movie that exposed a Western
 audience to a mystic "religion" that was primarily based on Buddhism and Taoism.  The setting will have its own version
 of Jedis, and in fact, more than one version.
 
-Despite the focus on south-east Asia, Europeans are a part of the setting, though perhaps in a light that players from
+Despite the focus on South-East Asia, Europeans are a part of the setting, though perhaps in a light that players from
 the west may not be exactly comfortable with: that of an oppressor and invader.  While the setting is fantasy based, I
-also wanted a historicity to it.  I do not have any illusions that this will not be a popular game, and as I explain
-below, the real world has become too polarized for people to accept any form of criticism or even a showing of their
-"side" in a bad light.  Nevertheless, this is a story I wish to tell.
+also wanted a historicity to it.  I do not have any illusions that this will be a popular game, and as I explain below,
+the real world has become too polarized for people to accept any form of criticism or even a showing of their "side" in
+a bad light.  Nevertheless, this is a story I wish to tell.
 
 ### About being woke
 
-I will endeavor to be socially sensitive for the setting and game.  This is not because I am afraid of SJW police
-beating down my door, but simply because I want to show how we're all in this together.  That being said, I might say
-some things that do offend others.  This is not intentional.  I would ask you to also realize that it's impossible to
-appeal to everyone, and being offended is ultimately owned by the person feeling offended.
+I will endeavor to be socially sensitive for the setting and game.  This is not because I am afraid of SJW or anti-CRT
+police beating down my door, but simply because I want to show how we're all in this together.  That being said, I might
+say some things that will offend others.  This is not intentional.  I would ask you to also realize that it's impossible
+to appeal to everyone, and being offended is ultimately owned by the person feeling offended.  My purpose is to
+challenge the reader, to make them think.  Like exercising afetr a long time being inactive, it will hurt.  It will be
+painful, and not feel good.  But exercise is meant to tear yo down a little bit, so that you are rebuilt stronger.  If
+however you give in, and do not allow yourself to heal, adapt and change, your body wull wear down.  The mind is no
+different.
 
 There is a great story about the Buddha, where the Buddha gets insulted by a Brahman zealot.  Basically, the Buddha
 just listens, and then asks the Brahman if he has a guest, and the guest does not take the food that is offered.  What
@@ -199,6 +206,21 @@ Indian genocide.  They believe that educating children in school with these fact
 is willing to concede that such events happened, but "don't blame me for what my great-great-great-great-grandfather
 did".  While there is a point to this, the refusal to concede the inequality does _no one_ any good.
 
+### About being anti-racist
+
+There is a danger of going too far, of pushing those who could be allies into enemies.  There are many white people who
+have never lived around people of color, and it isn't even possible for them to be racist, because there is no one
+around them to lord over and be superior to.  They couldn't take advantage of their whiteness, because there are no
+non-whites to take advantage of.  Should these people also be forced to feel guilty?
+
+The danger is framing the question as one of guilt rather than one of, how can we help balance the scales?  Many will 
+refuse to even acknowledge that there is a thumb on the scale, because for some, there really isn't.  Sometimes, the
+thumb is on the opposite end, like for example how white men going to college has drastically fallen, because they do
+not have the same support infrastructure as women and minorities do.  And yet, if one points this out, people will 
+say why should the people who have all the power get support?
+
+This becomes the danger of going to far to the other extreme.
+
 ### About reality consensus
 
 The internet and various news outlets has made it very easy for people to live in "echo chambers" and only hear the 
@@ -242,6 +264,10 @@ As such, I will point out where I stand on the reality divide:
 - Racial injustice is real as is white privilege
 - If there was fraud in the 2020 election, it was not enough to overturn it, and Biden won fair and square
 
+What does this have to do with the game?
+
+From the game's perspective, reality becomes a point of view based on the different cultural perspectives.  But having
+a large Buddhist take in things, it will try to get across the point
 
 ### About existential crisis
 
@@ -266,7 +292,7 @@ sacred scriptures.  They also point out that science can not explain the ineffab
 universe was before the Big Bang, etc.  But I think they miss the point.  The fundamental question that they fail to 
 ask, is that they do not even ask what we are.  We think we know, but truthfully, we do not.
 
-One of the central themes of the game setting is to provoke players to ask, "What truly am I?".
+I want the game world to reflect this existential crisis as well.
 
 ### The Factions
 

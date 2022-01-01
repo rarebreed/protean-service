@@ -51,7 +51,9 @@ impl Trait for Psyche {
     }
 
     fn cost<F>(val: Self::Value, fun: F) -> f32
-      where F: Fn(Self::Value) -> f32 {
+    where
+        F: Fn(Self::Value) -> f32,
+    {
         todo!()
     }
 }
@@ -104,7 +106,7 @@ impl Default for PhysicalPrimaryCharacteristics {
     }
 }
 
-struct MentalPrimaryCharacteristics {
+pub struct MentalPrimaryCharacteristics {
     pub memory: Attribute<f32, f32>,
     pub analysis: Attribute<f32, f32>,
     pub insight: Attribute<f32, f32>,
@@ -150,7 +152,7 @@ impl Default for SocialPrimaryCharacteristics {
     }
 }
 
-struct PrimaryCharacteristics {
+pub struct PrimaryCharacteristics {
     pub physical: PhysicalPrimaryCharacteristics,
     pub mental: MentalPrimaryCharacteristics,
     pub social: SocialPrimaryCharacteristics,
@@ -175,6 +177,6 @@ pub struct SensoryCharacteristics {
     pub intuition: Attribute<f32, f32>,
 }
 
-struct SecondaryCharacteristics {
+pub struct SecondaryCharacteristics {
     pub coolness: Attribute<f32, f32>,
 }

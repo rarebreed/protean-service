@@ -45,12 +45,10 @@ pub enum NeurologicalEffect {
     Stunned,
     Sickened,
     Weakened,
-    Sensory(Senses)
+    Sensory(Senses),
 }
 
-
-
-/// 
+///
 pub enum DamageEffect {
     /// unable to breathe
     Asphyxiation,
@@ -60,7 +58,7 @@ pub enum DamageEffect {
     Dehydration,
     /// Hemorraghic shock.  Ex-Sanguination.  How long until bleed out?
     Shock(u32),
-    /// Physical damage, eg broken bones, torn 
+    /// Physical damage, eg broken bones, torn
     Structural {
         damage_type: StructuralDamageType,
         condition: Condition,
@@ -111,5 +109,5 @@ impl Into<f32> for DamageClass {
 
 pub struct Weapon {
     pub integrity: Condition,
-    pub damage: Attribute<DamageClass, DamageEffect>
+    pub damage: Attribute<DamageClass, DamageEffect>,
 }

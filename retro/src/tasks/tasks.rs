@@ -2,7 +2,7 @@
 //!
 //! A Task defines anything which is uncertain in game terms and how to accomplish it.  Tasks revolve around a die pool
 //! and are always opposed.  The die pool is d20 based and is _exploding_.  If a 20 is rolled, the die can be rerolled
-//! again. 
+//! again.
 //!
 //! ## Associated Characteristics and Skills
 //!
@@ -49,7 +49,7 @@
 //!
 //! ### General Difficulty levels
 //!
-//! | Difficulty  | Academic    | years training | Successes | 5@10 | 9@18 | 
+//! | Difficulty  | Academic    | years training | Successes | 5@10 | 9@18 |
 //! |-------------|-------------|----------------|-----------|------|--------------------
 //! | Trivial     | Untrained   | 0              | 0         
 //! | Easy        | Grade       | <1             | 1
@@ -149,7 +149,7 @@
 //! Because retro uses d20 for rolls, each adjust for a single die is a 5% reduction.  However, we roll pools of dice,
 //! and not a single die.  Also, adjustments to the TN never affect the exploding number.  The exploding value is always
 //! a _natural_ 19 or 20, never a modified result of 19 or better.
-//! 
+//!
 //! Tasks define how actions are resolved
 //! Die examples:
 //!
@@ -168,22 +168,23 @@ use rand::Rng;
 
 pub enum ModifierType {
     Internal,
-    External
+    External,
 }
 
 pub enum ModifierDirection {
     Positive,
-    Negative
+    Negative,
 }
 
 pub struct TaskModifier<T>
-where T: NumOps {
+where
+    T: NumOps,
+{
     pub name: String,
     pub magnitude: T,
     pub direction: ModifierDirection,
-    pub mod_type: ModifierType
+    pub mod_type: ModifierType,
 }
-
 
 /// Defines a Task
 ///
@@ -192,10 +193,10 @@ where T: NumOps {
 /// modifiers: A vector of modifiers for this task
 /// time: The time it normally takes to perform the task
 pub struct Task {
-    pub name: String,      // A descriptive name
+    pub name: String, // A descriptive name
     pub t_type: TaskType,
     pub modifiers: Vec<TaskModifier<u32>>,
-    pub time: f64
+    pub time: f64,
 }
 
 pub enum TaskType {
@@ -203,7 +204,6 @@ pub enum TaskType {
     Team,
     Normal, // Normal tasks are all opposed, even against just the environment
 }
-
 
 pub trait DieTraits {
     // fn value(self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self;
@@ -304,4 +304,3 @@ pub fn explode(roll: &Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>) -> V
     }
     eroll
 }
-
