@@ -1,13 +1,13 @@
 //! # This module declares a Task
 //!
 //! A Task defines anything which is uncertain in game terms and how to accomplish it.  Tasks revolve around a die pool
-//! and are always opposed.  The die pool is d10 based and is _exploding_.  If a 10 is rolled, the die can be rerolled
+//! and are always opposed.  The die pool is d20 based and is _exploding_.  If a 20 is rolled, the die can be rerolled
 //! again. 
 //!
 //! ## Associated Characteristics and Skills
 //!
-//! All tasks have a set of associated Characteristics associated, and some tasks have a set of associated skills.  This
-//! is an important concept to distinguish.  Some tasks might be based on raw innate abilities.  Examples could include:
+//! All tasks have a set of associated Characteristics, and some tasks have a set of associated skills.  This is an
+//! important concept to distinguish.  Some tasks might be based on raw innate abilities.  Examples could include:
 //!
 //! - Lifting up a non-standard heavy object
 //! - Staying awake to study for an exam
@@ -68,13 +68,13 @@
 //!
 //! - Do you adjust the number of dice rolled (for the character, the adversary, or both)?
 //! - Do you adjust the target number (for the character, the adversary or both)?
-//! 
+//!
 //! Since retro always uses an opposed system, there is never a fixed target.  Rather, the GM should consider the
 //! following:
-//! 
+//!
 //! - If there is an inherent or internal modifier, it should adjust that actor's roll
 //! - If there is an external modifier can adjust either party's roll but never both
-//! 
+//!
 //! Examples of external factors are visibility, footing, timing or distance.  Examples of internal factors are being
 //! wounded, fatigued, or dizzy.  If someone is shooting in poor visibility, this will be bonus to the defenders roll
 //! rather than a minus to the shooter's roll.  Conversely, if the defender is wounded, it will reduce his roll. Another
@@ -108,7 +108,7 @@
 //!
 //! As mentioned above, determining how many dice to roll and what the target number is can be unintuitive.  There's
 //! also a mathematical affect which must be considered.
-//! 
+//!
 //! Increasing the number of dice rolled has two ramifications.  The first, is it improves the odds of getting more
 //! successes than the opposition.  The second ramification is implicit from the first: it means you can have better
 //! margins of success.  It is not enough to know that you have more successes than your opponent, but also how _many_
@@ -117,25 +117,25 @@
 //!
 //! Therefore, only increase the number of dice if there is a reason to think that the task modifier would increase not
 //! just the likelihood of success, but also better quality of success.  In contrast, increasing the target number only
-//! increases the likelihood that you will get more successes in the pool of dice that you already have.  Adjust the
-//! TN if you think the odds of getting successes in your pool should be adjusted, but not increasing the total amount
-//! of possible successes.
+//! increases the likelihood that you will get more successes in the pool of dice that you already have.  Adjust the TN
+//! if you think the odds of getting successes in your pool should be adjusted, but not increasing the total amount of
+//! possible successes.
 //!
 //! To think of it another way, imagine if instead of having 5 cards in your hand in poker, you had 6 or 7 cards.  Now,
-//! you increase the odds not only of getting a 2, 3 or 4 of a kind, (and assuming you need only 5 cards) it also 
+//! you increase the odds not only of getting a 2, 3 or 4 of a kind, (and assuming you need only 5 cards) it also
 //! improves the odds of getting a straight or a flush.  This would be similar to adding more dice to your pool.
-//! 
+//!
 //! Some examples of when you would adjust the number of pool in the dice is when:
-//! 
+//!
 //! - You lack tools for a technical task
 //! - You are fighting unarmed while injured or immobilized
 //! - You have a status condition applied
 //! - The equipment you are using is in poor condition
-//! 
+//!
 //! Adjusting the Target Number is generally more commonly applied.  These adjust how likely your existing pool will
 //! result, but does not affect the possible total magnitude.  For example, firing at night is mostly a matter of sheer
 //! luck.  The odds of getting a success in your pool are vastly reduced, but, a lucky shot is still a lucky shot.
-//! 
+//!
 //! Examples of when to adjust the target number are
 //!
 //! - Amount of time to prepare
