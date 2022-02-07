@@ -10,7 +10,7 @@ pub enum CharacteristicType {
     Principle,
     PersonalityType,
     Principles,
-    Equipment
+    Equipment,
 }
 
 /// A Trait is a trait for specifying what you can do with generic data
@@ -25,7 +25,7 @@ pub trait Trait {
     /// the name is a read-only field, so there's only a getter
     fn name(self: &Self) -> &str;
 
-    /// The value is a _score_ defining some value on a Range.  The Range has a range defined as a Tuple of a 
+    /// The value is a _score_ defining some value on a Range.  The Range has a range defined as a Tuple of a
     /// minimum and a maximum (if the upper has a value), or an enum defining possible values
     fn set_value(self: &mut Self, val: Self::Value) -> ();
     fn value(self: &Self) -> &Self::Value;
@@ -38,7 +38,8 @@ pub trait Trait {
 
     /// Some values are determined randomnly, but there is always a cost/value associated with the trait/value
     fn cost<F>(val: Self::Value, fun: F) -> f32
-      where F: Fn(Self::Value) -> f32;
+    where
+        F: Fn(Self::Value) -> f32;
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -59,7 +60,8 @@ pub enum Ranged<T> {
 /// commonly used to define other statistics, like a weapon's damage, or weight.
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Attribute<T, R>
-where T: Into<f32>,
+where
+    T: Into<f32>,
 {
     name: String,
     value: T,
@@ -77,7 +79,8 @@ where T: Into<f32>,
 /// - Principles like honor or duty
 /// -
 impl<T, R> Attribute<T, R>
-where T: Into<f32>,
+where
+    T: Into<f32>,
 {
     /// A default kind of Attribute mostly used for Character Attribute
     pub fn new(name: String, value: T, parent: CharacteristicType, range: Ranged<R>) -> Self {
@@ -130,8 +133,10 @@ where
         self.parent = parent;
     }
 
-    fn cost<F>(val: Self::Value, fun: F) -> f32 
-      where F: Fn(Self::Value) -> f32 {
+    fn cost<F>(val: Self::Value, fun: F) -> f32
+    where
+        F: Fn(Self::Value) -> f32,
+    {
         fun(val)
     }
 }
