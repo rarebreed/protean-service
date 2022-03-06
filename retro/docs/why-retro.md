@@ -1,4 +1,42 @@
-# An RPG for a more civilized age
+# An RPG for a more uncivilized age
+
+A game for more sobering times
+
+## Solidarity with Ukraine
+
+I write this segment on the 10th day after Russia invaded the Ukraine.  I also write this after looking at Free League
+Publishing's Twilight 2000 4th edition release.  I can't help but think of two things:
+
+- The 2nd Cold War has started
+- We need a game to simulate what's going on there with better representation than what is on the market
+
+All of these rules-lite systems are a bit of a joke to me now.  Putting narrative as a meta gaming resource rather than 
+letting it evolve naturally from choices is not just wrong from a gaming point of view, but I think a failure in how we 
+view the world around us.  The truth is, we often don't have control in life.  We have to play the cards we were dealt 
+with.  But in our society, we want to bend everything to our will.  We want our voices heard, our heroes (imagined or
+real) to be represented, and above all, we want everything in our lives (or games) to make sense and have it seemingly 
+under control.  But life just doesn't want to oblige.
+
+People think simulating life will be either boring at best, or tragic at worst.  Afterall, people game to escape cold
+hard reality right?  And yet, when I was younger, we played WW3 games all the time.  We met the possibility of our
+lives turning upside down head on.  We wondered....what if?  
+
+The Ukrainians don't have the luxury of shared collaborative storytelling.  Their lives are unfolding in ways that they
+do not want and in ways unimagineable to us sitting comfortably in our chairs.  And yet, we are enraptured by their
+story, by their sacrifice and heroism.  This is not some elf taking on a balrog, this is what real heroism looks like.
+Their story captivates us _despite_ it being a cold hard and ugly reality.  This is the point I want to get across with
+retro.  We have to learn that things are beyond our control, and we have to deal with it.  It is _because_ we don't
+have control that our story is enhanced, not in spite of it.
+
+There is no rules-lite in real life, and yet real life tells us the best stories.  There is no "I want to guide the 
+story this way" other than how you grasp the horns of life and grapple with it as best as you can.  We have forgotten
+how to accept things as they are, and instead try to cheat not only our games, but our very lives.  
+
+The retro game was envisioned as a return to old school rules where story is a consequence of actions that the players
+make on the stage that the GM makes.  There are no meta game rules to bend the story to your will.  But more importantly
+the _meaning_ of the story is a epiphenomenon that arises from what the _players_ take away from it.  
+
+## What is retro?
 
 So, what's so special about retro?  Is this some old-skool OD&D clone?  To explain what retro is, and the audience this
 game is catering to, I need to tell a little story first.
@@ -207,6 +245,8 @@ So it might be easiest to describe the things I don't like about many game syste
 - Systems that claim to be generic but require reams and reams of special one-off rules
 - Combat systems that lack tactical flavor (a swing is a swing)
 - Weapons that all feel generic, because they don't have enough attributes that matter
+- No meta gaming rules (let the dice fall where they may)
+- No shared storytelling beyond the choices of the players
 
 ### Lack of Granularity in Attributes
 
