@@ -1,4 +1,5 @@
 //! Tasks define how actions are resolved
+//! 
 //! Die examples:
 //!
 //! let simpleD6 = die(6)
@@ -13,13 +14,18 @@
 
 use rand::Rng;
 
+/// Defines what a die can do
 pub trait DieTraits {
     // fn value(self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self;
     // fn exploding(self: Self, opt: Option<u32>) -> Self;
+
+    /// Simulation of a roll of the die
     fn roll(self: &Self, num: u32) -> Vec<u32>;
 }
 
+/// Repesents a pool of dice
 pub struct DiePool {
+    /// the size of the eg 6 for a six-sided die
     pub facings: u32,
     exploding: Option<u32>,
     calculate: Box<dyn Fn(u32) -> u32>,
@@ -27,6 +33,7 @@ pub struct DiePool {
 }
 
 impl DiePool {
+    /// Creates a dice pool
     pub fn pool(facings: u32) -> Self {
         let dice = Box::new(move |num| dice(num, facings));
 
@@ -38,11 +45,13 @@ impl DiePool {
         }
     }
 
+    /// Calculates rolls for exploding dice (reroll the die on a certain number)
     pub fn exploding(mut self: Self, val: Option<u32>) -> Self {
         self.exploding = val;
         self
     }
 
+    /// sets the way of detrmining how a dice roll is calculated
     pub fn value(mut self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self {
         self.calculate = calc;
         self
@@ -79,6 +88,7 @@ pub fn dice(num: u32, size: u32) -> Vec<u32> {
     (0..num).map(|_| d()).collect()
 }
 
+/// Provides a default random number
 pub fn default_rng(val: u32, thresh_high: u32, thresh_low: u32) -> u32 {
     if thresh_low >= thresh_high {
         panic!(
@@ -93,10 +103,16 @@ pub fn default_rng(val: u32, thresh_high: u32, thresh_low: u32) -> u32 {
     }
 }
 
+/// id function
 pub fn id<T>(x: T) -> T {
     x
 }
 
+/// default implementation of an exploding dice pool
+/// 
+/// roll: is the already rolled dice pool
+/// thresh: is the value at which the die explodes
+/// die: is a function that takes a number of dice, and returns a roll of the dice
 pub fn explode(roll: &Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>) -> Vec<u32> {
     let mut eroll: Vec<u32> = vec![];
     for d in roll {
