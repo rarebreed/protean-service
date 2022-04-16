@@ -1,4 +1,4 @@
-use crate::{Attribute, Senses,};
+use crate::{Attribute, Senses};
 
 pub enum WeaponClass {
     Unarmed,

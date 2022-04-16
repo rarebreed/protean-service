@@ -157,7 +157,7 @@ pub struct SocialPrimaryCharacteristics {
     /// presence is silent charisma and physical magnetism
     pub presence: Attribute<f32, f32>,
     /// eloquence is a measure of how well one speaks and can influence others
-    pub eloquence: Attribute<f32, f32>
+    pub eloquence: Attribute<f32, f32>,
 }
 
 impl Default for SocialPrimaryCharacteristics {
@@ -192,7 +192,7 @@ impl Default for PrimaryCharacteristics {
     }
 }
 
-/// 
+///
 pub struct SensoryCharacteristics {
     pub sight: Attribute<f32, f32>,
     pub hearing: Attribute<f32, f32>,
