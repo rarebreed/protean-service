@@ -51,6 +51,20 @@ people in today's world feel marginalized and have great doubts about religion o
 who say that they are religious still suffer, and they claim that their faith gives them strength...but still they
 suffer just as everyone else does.
 
+The internet has become a way to spread "the message" in a way that humanity has never seen before.  Unfortunately, 
+because it is the tendency of the human mind to seek out and want the internal narrative it already has, it means that
+we can easily find stories or beliefs that hew to this narrative.  This is unfortunate, because the algorithms of the
+big companies on the internet (ie, Google, Facebook, Twitter, TikTok etc) show you things that you think you will be
+interested in based on past searches and views.  And worse, some platforms like Twitter and TikTok only give a small
+"message" to be delivered.  The shortness means that nuance and explanation can't be given, over simplifying complex
+topics into small sound bytes.  All of this has led to the internet becoming a breeding ground for new kinds of religion
+and spirituality, but kinds that do not appeal to rationality, internal consistency or pragmatism.
+
+Instead, a message of hope, of security or safety, of being a privileged few to "know" the truth, of being told that by
+following, you are one of the good guys, or told what one's purpose and meaning in life are, has become the hallmarks
+of these new "religions".  The problem, is these beliefs still do not prevent suffering, and indeed, can cause suffering
+in others.  These new religions are, I believe, further eroding the traditional older religions even faster.
+
 This sense of being lost is one of the main tenets of the story, and hence why the story itself is called _The Lost_.
 While making people realize they are lost is a major revelation in itself, it can't be all that the story is about.
 The journey to find our way back home is at least as important.

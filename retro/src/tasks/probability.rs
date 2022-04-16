@@ -121,7 +121,7 @@ pub fn exploding(roll: &mut Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>
         }
     }
 
-    let roll_more = eroll.iter().any(|result| *result <= thresh);
+    let roll_more = eroll.iter().any(|result| *result >= thresh);
     let mut exploded = if roll_more {
         let mut new_roll = exploding(&mut eroll, thresh, die);
         eroll.append(&mut new_roll);
@@ -141,8 +141,8 @@ pub fn exploding(roll: &mut Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use std::collections::HashMap;
+    use super::*;
 
     #[test]
     fn pool4d20() {
@@ -171,7 +171,7 @@ mod tests {
     #[test]
     fn average10of20() {
         let mut avg: Vec<u32> = vec![];
-        let pool = DiePool::pool(20).exploding(Some(1));
+        let pool = DiePool::pool(20).exploding(Some(20));
         for n in 0..100000 {
             let (successes, roll) = get_successes(&pool, 6, 10);
             avg.push(successes);
