@@ -26,15 +26,22 @@ do not want and in ways unimagineable to us sitting comfortably in our chairs.  
 story, by their sacrifice and heroism.  This is not some elf taking on a balrog, this is what real heroism looks like.
 Their story captivates us _despite_ it being a cold hard and ugly reality.  This is the point I want to get across with
 retro.  We have to learn that things are beyond our control, and we have to deal with it.  It is _because_ we don't
-have control that our story is enhanced, not in spite of it.
+have control of our story that it is enhanced, not in spite of it.
 
 There is no rules-lite in real life, and yet real life tells us the best stories.  There is no "I want to guide the 
 story this way" other than how you grasp the horns of life and grapple with it as best as you can.  We have forgotten
-how to accept things as they are, and instead try to cheat not only our games, but our very lives.  
+how to accept things as they are, and instead try to cheat not only our games, but our very lives.
 
 The retro game was envisioned as a return to old school rules where story is a consequence of actions that the players
-make on the stage that the GM makes.  There are no meta game rules to bend the story to your will.  But more importantly
-the _meaning_ of the story is a epiphenomenon that arises from what the _players_ take away from it.  
+make on the stage that the GM makes.  The core tenets of retro are:
+
+- There are no meta game rules to bend the story to your will
+- The _meaning_ of the story is a epiphenomenon that arises from what the _players_ take away from it
+- Characters are not always in full control of their actions, or at the very least may have to pay dearly to override
+  baser instincts.
+- Simulation derives the story, not the other way around
+- Life is harsh, and because of this character death will not be uncommon
+- Focus on troupe style play
 
 ## What is retro?
 
@@ -197,11 +204,11 @@ that so many suffer nervousness, mental breakdowns, stress, etc, is because we h
 that _happiness_ is what we should all be striving for.  And isn't _fun_ a great way to achieve "happiness"?
 
 Perhaps I'm just an oddball.  In Buddhism, seeking happiness is not what we should strive for.  Rather we should seek
-understanding, which in turn begets peace.  With happiness, like all things in life, it can be taken away from you.  If
-you are able to find peace, it can't be taken from you.  For me, the role playing sessions I treasured were not like
-fishing tales boasting of how with only 2 HP left, I was able to slay the dragon or defeat the Lich Lord.  They came
-from small moments, like watching how players would react to a little Vietnamese running up to them.  Did the little
-boy have a grenade in his hands?  Why is he running towards them?  Do I shoot first, ask questions later?
+understanding, which in turn begets peace.  Happiness, like all things in life, can be taken away from you.  If you are
+able to find peace, it can't be taken from you.  For me, the role playing sessions I treasured were not like fishing
+tales boasting of how with only 2 HP left, I was able to slay the dragon or defeat the Lich Lord.  They came from small
+moments, like watching how players would react to a little Vietnamese running up to them.  Did the little boy have a
+grenade in his hands?  Why is he running towards them?  Do I shoot first, ask questions later?
 
 It seems like we are all so desperate to feel special, to feel powerful in this crazy world, that we have forgotten that
 we are all actually the same.  And that's a good thing, not a bad thing.  I feel that all this escapism and focusing on
@@ -230,22 +237,30 @@ avid reader and buyer of games.  I still see the same designs over and over whic
 So it might be easiest to describe the things I don't like about many game systems, and how retro improves on it.
 
 - Not granular enough in attributes
+    - For example, only having 4 attributes like Strength, Intelligence, Health, and Dexterity
 - Not granular enough in attribute ratings or skill levels
+    - Example: skills ratings with only 4 levels of competence
 - Having artificial cut-offs (ie, divide by 5 and round up means people will get 13 instead of 15)
 - Dice system that are linear in probability
-- Skill systems that do not differentiate between innate and learned skills
+    - A d20 has the same odds of rolling a 1, 10, or 20
+- Skill systems that do not differentiate between talent, innate and learned skills
+    - For some, no amount of practice will make one a good singer, and learning to persuade is different than learning
+      nuclear physics
 - Complete knowledge of probability (no fog of war in determining chances)
 - Initiative systems that don't factor in courage
 - Initiative systems that only consider how soon a character can act, rather than how long the action takes
 - Lack of personality traits to enforce and/or reward character behavior
-- Character creation systems that allow choices of skills without any constraints (how did the professor get Artillery?)
+    - Why do we devote attributes to physical and mental characteristics, but not personality, beliefs, principles, etc
+- Character creation systems that allow choices of skills without any constraints 
+    - How did the rich kid professor get skill in Artillery?
 - Damage systems that are ablative rather than inhibiting
 - Damage systems that dont differentiate between different kinds of damage
 - Systems that do not take fatigue into consideration
 - Systems that claim to be generic but require reams and reams of special one-off rules
 - Combat systems that lack tactical flavor (a swing is a swing)
 - Weapons that all feel generic, because they don't have enough attributes that matter
-- No meta gaming rules (let the dice fall where they may)
+- No meta gaming rules
+    - let the dice fall where they may
 - No shared storytelling beyond the choices of the players
 
 ### Lack of Granularity in Attributes

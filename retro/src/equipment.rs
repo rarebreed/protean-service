@@ -27,11 +27,11 @@ pub enum DamageMedium {
     /// Includes poisons or caustic chemical weapons (mustard gas)
     Chemical,
     /// Non-contagious biological (eg parasites, fungi)
-    Biological
+    Biological,
 }
 
 /// Enumerates the ways structural damage can happen to a character
-/// 
+///
 /// This does not include non-structual damage, such as bleeding or asphyxiation
 pub enum StructuralDamageType {
     /// Damage to muscle such as tearing or cutting a muscle
@@ -41,7 +41,7 @@ pub enum StructuralDamageType {
     /// Ligaments, cartilage fascia and other kinds of sprains, strains and pulls
     ConnectiveTissue,
     /// Severing off of a limb
-    Severing
+    Severing,
 }
 
 /// Trauma is immediate and destructive forms of damage.  It is how damage works

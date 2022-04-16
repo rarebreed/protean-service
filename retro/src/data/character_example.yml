@@ -62,12 +62,20 @@ personality:
   adaptable: 10.0
   sociability: 10.0
   curiosity: 10.0
-  
 principles:
   honesty: 10.0
   kindness: 10.0
   selfless: 10.0
   duty: 10.0
   principled: 10.0
-status:
+lifepath:
+  age: 30
+  education:
+  - high school
+  - college:
+    - bachelors: Mathematics
+  military: None
+  law_enforcement: None
+skills:
+  - math
   

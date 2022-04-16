@@ -1,18 +1,19 @@
 //! This module describes characteristics in game terms
 
-use serde::{Deserialize, Serialize};
 
+use serde::{Deserialize, Serialize};
 use crate::{
     Attribute,
     CharacteristicType::{
-        self, MentalPrimaryCharacteristics as Mental, 
+        self,
+        MentalPrimaryCharacteristics as Mental,
         PrimaryCharacteristics as Primary,
-        // Principle as PrincipalType, 
-        // Personality as PersonalityType, 
+        // Principle as PrincipalType,
+        // Personality as PersonalityType,
         // SecondaryCharacteristics as Secondary,
         SocialCharacteristics as Social,
     },
-    Ranged::{self, Spectrum, Categorized},
+    Ranged::{self, Categorized, Spectrum},
     Trait,
 };
 
@@ -172,7 +173,7 @@ pub enum SocialCategories {
     /// On the lower end of social or economic power
     Lower,
     /// Criminals, or others that most society deems undesirable
-    Stigmatized
+    Stigmatized,
 }
 
 impl Default for SocialPrimaryCharacteristics {
@@ -186,7 +187,7 @@ impl Default for SocialPrimaryCharacteristics {
         SocialPrimaryCharacteristics {
             comeliness: Attribute::new("comliness".into(), 0.0, Social, range.clone()),
             presence: Attribute::new("presence".into(), 0.0, Social, range.clone()),
-            standing: Attribute::new("standing".into(), 0.0, Social, category)
+            standing: Attribute::new("standing".into(), 0.0, Social, category),
         }
     }
 }
@@ -195,9 +196,9 @@ impl Default for SocialPrimaryCharacteristics {
 pub struct PrimaryCharacteristics {
     /// All the PhysicalPrimaryCharacteristics
     pub physical: PhysicalPrimaryCharacteristics,
-    /// All the 
+    /// All the
     pub mental: MentalPrimaryCharacteristics,
-    /// All the 
+    /// All the
     pub social: SocialPrimaryCharacteristics,
 }
 

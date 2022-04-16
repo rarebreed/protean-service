@@ -25,7 +25,7 @@ pub enum CharacteristicType {
 
 /// A Trait is a trait for specifying what you can do with generic data
 ///
-/// Many values that make up a character, or other entities like weapons, vehicles, or gadgets are built by implementing
+/// Many values that make up a character, or entities like weapons, vehicles, or gadgets are built by implementing
 /// this trait
 pub trait Trait {
     /// the actual score or rating of a Trait
@@ -63,11 +63,11 @@ pub trait Trait {
 /// Specifies the range that an Attribute can take
 pub enum Ranged<T> {
     /// An Attribute that varies across a range of values with a min and max (inclusive)
-    Spectrum { 
+    Spectrum {
         /// The minimum value in the spectrum (inclusive)
-        min: T, 
+        min: T,
         /// The maximumu value of the spectrum (inclusive)
-        max: T 
+        max: T,
     },
     /// An Attribute which can take on an enumerated selection of values
     /// FIXME: I kind of need a higher kinded type here or GAT.  Ie, Categorized(DamageEffects)
@@ -202,7 +202,8 @@ pub enum Senses {
     Taste,
 }
 
-pub mod characteristics;
+/// Module that defines a character
+pub mod character;
 pub mod equipment;
 /// Module that defines how tashs in the game works
 pub mod tasks;

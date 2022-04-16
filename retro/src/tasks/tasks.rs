@@ -215,5 +215,5 @@ pub enum TaskType {
     /// Tasks that involve more than one character
     Team,
     /// Normal tasks are all opposed, even against just the environment
-    Normal, 
+    Normal,
 }

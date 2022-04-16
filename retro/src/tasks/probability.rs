@@ -1,5 +1,5 @@
 //! Tasks define how actions are resolved
-//! 
+//!
 //! Die examples:
 //!
 //! let simpleD6 = die(6)
@@ -109,7 +109,7 @@ pub fn id<T>(x: T) -> T {
 }
 
 /// default implementation of an exploding dice pool
-/// 
+///
 /// roll: is the already rolled dice pool
 /// thresh: is the value at which the die explodes
 /// die: is a function that takes a number of dice, and returns a roll of the dice
