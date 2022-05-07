@@ -1,6 +1,7 @@
 //! Tasks define how actions are resolved
 //! Die examples:
 //!
+//! ```
 //! let simpleD6 = die(6)
 //! let roll = simpleD6.roll(10)
 //!
@@ -10,6 +11,7 @@
 //!      default_rng(5, 2)
 //!   })
 //!   .roll(10)
+//! ```
 
 use rand::Rng;
 
