@@ -4,6 +4,95 @@ Because I have always been fond of simulation style games, combat is a large par
 really just a specialized and detailed type of Task Resolution.  As in all Task Resolutions, it is a contested system.
 Even ranged combat is a contested roll.
 
+## Aspects of combat
+
+Most games only factor in skill of the adversaries, how fast they are, weapon damage and armor. They either don't
+consider, or have many of these aspects of combat bolted on in a very ad-hoc manner
+
+- Morale: If you are scared, you aren't going to be as effective
+- Aggressiveness: "It's not the size of the dog in the fight, it's the size of the fight in the dog"
+- Fatigue: It doesn't matter how skilled you are, if you are too tired to move
+- Damage: Wounds, concussions, broken limbs, pain and other damage effects can drastically reduce effectiveness
+- Reach: If your weapon can't reach your target, you have to get into range (which can be difficult and takes time)
+- Time: How fast does your (re)action take?  A jab will connect faster than a spinning round house
+- Reliability: Especially for modern weapons, how prone is your weapon to failure?
+
+Some will argue that this is too much minutae to keep track of, and will bog down the "fun" of the game.  I will argue
+that without consideration of these elements, the narrative value of the action is lost, and perhaps worse, the
+unrealism will tar victories with a poor brush.  I will also argue that many systems _do_ address many of the above
+aspects, but do so in an ad-hoc bolted on and therefore incongruous way.  If it is done smartly, I believe that all the
+above can be factored in and make combat much more visceral and even exciting, exactly because it is more realistic.
+
+## Morale
+
+We all would like to think our character would bravely face down a horde of orcs, enemy soldiers or whatever your
+nemesis happens to be.  But the fact is, having a character essentially be immune to fear cheapens the very heroism
+they are supposed to have.  Nothing is valuable without sacrifice...and this includes having to pay for overcoming one's
+fears.
+
+Many factors can play into morale.  A substantial part of morale comes from:
+
+- Psyche: your personality traits (especially egocentricity)
+- Principles: how you believe you should live your life
+- Training: A sense of duty and obligation, or cultural way of life
+
+If your homeland or town is being razed to the ground, it can throw thoughts of one's own death to the winds if you are
+the type that is patriotic or humanitarian.  If your character is the self-centered type (a very high ego) your
+character may feel that everyone else is unimportant except one's own skin.
+
+Morale is lowered under several circumstances:
+
+- When 25% of your party is down
+- When 50% of your party is down
+- When 75% of your party is down
+- When you are outnumbered 2 to 1 (in terms of equivalent strength, not just quanity)
+- When you are outnumbered 3 to 1
+- When you are outnumbered 4 or more to 1
+- When your leader is taken out or unreachable
+- When your headquarters is overrun
+- (For modern) when you are down to 20% ammunition
+- When your most powerful attacks are (apparently) doing nothing
+- When you start out fatigued
+
+### Base morale
+
+Morale is determined by:
+
+```
+
+```
+
+### Conditions of morale
+
+There are 5 conditions of morale
+
+- High: You and your team is eager and ready to attack.  Advantage to aggression
+- Steady: The default condition.  Your character is ready and willing to fight and be agressive.
+- Wavering: You are holding and can still attack, but penalty to aggression and offensive attacks
+- Broken: You can no longer attack and must withdraw.  Can perform covering fire/supression only
+- Panic: Full blown route, your only action is to turn your back and flee
+
+When you have **High** morale, your character is chomping at the bit to fight.  There is a +1 bonus for aggressive
+actions (taking the fight to the enemy to try to put them off guard)
+
+For **Steady** morale, your character is in the fight and equally capable of both offensive and defensive techniques.
+
+At **Wavering** morale, your character is starting to wonder if they are going to lose.  There is a -1 bonus for any
+offensive techniques, and the character switches to a defensive mode.
+
+At **Broken** morale, your character will try to disengage from combat in the most effective way possible. No actively
+offensive techniques are possible.  If attacked physically, the character can perform passively offensive maneuvers
+(counter blocks, trips, disarms, throws, etc), but at a -2 rating.  Dodges and other maneuver-to-position moves are
+possible without any ill-effects.
+
+When in **Panic**, the character must flee at the maximum speed possible.  This even means turning one's back to the
+enemy!  A roll can be made here to surrender to see if the character realizes that is hopeless (eg the enemy can move
+faster than he can).
+
+### Rolling for morale
+
+
+
 ## Melee combat
 
 Most combat in RPG's are not realistic or even narratively interesting at all.  Most games typically allow each

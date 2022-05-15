@@ -123,6 +123,7 @@ pub fn dice(num: u32, size: u32) -> Vec<u32> {
     (0..num).map(|_| d()).collect()
 }
 
+/// Returns 2 if val >= thresh_high, 1 if val <= thresh_low, and 0 otherwise  
 pub fn default_rng(val: u32, thresh_high: u32, thresh_low: u32) -> u32 {
     if thresh_low >= thresh_high {
         panic!(
@@ -137,6 +138,7 @@ pub fn default_rng(val: u32, thresh_high: u32, thresh_low: u32) -> u32 {
     }
 }
 
+/// Identity function (passthrough)
 pub fn id<T>(x: T) -> T {
     x
 }
