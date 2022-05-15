@@ -3,7 +3,7 @@
 //!
 //! ```
 //! use retro::tasks::probability::{default_rng, die, DieTraits, DiePool};
-//! 
+//!
 //! let simpleD6 = die(6);
 //! let roll = simpleD6();
 //! println!("roll is {roll}");
@@ -13,7 +13,7 @@
 //!   .value(Box::new(|amt| {
 //!      default_rng(amt, 5, 2)
 //!   }));
-//! 
+//!
 //! let roll =  d6.roll(10);
 //! println!("roll is {roll:#?}");
 //! ```
