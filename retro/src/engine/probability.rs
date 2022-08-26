@@ -236,8 +236,9 @@ mod tests {
             println!("{}: Successes = {} from {:?}", n, successes, roll);
         }
 
-        let sum_avg = avg.iter().fold(0u32, |acc, next| acc + next) as f32;
-        let calc_avg = sum_avg / 100.0;
+        //let sum_avg = avg.iter().fold(0u32, |acc, next| acc + next) as f32;
+        let sum_avg: u32 = avg.iter().sum();
+        let calc_avg = sum_avg as f32 / 100.0;
         println!("Sum = {}, Calculated average is {}", sum_avg, calc_avg);
 
         let mut scores: HashMap<u32, u32> = HashMap::new();
