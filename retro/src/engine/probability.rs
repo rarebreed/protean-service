@@ -203,7 +203,7 @@ mod tests {
     #[test]
     fn pool4d20() {
         println!("Testing pool");
-        let pool = DiePool::pool(20).exploding(Some(2));
+        let pool = DiePool::pool(20).exploding(Some(19));
         let roll = pool.roll(4);
 
         println!("roll {:?}", roll);
