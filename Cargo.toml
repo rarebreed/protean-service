@@ -7,3 +7,5 @@ members = [
 exclude = [
   "kubernetes"
 ]
+
+resolver = "2"
