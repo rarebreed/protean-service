@@ -208,7 +208,7 @@ pub enum TaskType {
 pub trait DieTraits {
     // fn value(self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self;
     // fn exploding(self: Self, opt: Option<u32>) -> Self;
-    fn roll(self: &Self, num: u32) -> Vec<u32>;
+    fn roll(&self, num: u32) -> Vec<u32>;
 }
 
 pub struct DiePool {
@@ -230,19 +230,19 @@ impl DiePool {
         }
     }
 
-    pub fn exploding(mut self: Self, val: Option<u32>) -> Self {
+    pub fn exploding(mut self, val: Option<u32>) -> Self {
         self.exploding = val;
         self
     }
 
-    pub fn value(mut self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self {
+    pub fn value(mut self, calc: Box<dyn Fn(u32) -> u32>) -> Self {
         self.calculate = calc;
         self
     }
 }
 
 impl DieTraits for DiePool {
-    fn roll(self: &Self, num: u32) -> Vec<u32> {
+    fn roll(&self, num: u32) -> Vec<u32> {
         let dice_roll = (self.dice)(num);
         dice_roll
             .into_iter()

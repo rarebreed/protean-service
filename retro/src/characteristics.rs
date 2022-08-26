@@ -24,31 +24,31 @@ impl Trait for Psyche {
     type Range = f32;
     type Parent = CharacteristicType;
 
-    fn name(self: &Self) -> &str {
+    fn name(&self) -> &str {
         &self.attr.name
     }
 
-    fn set_value(self: &mut Self, val: Self::Value) -> () {
+    fn set_value(&mut self, val: Self::Value) {
         self.attr.value = val;
     }
 
-    fn value(self: &Self) -> &Self::Value {
+    fn value(&self) -> &Self::Value {
         &self.attr.value
     }
 
-    fn set_value_range(self: &mut Self, range: Ranged<Self::Range>) -> () {
+    fn set_value_range(&mut self, range: Ranged<Self::Range>) {
         self.attr.range = range;
     }
 
-    fn value_range(self: &Self) -> &Ranged<Self::Range> {
+    fn value_range(&self) -> &Ranged<Self::Range> {
         &self.attr.range
     }
 
-    fn parent(self: &Self) -> &Self::Parent {
+    fn parent(&self) -> &Self::Parent {
         &self.attr.parent
     }
 
-    fn set_parent(self: &mut Self, parent: Self::Parent) -> () {
+    fn set_parent(&mut self, parent: Self::Parent) {
         self.attr.parent = parent;
     }
 
@@ -61,7 +61,7 @@ impl Trait for Psyche {
 }
 
 /// The PhysicalPrimaryCharacteristics describes character attributes that are expressed physically in the real world
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct PhysicalPrimaryCharacteristics {
     /// speed is a measure of how quickly one can move.  It is a combination of reflexes and quickness
     pub speed: Attribute<f32, f32>,
@@ -94,7 +94,7 @@ impl Default for PhysicalPrimaryCharacteristics {
             dexterity: Attribute::new("dexterity".into(), 0.0, Primary, range.clone()),
             kinesthesis: Attribute::new("kinesthesis".into(), 0.0, Primary, range.clone()),
             health: Attribute::new("health".into(), 0.0, Primary, range.clone()),
-            fitness: Attribute::new("fitness".into(), 0.0, Primary, range.clone()),
+            fitness: Attribute::new("fitness".into(), 0.0, Primary, range),
             mass: Attribute {
                 name: "mass".into(),
                 value: 70.0f32,
@@ -118,6 +118,7 @@ impl Default for PhysicalPrimaryCharacteristics {
 }
 
 /// MentalPrimaryCharacteristics covers attributes that are of the mind in nature
+#[derive(Serialize, Deserialize, Debug)]
 pub struct MentalPrimaryCharacteristics {
     /// memory is a measure of recall, and how well a character remembers things
     pub memory: Attribute<f32, f32>,
@@ -146,11 +147,13 @@ impl Default for MentalPrimaryCharacteristics {
             insight: Attribute::new("insight".into(), 0.0, Mental, range.clone()),
             creativity: Attribute::new("creativity".into(), 0.0, Mental, range.clone()),
             discipline: Attribute::new("discipline".into(), 0.0, Mental, range.clone()),
-            focus: Attribute::new("focus".into(), 0.0, Mental, range.clone()),
+            focus: Attribute::new("focus".into(), 0.0, Mental, range),
         }
     }
 }
 
+/// The main social characteristics that influence other people's behavior or attitudes
+#[derive(Serialize, Deserialize, Debug)]
 pub struct SocialPrimaryCharacteristics {
     /// comelines measure physical beauty (by the default society's standards)
     pub comeliness: Attribute<f32, f32>,
@@ -170,27 +173,19 @@ impl Default for SocialPrimaryCharacteristics {
         SocialPrimaryCharacteristics {
             comeliness: Attribute::new("comliness".into(), 0.0, Social, range.clone()),
             presence: Attribute::new("presence".into(), 0.0, Social, range.clone()),
-            eloquence: Attribute::new("eloquence".into(), 0.0, Social, range.clone()),
+            eloquence: Attribute::new("eloquence".into(), 0.0, Social, range),
         }
     }
 }
 
 /// The PrimaryCharacteristics are the most looked at and salient attributes of a character
+#[derive(Serialize, Deserialize, Debug)]
 pub struct PrimaryCharacteristics {
     pub physical: PhysicalPrimaryCharacteristics,
     pub mental: MentalPrimaryCharacteristics,
     pub social: SocialPrimaryCharacteristics,
 }
 
-impl Default for PrimaryCharacteristics {
-    fn default() -> Self {
-        PrimaryCharacteristics {
-            physical: PhysicalPrimaryCharacteristics::default(),
-            mental: MentalPrimaryCharacteristics::default(),
-            social: SocialPrimaryCharacteristics::default(),
-        }
-    }
-}
 
 ///
 pub struct SensoryCharacteristics {

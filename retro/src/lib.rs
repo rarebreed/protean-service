@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub enum CharacteristicType {
     PrimaryCharacteristics,
     SecondaryCharacteristics,
@@ -23,18 +23,18 @@ pub trait Trait {
     type Parent;
 
     /// the name is a read-only field, so there's only a getter
-    fn name(self: &Self) -> &str;
+    fn name(&self) -> &str;
 
     /// The value is a _score_ defining some value on a Range.  The Range has a range defined as a Tuple of a
     /// minimum and a maximum (if the upper has a value), or an enum defining possible values
-    fn set_value(self: &mut Self, val: Self::Value) -> ();
-    fn value(self: &Self) -> &Self::Value;
-    fn set_value_range(self: &mut Self, range: Ranged<Self::Range>) -> ();
-    fn value_range(self: &Self) -> &Ranged<Self::Range>;
+    fn set_value(&mut self, val: Self::Value);
+    fn value(&self) -> &Self::Value;
+    fn set_value_range(&mut self, range: Ranged<Self::Range>);
+    fn value_range(&self) -> &Ranged<Self::Range>;
 
     /// The Parent category of a Trait
-    fn parent(self: &Self) -> &Self::Parent;
-    fn set_parent(self: &mut Self, parent: Self::Parent) -> ();
+    fn parent(&self) -> &Self::Parent;
+    fn set_parent(&mut self, parent: Self::Parent);
 
     /// Some values are determined randomnly, but there is always a cost/value associated with the trait/value
     fn cost<F>(val: Self::Value, fun: F) -> f32
@@ -42,7 +42,7 @@ pub trait Trait {
         F: Fn(Self::Value) -> f32;
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 /// Specifies the range that an Attribute can take
 pub enum Ranged<T> {
     /// An Attribute that varies across a range of values with a min and max (inclusive)
@@ -58,7 +58,7 @@ pub enum Ranged<T> {
 ///
 /// The most common use of Attributes is to define a character's Characteristics, for example speed or wit.  It is also
 /// commonly used to define other statistics, like a weapon's damage, or weight.
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Attribute<T, R>
 where
     T: Into<f32>,
@@ -92,7 +92,7 @@ where
         }
     }
 
-    pub fn cost(self: &Self) -> f32 {
+    pub fn cost(&self) -> f32 {
         0.0
     }
 }
@@ -105,31 +105,31 @@ where
     type Range = R;
     type Parent = CharacteristicType;
 
-    fn name(self: &Self) -> &str {
+    fn name(&self) -> &str {
         &self.name
     }
 
-    fn set_value(self: &mut Self, val: Self::Value) -> () {
+    fn set_value(&mut self, val: Self::Value) {
         self.value = val;
     }
 
-    fn value(self: &Self) -> &Self::Value {
+    fn value(&self) -> &Self::Value {
         &self.value
     }
 
-    fn set_value_range(self: &mut Self, range: Ranged<Self::Range>) -> () {
+    fn set_value_range(&mut self, range: Ranged<Self::Range>) {
         self.range = range;
     }
 
-    fn value_range(self: &Self) -> &Ranged<Self::Range> {
+    fn value_range(&self) -> &Ranged<Self::Range> {
         &self.range
     }
 
-    fn parent(self: &Self) -> &Self::Parent {
+    fn parent(&self) -> &Self::Parent {
         &self.parent
     }
 
-    fn set_parent(self: &mut Self, parent: Self::Parent) -> () {
+    fn set_parent(&mut self, parent: Self::Parent) {
         self.parent = parent;
     }
 
@@ -163,5 +163,5 @@ pub enum Senses {
 }
 
 pub mod characteristics;
+pub mod engine;
 pub mod equipment;
-pub mod tasks;

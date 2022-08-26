@@ -4,11 +4,54 @@ Because I have always been fond of simulation style games, combat is a large par
 really just a specialized and detailed type of Task Resolution.  As in all Task Resolutions, it is a contested system.
 Even ranged combat is a contested roll.
 
+But what really separates combat in retro is the detail and level of choice in combat compared to other systems. 
+Almost everything about combat in retro is different compared to mainstream RPG's.  I know this system will not be for 
+everyone, but for those who are into detail, crunch and simulation, I hope this will feel right at home.
+
+## Aspects of combat
+
+So what makes retro different?
+
+Most games only factor in skill of the adversaries, how fast they are, weapon damage and armor. Most games typically
+do combat along these lines:
+
+- Determine who has initiative, so that their actions go first or can preempt others
+- Choose an action (some kind of attack or feat)
+- One being attacked can determine some kind of active or passive defense if possible
+- Determine odds of attacker hitting
+- If hit, roll for damage, possibly rolling for hit location
+- The character with the next initiative repeats the above
+
+Most games don't consider (or bolt them on in a very ad-hoc manner) any of the following:
+
+- Morale: If you are scared, you aren't going to be as effective
+- Aggressiveness: "It's not the size of the dog in the fight, it's the size of the fight in the dog"
+- Fatigue: It doesn't matter how skilled you are, if you are too tired to move
+- Damage: Wounds, concussions, broken limbs, pain and other damage effects can drastically reduce effectiveness
+- Reach: If your weapon can't reach your target, you have to get into range (which can be difficult and takes time)
+- Time: How fast does your (re)action take?  A jab will connect faster than a spinning round house
+- Reliability: Especially for modern weapons, how prone is your weapon to failure?
+
+Some will argue that factoring in the above is too much minutiae to keep track of, and will bog down the "fun" of the
+game.  I will argue that without consideration of these elements, the narrative value of the action is lost, and perhaps
+worse, the unrealism will tar victories with a poor brush.  Some will argue that many systems _do_ address many of the
+above aspects, but I feel when they are factored in, they are handled in an indirect ad-hoc way with special rules
+bolted on (think Feats or Advantages in many systems) and therefore are handled in an incongruous way.  If it is done
+smartly and consistently, I believe that all the above can be factored in with the added benfits if:
+
+- make combat much more visceral and even exciting by having more tactical choices
+- the realism will make victory all the more sweet
+- the added complexity will be compensated for by consistent rules
+- while each combat "turn" will be longer, time spent in combat overall will be the same due to it being more deadly
+- will make characters think twice about combat to resolve things
+
 ## Design philosophy of combat in retro
 
 Most combat in RPG's are not realistic or even narratively interesting at all.  Most games typically allow each
 participant in the combat an equal number of actions and reactions.  And even games that let characters have more
-actions than others still allow automatic defensive reactions, and generally apply an evenness to combat.
+actions than others still allow automatic defensive reactions, and generally apply an evenness or "fairness" to combat.
+Combat however, is anything but fair, and if you are playing fair, either you are in a duel, or doing it wrong.  Most
+games show this fairness by trading action for action:
 
 ```
 Character A attacks
@@ -17,30 +60,38 @@ NPC B attacks
 Character A blocks/didges
 ```
 
-This is not only unrealistic it is boring.  How many boxing matches or UFC fights do you see alternating like that?
+This is not only unrealistic, it is boring.  How many boxing matches or UFC fights do you see alternating like that?
 None.  In the real world, opponents size each other up, and then unleash a flurry of attacks, stopping only to rest,
 regain balance, or because the defender was able to counter and seize the initiative (for example, trapping the attack,
 sweeping, or side stepping out of the line of attack).  Or maybe one combatant only throws out an exploratory jab or
 thrust, perhaps as a feint, or perhaps to judge his opponents reflexes, and the other combatant may still just hold, 
 waiting for an opening to attack...or maybe escape.  
 
-Many fans of other game systems will simply tell you that all of the above _is_ happening in those games, and the turn
-and initiative system simply abstracts it away.  In other words, a roll of the dice doesn't reflect a _single_ blow or a
-single defense, but the rolls are an abstraction of one or more attacks or defenses, and the result of the dice is the
-sum effect of the actions.  And yet, how often is the narrative described that way?  Also, even if the above is true,
-why does each side effectively always get to attack and defend?  That is not how real fights work, as when you hear in
-boxing "he's got him on the ropes", "he's on his last legs", "the enemy has seized the initiative", "the enemy is on the
-run", etc etc.
+In the latter scenario where a defender only defends, what is in it for him game-wise?  All he has done is allow the
+attacker a shot.  Without rules for fatigue, or looking for openings, there is absolutely no reason from a meta game
+perspective for a character to ever hold back attacks.  Or maybe the rules system in some other games gives a special
+rule (ala a Feat or Advantage) where if they defend for one round, they gain some kind of tactical advantage.  But
+then you have to lean the umpteen million special Feat rules, and how they interact with combat.  I will argue that 
+although retro initially looks more complex, in the long run it is actually simpler, because there are less special
+rules you need to learn or keep track of.
 
-The way virtually every combat system works, is the assailants stand their ground, and trade blow for blow until someone
+Going back to the example fight, many fans of other game systems will simply tell you that all of the above _is_
+happening in those games, but the turn and initiative system simply abstracts it away.  In other words, a roll of the
+dice doesn't reflect a _single_ blow or a single defense.  Instead, the rolls are an abstraction of one or more attacks
+or defenses, and the result of the dice is the sum effect of the actions.  And yet, how often is the narrative described
+that way?  Also, even if the above is true, why does each side effectively always get to attack and defend?  That is not
+how real fights work, as when you hear in boxing "he's got him on the ropes", "he's on his last legs", "the enemy has
+seized the initiative", "the enemy is on the run", etc etc.
+
+The way virtually every combat system works, is the combatants stand their ground, and trade blow for blow until someone
 gets a good shot in (ie, a good dice roll).  And if you argue that the combat is abstracted away, and the combatants are
 jockeying for advantageous position, sizing each other up, stepping back to take a breath etc, how often is that
-actually described?  I argue that you have just abstracted not only half of the fun away (tactical decision making) but
-also half the storytelling and half the reward of victory (by making good choices, rather than letting the dice abstract
+actually described?  I argue that you have just abstracted not only alot of the fun away (tactical decision making) but
+also much of the storytelling and the reward of victory (by making good choices, rather than letting the dice abstract
 it away).  Wouldn't you rather actually make those distinctions _in the game rules_ rather than (forget) to make them up
 as flowery description?
 
-The most common argument against such crunchy rules, is that it makes combat take longer and thus takes away from the
+The most common argument against such crunchy rules is that it makes combat take longer and thus takes away from the
 story by focusing too much time on combat.  Though combat will take more time due to this level of simulation, I feel it
 is a worthwhile trade.  As I mentioned earlier, I think it is actually better for storytelling than the too abstracted
 combat systems of other games.  I also will argue that victory will feel more sweet, because you have put more thought
@@ -58,15 +109,17 @@ should be killed very easily.  The old tired excuse is that hit points reflect s
 characters, who are therefore able to turn a mighty blow into, essentially a scratch.  But over time, due to fatigue
 and "luck running out", eventually even very experienced characters will eventually succumb to their wounds.
 
-This is horse crock.  Why then are their rules about number of hit points healed per day?  So it takes longer for a 
+This is horse crock.  Why then are there rules about number of hit points healed per day?  So it takes longer for a 
 character with high hit points to be healed because....it takes longer to heal their luck?  It's an abstraction so 
-leaky, that a little Dutch boy would feel at home.  But, because it has such a long hold in the industry, that most
-players dont give it a second thought.
+leaky, that a little Dutch boy would feel at home.  But, because it has such a long hold in the industry, most players 
+dont give it a second thought.
 
 Some game systems have moved away from Hit Points, or at least a single "bag" of HP.  In retro, HP is replaced the 
 notion of damage tracks, with different kinds of damage.  It also pays a lot of attention to conditions and affects of
 damage types.
 ```
+
+## Combat factors
 
 Considerations of fatigue, distancing, aggressiveness, morale, psychology and looking for openings is almost never
 considered in games.  Retro is different, and many subtleties of combat are considered.  Most games dont factor in:
@@ -75,7 +128,7 @@ considered in games.  Retro is different, and many subtleties of combat are cons
 - Distancing between opponents
 - Facing or positioning of opponents
 - How fatiguing is the maneuver?
-- How fast is the attack?
+- How fast will the attack hit (not who started first)?
 - How to take advantage of openings
 - How to take advantage of telegraphing
 - Simultaneous attacks
@@ -83,10 +136,17 @@ considered in games.  Retro is different, and many subtleties of combat are cons
 - Motivation to fight
 - Emotional state
 
+## Example of a melee fight
+
+Before going too deep, let's give an example of a fight
+
+1. Determine psychological state
+2. 
+
 ## Psychological state of combat
 
-Combat is greatly affected by the psychological state of the fighters.  A fighter's mind and will to fight will often
-be defeated before his body.
+Combat is greatly affected by the psychological state of the fighters.  The fighter's mind and will to fight will often
+be defeated before the body.
 
 ### Motivation
 
@@ -100,16 +160,132 @@ rear guard to allow your comrades to escape, you will be much
 
 Some people are just more aggressive or violent than others.  Others are just more scrappy, and have a love of fighting.
 As Churchill famously said, "It's not the size of the dog in the fight, but the size of the fight in the dog".
-Conversely, some people are timid, meek, or even cowardly, and either have no heart to harm others, or are scared too
+Conversely, some people are timid, meek, or even cowardly, and either have no heart to harm others, or are scared, too
 afraid of harm being done to themselves.
 
-Essentially aggressiveness is the balance or ratio of willing to do harm to others, vs willingness to be harmed.  The
-higher this ratio is, the more you want to "dish it out".  The lower this ratio, the more defensive you become.
+Essentially, aggressiveness is the balance or ratio of desire to do harm to others, vs willingness to be harmed.  The
+higher this ratio is, the more you want to "dish it out".  The lower this ratio, the more defensive you become.  Notice
+the use of the words _desire_ and _willing_.  A character may be very willing and able to do harm to other NPCs, but
+may not have a particular _desire_ to do so.  A berserker can have a high aggression, where an assassin, who is more
+than willing or capable to kill someone, won't be aggressive unless there is a purpose or job for example.
 
-So aggressions is rated as Harm Other/Protect Self.  If you have a low Protect:Self, then it means you are willing to
-sacrifice yourself.
+Aggressiveness is rated as Harm Other/Self Protection.  If you have a low Protect:Self, then it means you are more
+willing to sacrifice yourself or commit harm upon yourself to achieve some goal.  Think for example of suicide bombers
+or kamikaze pilots. 
+
+But how do we determine this score, and does it change over time?
+
+#### How the balance changes
+
+This is where a Character's psyche and personality traits come into play.  
+
+Aggression will have a starting value based on two factors:
+
+```
+Personality and Situation
+```
+
+Some people are naturally more aggressive than others and this will be indicated as part of their personality.  Note
+that aggression isn't just physical.  A highly aggressive person is also quick to launch insults or be emotionally
+aggressive as well.  It all comes as a package.  Situation is context dependent and so must be judged on the spot.
+
+Situational modifiers include things like hatred of another race, political group, religion or other faction.  It can
+also be lessened as well, like if your character has a sense of honor, and the opponent is somehow at a disadvantage.
+Seeing suffering can also sometimes lessen aggression.  What can trigger these is left to GM discretion, but should
+take into account the Psyche and Personality traits.
+
+For example, Rage can drastically increase both Harm:Other and lower Self:Protect simultaneously.  Selfishness or
+cowardly traits can also dramatically raise Self:Protect and reduce Harm:Other.  Being wounded typically puts one into
+survival mode, thus increasing Self:Protect.
+
+Training, discipline and personality traits can affect when and how much these values change.
+
+| Trigger              | Check  
+|----------------------|--------
+| Being wounded        |
+| Good friend wounded  | 
+| Loved one attacked   |
+| Loved one wounded    |
+| Insulted             |
+| Humiliated           |
+| Seeing suffering     |
+
 
 **TODO** What are the game mechanics for this?
+
+#### Effects of aggression
+
+### Morale
+
+We all would like to think our character would bravely face down a horde of orcs, enemy soldiers or whatever your
+nemesis happens to be.  But the fact is, having a character essentially be immune to fear cheapens the very heroism
+they are supposed to have.  Nothing is valuable without sacrifice...and this includes having to pay for overcoming one's
+fears.
+
+Many factors can play into morale.  A substantial part of morale comes from:
+
+- Psyche: your personality traits (especially egocentricity)
+- Principles: how you believe you should live your life
+- Training: A sense of duty and obligation, or cultural way of life
+
+If your homeland or town is being razed to the ground, it can throw thoughts of one's own death to the winds if you are
+the type that is patriotic or humanitarian.  If your character is the self-centered type (a very high ego) your
+character may feel that everyone else is unimportant except one's own skin.
+
+Morale is lowered under several circumstances:
+
+| Trigger                      | Effect
+|------------------------------|------------
+| 25% of your party is down    | -1
+| 50% of your party is down    | -2
+| 75% of your party is down    | -3
+| outnumbered 2 to 1           | -1
+| outnumbered 3 to 1           | -2  
+| outnumbered > 4 to 1         | -3
+| leader is unreachable        | -1
+| headquarters is overrun      | -3
+| (Modern) down to 20% ammo    | -2
+| attacks are doing nothing    | -3
+| start out fatigued           | -1
+
+### Base morale
+
+Morale is determined by:
+
+```
+
+```
+
+### Conditions of morale
+
+There are 5 conditions of morale
+
+- High: You and your team is eager and ready to attack.  Advantage to aggression
+- Steady: The default condition.  Your character is ready and willing to fight and be agressive.
+- Wavering: You are holding and can still attack, but penalty to aggression and offensive attacks
+- Broken: You can no longer attack and must withdraw.  Can perform covering fire/supression only
+- Panic: Full blown route, your only action is to turn your back and flee
+
+When you have **High** morale, your character is chomping at the bit to fight.  There is a +1 bonus for aggressive
+actions (taking the fight to the enemy to try to put them off guard)
+
+For **Steady** morale, your character is in the fight and equally capable of both offensive and defensive techniques.
+
+At **Wavering** morale, your character is starting to wonder if they are going to lose.  There is a -1 bonus for any
+offensive techniques, and the character switches to a defensive mode.
+
+At **Broken** morale, your character will try to disengage from combat in the most effective way possible. No actively
+offensive techniques are possible.  If attacked physically, the character can perform passively offensive maneuvers
+(counter blocks, trips, disarms, throws, etc), but at a -2 rating.  Dodges and other maneuver-to-position moves are
+possible without any ill-effects.
+
+When in **Panic**, the character must flee at the maximum speed possible.  This even means turning one's back to the
+enemy!  A roll can be made here to surrender to see if the character realizes that is hopeless (eg the enemy can move
+faster than he can).
+
+### Rolling for morale
+
+**TODO** how does game mechanics work for morale?
 
 
 ## Melee combat
