@@ -101,9 +101,9 @@ pub struct DamageClass {
     pub power: f32,
 }
 
-impl Into<f32> for DamageClass {
-    fn into(self) -> f32 {
-        self.power
+impl From<DamageClass> for f32 {
+    fn from(dc: DamageClass) -> Self {
+        dc.power
     }
 }
 
