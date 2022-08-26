@@ -24,31 +24,31 @@ impl Trait for Psyche {
     type Range = f32;
     type Parent = CharacteristicType;
 
-    fn name(self: &Self) -> &str {
+    fn name(&self) -> &str {
         &self.attr.name
     }
 
-    fn set_value(self: &mut Self, val: Self::Value) -> () {
+    fn set_value(&mut self, val: Self::Value) {
         self.attr.value = val;
     }
 
-    fn value(self: &Self) -> &Self::Value {
+    fn value(&self) -> &Self::Value {
         &self.attr.value
     }
 
-    fn set_value_range(self: &mut Self, range: Ranged<Self::Range>) -> () {
+    fn set_value_range(&mut self, range: Ranged<Self::Range>) {
         self.attr.range = range;
     }
 
-    fn value_range(self: &Self) -> &Ranged<Self::Range> {
+    fn value_range(&self) -> &Ranged<Self::Range> {
         &self.attr.range
     }
 
-    fn parent(self: &Self) -> &Self::Parent {
+    fn parent(&self) -> &Self::Parent {
         &self.attr.parent
     }
 
-    fn set_parent(self: &mut Self, parent: Self::Parent) -> () {
+    fn set_parent(&mut self, parent: Self::Parent) {
         self.attr.parent = parent;
     }
 
@@ -94,7 +94,7 @@ impl Default for PhysicalPrimaryCharacteristics {
             dexterity: Attribute::new("dexterity".into(), 0.0, Primary, range.clone()),
             kinesthesis: Attribute::new("kinesthesis".into(), 0.0, Primary, range.clone()),
             health: Attribute::new("health".into(), 0.0, Primary, range.clone()),
-            fitness: Attribute::new("fitness".into(), 0.0, Primary, range.clone()),
+            fitness: Attribute::new("fitness".into(), 0.0, Primary, range),
             mass: Attribute {
                 name: "mass".into(),
                 value: 70.0f32,
@@ -146,7 +146,7 @@ impl Default for MentalPrimaryCharacteristics {
             insight: Attribute::new("insight".into(), 0.0, Mental, range.clone()),
             creativity: Attribute::new("creativity".into(), 0.0, Mental, range.clone()),
             discipline: Attribute::new("discipline".into(), 0.0, Mental, range.clone()),
-            focus: Attribute::new("focus".into(), 0.0, Mental, range.clone()),
+            focus: Attribute::new("focus".into(), 0.0, Mental, range),
         }
     }
 }
@@ -170,7 +170,7 @@ impl Default for SocialPrimaryCharacteristics {
         SocialPrimaryCharacteristics {
             comeliness: Attribute::new("comliness".into(), 0.0, Social, range.clone()),
             presence: Attribute::new("presence".into(), 0.0, Social, range.clone()),
-            eloquence: Attribute::new("eloquence".into(), 0.0, Social, range.clone()),
+            eloquence: Attribute::new("eloquence".into(), 0.0, Social, range),
         }
     }
 }

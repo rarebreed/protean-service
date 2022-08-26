@@ -25,11 +25,11 @@ pub trait DieTraits {
     // fn exploding(self: Self, opt: Option<u32>) -> Self;
 
     /// Generates a roll of the die
-    fn roll(self: &Self, num: u32) -> Vec<u32>;
+    fn roll(&self, num: u32) -> Vec<u32>;
 
     /// Calculates how many successes there are
     fn get_successes(
-        self: &Self,
+        &self,
         dice: u32,
         accum: impl FnMut(u32, &u32) -> u32,
     ) -> (u32, Vec<u32>) {
@@ -39,7 +39,7 @@ pub trait DieTraits {
     }
 
     fn exploding(
-        self: &Self,
+        &self,
         roll: &mut Vec<u32>,
         thresh: u32,
         die: impl Fn(u32) -> Vec<u32>,
@@ -91,19 +91,19 @@ impl DiePool {
         }
     }
 
-    pub fn exploding(mut self: Self, val: Option<u32>) -> Self {
+    pub fn exploding(mut self, val: Option<u32>) -> Self {
         self.exploding = val;
         self
     }
 
-    pub fn value(mut self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self {
+    pub fn value(mut self, calc: Box<dyn Fn(u32) -> u32>) -> Self {
         self.calculate = calc;
         self
     }
 }
 
 impl DieTraits for DiePool {
-    fn roll(self: &Self, num: u32) -> Vec<u32> {
+    fn roll(&self, num: u32) -> Vec<u32> {
         let dice_roll = (self.dice)(num);
         let mut rolled = dice_roll
             .into_iter()
@@ -242,7 +242,7 @@ mod tests {
         println!("Sum = {}, Calculated average is {}", sum_avg, calc_avg);
 
         let mut scores: HashMap<u32, u32> = HashMap::new();
-        let _foo = avg.into_iter().fold(&mut scores, |acc, next| {
+        let scores = avg.into_iter().fold(&mut scores, |acc, next| {
             if !acc.contains_key(&next) {
                 acc.insert(next, 1);
             } else {
