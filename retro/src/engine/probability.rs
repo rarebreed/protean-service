@@ -243,11 +243,9 @@ mod tests {
 
         let mut scores: HashMap<u32, u32> = HashMap::new();
         let scores = avg.into_iter().fold(&mut scores, |acc, next| {
-            if !acc.contains_key(&next) {
-                acc.insert(next, 1);
-            } else {
-                acc.insert(next, acc[&next] + 1);
-            };
+            acc.entry(next)
+                .and_modify(|e| *e += 1)
+                .or_insert(1);
             acc
         });
         println!("Score is {:#?}", scores);
