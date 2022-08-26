@@ -28,23 +28,32 @@ pub trait DieTraits {
     fn roll(self: &Self, num: u32) -> Vec<u32>;
 
     /// Calculates how many successes there are
-    fn get_successes(self: &Self, dice: u32, accum: impl FnMut(u32, &u32) -> u32) -> (u32, Vec<u32>) {
+    fn get_successes(
+        self: &Self,
+        dice: u32,
+        accum: impl FnMut(u32, &u32) -> u32,
+    ) -> (u32, Vec<u32>) {
         let roll = self.roll(dice);
         let successes = roll.iter().fold(0, accum);
         (successes, roll)
     }
 
-    fn exploding(self: &Self, roll: &mut Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>) -> Vec<u32> {
+    fn exploding(
+        self: &Self,
+        roll: &mut Vec<u32>,
+        thresh: u32,
+        die: impl Fn(u32) -> Vec<u32>,
+    ) -> Vec<u32> {
         //&mut let mut roll = self.roll(num);
         let mut eroll: Vec<u32> = vec![];
-    
+
         // Calculate which rolls are greater than threshold.  These dice will get extra rolls
         for d in roll.iter() {
             if *d >= thresh {
                 eroll.append(&mut die(1));
             }
         }
-    
+
         let mut exploded = if !eroll.is_empty() {
             let mut new_roll = exploding(&mut eroll, thresh, die);
             eroll.append(&mut new_roll);
@@ -52,7 +61,7 @@ pub trait DieTraits {
         } else {
             eroll
         };
-    
+
         // This is kind of expensive to do, but I think this is better than returning a reference
         roll.append(&mut exploded);
         let mut final_roll: Vec<u32> = vec![];
@@ -220,13 +229,8 @@ mod tests {
         let mut avg: Vec<u32> = vec![];
         let pool = DiePool::pool(20).exploding(Some(19));
         for n in 0..100 {
-            let (successes, roll) = pool.get_successes(6, |acc, next| {
-                if *next >= 11 {
-                    acc + 1
-                } else {
-                    acc
-                }
-            });
+            let (successes, roll) =
+                pool.get_successes(6, |acc, next| if *next >= 11 { acc + 1 } else { acc });
             //let (successes, roll) = get_successes(&pool, 6, 10);
             avg.push(successes);
             println!("{}: Successes = {} from {:?}", n, successes, roll);
