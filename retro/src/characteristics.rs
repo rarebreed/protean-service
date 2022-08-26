@@ -61,7 +61,7 @@ impl Trait for Psyche {
 }
 
 /// The PhysicalPrimaryCharacteristics describes character attributes that are expressed physically in the real world
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct PhysicalPrimaryCharacteristics {
     /// speed is a measure of how quickly one can move.  It is a combination of reflexes and quickness
     pub speed: Attribute<f32, f32>,
@@ -118,6 +118,7 @@ impl Default for PhysicalPrimaryCharacteristics {
 }
 
 /// MentalPrimaryCharacteristics covers attributes that are of the mind in nature
+#[derive(Serialize, Deserialize, Debug)]
 pub struct MentalPrimaryCharacteristics {
     /// memory is a measure of recall, and how well a character remembers things
     pub memory: Attribute<f32, f32>,
@@ -151,6 +152,8 @@ impl Default for MentalPrimaryCharacteristics {
     }
 }
 
+/// The main social characteristics that influence other people's behavior or attitudes
+#[derive(Serialize, Deserialize, Debug)]
 pub struct SocialPrimaryCharacteristics {
     /// comelines measure physical beauty (by the default society's standards)
     pub comeliness: Attribute<f32, f32>,
@@ -176,21 +179,13 @@ impl Default for SocialPrimaryCharacteristics {
 }
 
 /// The PrimaryCharacteristics are the most looked at and salient attributes of a character
+#[derive(Serialize, Deserialize, Debug)]
 pub struct PrimaryCharacteristics {
     pub physical: PhysicalPrimaryCharacteristics,
     pub mental: MentalPrimaryCharacteristics,
     pub social: SocialPrimaryCharacteristics,
 }
 
-impl Default for PrimaryCharacteristics {
-    fn default() -> Self {
-        PrimaryCharacteristics {
-            physical: PhysicalPrimaryCharacteristics::default(),
-            mental: MentalPrimaryCharacteristics::default(),
-            social: SocialPrimaryCharacteristics::default(),
-        }
-    }
-}
 
 ///
 pub struct SensoryCharacteristics {

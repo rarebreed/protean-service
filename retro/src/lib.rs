@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub enum CharacteristicType {
     PrimaryCharacteristics,
     SecondaryCharacteristics,
@@ -42,7 +42,7 @@ pub trait Trait {
         F: Fn(Self::Value) -> f32;
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 /// Specifies the range that an Attribute can take
 pub enum Ranged<T> {
     /// An Attribute that varies across a range of values with a min and max (inclusive)
@@ -58,7 +58,7 @@ pub enum Ranged<T> {
 ///
 /// The most common use of Attributes is to define a character's Characteristics, for example speed or wit.  It is also
 /// commonly used to define other statistics, like a weapon's damage, or weight.
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Attribute<T, R>
 where
     T: Into<f32>,
