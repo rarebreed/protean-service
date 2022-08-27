@@ -1,5 +1,7 @@
 //! This module describes characteristics in game terms
 
+#![deny(missing_docs)]
+
 use serde::{Deserialize, Serialize};
 
 use crate::{
@@ -15,6 +17,7 @@ use crate::{
     Trait,
 };
 
+/// A psychological trait a character has
 pub struct Psyche {
     attr: Attribute<f32, f32>,
 }
@@ -181,22 +184,32 @@ impl Default for SocialPrimaryCharacteristics {
 /// The PrimaryCharacteristics are the most looked at and salient attributes of a character
 #[derive(Serialize, Deserialize, Debug)]
 pub struct PrimaryCharacteristics {
+    /// Physical attributes such as speed, power or endurance
     pub physical: PhysicalPrimaryCharacteristics,
+    /// Mental attributes such as analysis, insight or creativity
     pub mental: MentalPrimaryCharacteristics,
+    /// Social attributes such as charm or looks
     pub social: SocialPrimaryCharacteristics,
 }
 
-
-///
+/// Human senses
 pub struct SensoryCharacteristics {
+    /// How well an entity can see
     pub sight: Attribute<f32, f32>,
+    /// How well an entity can hear
     pub hearing: Attribute<f32, f32>,
+    /// How sensitive an entity's touch is
     pub tactile: Attribute<f32, f32>,
+    /// How sensitive an entity's smell is
     pub olfactory: Attribute<f32, f32>,
+    /// How well an entity can taste
     pub taste: Attribute<f32, f32>,
+    /// A kind of gut feeling or sixth sense
     pub intuition: Attribute<f32, f32>,
 }
 
+/// Characteristics which are derived from other characteristics
 pub struct SecondaryCharacteristics {
+    /// How well an entity can handle stressful situations
     pub coolness: Attribute<f32, f32>,
 }

@@ -20,6 +20,7 @@
 
 use rand::Rng;
 
+/// Functionality of a die
 pub trait DieTraits {
     // fn value(self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self;
     // fn exploding(self: Self, opt: Option<u32>) -> Self;
@@ -28,16 +29,16 @@ pub trait DieTraits {
     fn roll(&self, num: u32) -> Vec<u32>;
 
     /// Calculates how many successes there are
-    fn get_successes(
-        &self,
-        dice: u32,
-        accum: impl FnMut(u32, &u32) -> u32,
-    ) -> (u32, Vec<u32>) {
+    fn get_successes(&self, dice: u32, accum: impl FnMut(u32, &u32) -> u32) -> (u32, Vec<u32>) {
         let roll = self.roll(dice);
         let successes = roll.iter().fold(0, accum);
         (successes, roll)
     }
 
+    /// A die can "explode", meaning if it rolls some value, it can be rerolled.
+    ///
+    /// How the re-rolling is accounted for is handled by the `die` fn.  In some cases you may want
+    /// to sum up the values, in other cases, you may want to add to the number of successes.
     fn exploding(
         &self,
         roll: &mut Vec<u32>,
@@ -72,7 +73,16 @@ pub trait DieTraits {
     }
 }
 
+/// A virtual pool of dice
+///
+/// In many RPG's, you can roll a number of dice simultaneously.  Sometimes the die value for
+/// each dice are summed up, and sometimes each die has to be compared against some threshold
+/// and the total counted.  Some dice also can "explode".
+///
+/// The `calculate` trait object tells us what to with all the dice, while the `die` trait object
+/// tells us how each die individually behaves.
 pub struct DiePool {
+    /// How many sides the dice have
     pub facings: u32,
     exploding: Option<u32>,
     calculate: Box<dyn Fn(u32) -> u32>,
@@ -80,7 +90,8 @@ pub struct DiePool {
 }
 
 impl DiePool {
-    pub fn pool(facings: u32) -> Self {
+    /// Create a DiePool
+    pub fn new(facings: u32) -> Self {
         let dice = Box::new(move |num| dice(num, facings));
 
         DiePool {
@@ -91,30 +102,54 @@ impl DiePool {
         }
     }
 
+    /// Set whether the dice can explode and what the threshold is
+    ///
+    /// None means no exploding, while 19 means on a 19+ the die will explode
     pub fn exploding(mut self, val: Option<u32>) -> Self {
         self.exploding = val;
         self
     }
 
+    ///
     pub fn value(mut self, calc: Box<dyn Fn(u32) -> u32>) -> Self {
         self.calculate = calc;
         self
     }
 }
 
+// impl DieTraits for DiePool {
+//     fn roll(&self, num: u32) -> Vec<u32> {
+//         let dice_roll = (self.dice)(num);
+//         let mut rolled = dice_roll
+//             .into_iter()
+//             .map(|amt| (self.calculate)(amt))
+//             .collect();
+
+//         if let Some(thresh) = self.exploding {
+//             exploding(&mut rolled, thresh, |num_d| dice(num_d, self.facings))
+//         } else {
+//             rolled
+//         }
+//     }
+// }
+
 impl DieTraits for DiePool {
     fn roll(&self, num: u32) -> Vec<u32> {
         let dice_roll = (self.dice)(num);
-        let mut rolled = dice_roll
+        dice_roll
             .into_iter()
             .map(|amt| (self.calculate)(amt))
-            .collect();
-
-        if let Some(thresh) = self.exploding {
-            exploding(&mut rolled, thresh, |num_d| dice(num_d, self.facings))
-        } else {
-            rolled
-        }
+            .flat_map(|amt| match self.exploding {
+                Some(thresh) if amt >= thresh => {
+                    let mut additional = (self.dice)(1);
+                    additional.append(&mut vec![amt]);
+                    additional
+                }
+                _ => {
+                    vec![amt]
+                }
+            })
+            .collect()
     }
 }
 
@@ -203,7 +238,7 @@ mod tests {
     #[test]
     fn pool4d20() {
         println!("Testing pool");
-        let pool = DiePool::pool(20).exploding(Some(19));
+        let pool = DiePool::new(20).exploding(Some(19));
         let roll = pool.roll(4);
 
         println!("roll {:?}", roll);
@@ -227,7 +262,7 @@ mod tests {
     #[test]
     fn average10of20() {
         let mut avg: Vec<u32> = vec![];
-        let pool = DiePool::pool(20).exploding(Some(19));
+        let pool = DiePool::new(20).exploding(Some(19));
         for n in 0..100 {
             let (successes, roll) =
                 pool.get_successes(6, |acc, next| if *next >= 11 { acc + 1 } else { acc });
@@ -243,9 +278,7 @@ mod tests {
 
         let mut scores: HashMap<u32, u32> = HashMap::new();
         let scores = avg.into_iter().fold(&mut scores, |acc, next| {
-            acc.entry(next)
-                .and_modify(|e| *e += 1)
-                .or_insert(1);
+            acc.entry(next).and_modify(|e| *e += 1).or_insert(1);
             acc
         });
         println!("Score is {:#?}", scores);

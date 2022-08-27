@@ -1,22 +1,44 @@
+//! All characters and most other entities will have equipment of some sort.  This includes weapons, survival gear,
+//! clothing, communications, medical, scientific and food supplies among many other broad categories
+
 use crate::{Attribute, Senses};
 
+/// Weapons are broadly categorized as
+/// - Unarmed (this can include teeth or claws)
+/// - Melee: short ranged hand-to-hand weapons
+/// - Ranged: weapons that deal damage at a distance (includes thrown weapons)
 pub enum WeaponClass {
+    /// only what nature gave
     Unarmed,
+    /// hand to hand weapons
     Melee,
+    /// weapons that deal damage at range
     Ranged,
 }
 
+/// How damage is inflicted
+///
+/// Depending on the medium, different damage can be delivered
 pub enum DamageMedium {
+    /// Energy of some sort such as a laser, fire, or electricity
     Energy,
+    /// Damage by impact of a physical object
     Kinetic,
+    /// A special form of energy which has certain properties
     Radiation,
+    /// A disease of some sort
     Pathogen,
+    /// Poison or other caustic substances
     Chemical,
 }
 
+/// Kinetic damage can cause different kinds of damage
 pub enum StructuralDamageType {
+    /// Muscle tears or even severing of muscles
     Muscular,
+    /// Broken bones
     Bones,
+    /// Torn cartilage, ligaments or tendons
     ConnectiveTissue,
 }
 
@@ -33,19 +55,30 @@ pub enum Trauma {
     Impaling,
     /// Tissue is destroyed by being burned
     Burning,
+    /// Tissue necrosis due to freezing
     Freezing,
-    Poison,
     /// Diesease borne effect
     Pathological,
+    /// Internal bleeding, including bruising
+    Hemorraghing,
+    /// Destruction of tissue due to poison, caustic substance or septosos
+    Necrosis,
 }
 
+/// Damage to the mind can take several forms
 pub enum NeurologicalEffect {
-    Pain,
+    /// We all know what pain is
+    Pain(f64),
+    /// The mind is no longer active (sleep like state)
     Unconsciousness,
-    Stunned,
-    Sickened,
-    Weakened,
-    Sensory(Senses),
+    /// Still conscious but with diminished awareness and control
+    Stunned(f64),
+    /// Nausea
+    Sickened(f64),
+    /// Overwhelming sleepiness
+    Drowsiness(f64),
+    /// Afflication that reduces a sense
+    Sensory(Senses, f64),
 }
 
 ///
@@ -60,19 +93,21 @@ pub enum DamageEffect {
     Shock(u32),
     /// Physical damage, eg broken bones, torn
     Structural {
+        /// the physical type of damage (broken bone, torn ligament etc)
         damage_type: StructuralDamageType,
+        /// severity of damage
         condition: Condition,
     },
     /// Damage to sensory input
     Sensory {
+        /// Which sense
         sense: Senses,
+        /// how severe
         condition: Condition,
     },
     /// Various neurologic effects like pain, unconsciousness, or sickened
-    Neurological {
-        effect: NeurologicalEffect,
-        severity: u16,
-    },
+    Neurological(NeurologicalEffect),
+    /// Shock
     OrganFailure(u32),
 }
 
@@ -96,18 +131,24 @@ pub enum Condition {
     Reinforced(u16),
 }
 
+/// How powerful damage can be
 pub struct DamageClass {
+    /// The kind of damage
     pub damage_type: DamageMedium,
-    pub power: f32,
+    /// power level
+    pub power: f64,
 }
 
-impl From<DamageClass> for f32 {
+impl From<DamageClass> for f64 {
     fn from(dc: DamageClass) -> Self {
         dc.power
     }
 }
 
+/// Defines a weapon
 pub struct Weapon {
+    /// state of the weapon
     pub integrity: Condition,
+    /// kind of damage it does
     pub damage: Attribute<DamageClass, DamageEffect>,
 }
