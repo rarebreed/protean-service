@@ -2,13 +2,13 @@
 //! Die examples:
 //!
 //! ```
-//! use retro::tasks::probability::{default_rng, die, DieTraits, DiePool};
+//! use retro::engine::probability::{default_rng, die, DieTraits, DiePool};
 //!
 //! let simpleD6 = die(6);
 //! let roll = simpleD6();
 //! println!("roll is {roll}");
 //!
-//! let d6 = DiePool::pool(6)
+//! let d6 = DiePool::new(6)
 //!   .exploding(Some(6))
 //!   .value(Box::new(|amt| {
 //!      default_rng(amt, 5, 2)
