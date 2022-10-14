@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # githook to run before pushing 
-# - Check if we need to run cargo fmt
+# - Check if there are updated crates
 # - cargo build
 # - cargo test
 # - cargo audit 
@@ -10,29 +10,6 @@ echo "################################"
 echo "Checking if there are updated crates..."
 cargo update --dry-run
 
-echo "################################"
-echo "Running clippy..."
-cargo clippy
-if [ $? != 0 ]; then
-    echo "Please fix clippy errors"
-fi
-
-# get files which have changed and are rust files
-echo "################################"
-echo "Checking formatting..."
-cargo fmt --check
-if [ $? != 0 ]; then
-    echo "Run cargo fmt, commit, and try again"
-    exit 1
-fi
-
-echo "################################"
-echo "Building debug..."
-cargo build
-
-echo "################################"
-echo "Running tests..."
-cargo test -- --nocapture
 
 echo "################################"
 echo "Running audit check..."

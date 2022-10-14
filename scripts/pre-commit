@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# get files which have changed and are rust files
+echo "################################"
+echo "Checking formatting..."
+cargo +nightly fmt --check
+if [ $? != 0 ]; then
+    echo "Run cargo fmt, commit, and try again"
+    exit 1
+fi
+
+echo "################################"
+echo "Running clippy..."
+cargo clippy --fix
+if [ $? != 0 ]; then
+    echo "Please fix clippy errors"
+fi
+
+echo "################################"
+echo "Building debug..."
+cargo build
+
+echo "################################"
+echo "Building release..."
+cargo build --release
+
+# This should be edited for your project if you have a workspace, and if you have any members in the workspace that 
+# should be excluded from testing
+echo "################################"
+echo "Running tests..."
+cargo test -- --nocapture
+

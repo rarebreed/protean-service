@@ -213,3 +213,13 @@ pub struct SecondaryCharacteristics {
     /// How well an entity can handle stressful situations
     pub coolness: Attribute<f32, f32>,
 }
+
+#[cfg(test)]
+mod characteristic_tests {
+    use super::*;
+
+    #[test]
+    fn test_create_character() {
+
+    }
+}
