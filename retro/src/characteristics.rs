@@ -219,7 +219,5 @@ mod characteristic_tests {
     use super::*;
 
     #[test]
-    fn test_create_character() {
-
-    }
+    fn test_create_character() {}
 }
