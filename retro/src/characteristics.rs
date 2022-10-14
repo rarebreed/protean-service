@@ -216,7 +216,6 @@ pub struct SecondaryCharacteristics {
 
 #[cfg(test)]
 mod characteristic_tests {
-    use super::*;
 
     #[test]
     fn test_create_character() {}
