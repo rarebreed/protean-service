@@ -7,11 +7,11 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy = "0.8"
+bevy = { version = "0.8", features = ["bevy_ui"] }
 serde_yaml = "0.9"
 rand = "0.8"
 num-traits = "0.2"
-
+wgpu = "0.14"
 
 [dependencies.serde]
 features = ["derive"]
