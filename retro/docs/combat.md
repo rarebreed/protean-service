@@ -19,17 +19,17 @@ do combat along these lines:
 - Choose an action (some kind of attack or feat)
 - One being attacked can determine some kind of active or passive defense if possible
 - Determine odds of attacker hitting
-- If hit, roll for damage, possibly rolling for hit location
-- The character with the next initiative repeats the above
+- If hit, roll for damage, possibly rolling for hit location and subtract armor if any from damage
+- The character with the next initiative repeats the above, rinse, later, repeat
 
-Most games don't consider (or bolt them on in a very ad-hoc manner) any of the following:
+Most games don't consider (or bolt them on in a very ad-hoc manner via feats or advantages) any of the following:
 
-- Morale: If you are scared, you aren't going to be as effective
+- Morale: If you are scared, you may not even get to choose your action or be at combat disadvantage
 - Aggressiveness: "It's not the size of the dog in the fight, it's the size of the fight in the dog"
-- Fatigue: It doesn't matter how skilled you are, if you are too tired to move
+- Fatigue: It doesn't matter how skilled you are if you are too tired to move
 - Damage: Wounds, concussions, broken limbs, pain and other damage effects can drastically reduce effectiveness
 - Reach: If your weapon can't reach your target, you have to get into range (which can be difficult and takes time)
-- Time: How fast does your (re)action take?  A jab will connect faster than a spinning round house
+- Time: How fast does your (re)action take?  It's not just when an action starts that matters, but how soon it finishes
 - Reliability: Especially for modern weapons, how prone is your weapon to failure?
 
 Some will argue that factoring in the above is too much minutiae to keep track of, and will bog down the "fun" of the
@@ -37,13 +37,41 @@ game.  I will argue that without consideration of these elements, the narrative 
 worse, the unrealism will tar victories with a poor brush.  Some will argue that many systems _do_ address many of the
 above aspects, but I feel when they are factored in, they are handled in an indirect ad-hoc way with special rules
 bolted on (think Feats or Advantages in many systems) and therefore are handled in an incongruous way.  If it is done
-smartly and consistently, I believe that all the above can be factored in with the added benfits if:
+smartly and consistently, I believe that all the above can be factored in with the added benfits:
 
 - make combat much more visceral and even exciting by having more tactical choices
 - the realism will make victory all the more sweet
 - the added complexity will be compensated for by consistent rules
 - while each combat "turn" will be longer, time spent in combat overall will be the same due to it being more deadly
 - will make characters think twice about combat to resolve things
+
+## Genre support
+
+Retro is not a super-hero fantasy type system at its heart.  While it could model such things, retro is geared towards
+modelling real-world human level skills.  Moreover, player characters do not have any inherent advantages over NPCs.
+They do not get to dodge bullets, and most solid gun shots (a decent margin of success) will incapacitate a character no
+matter how much experience and training they have.
+
+The idea behind the realism is two fold:
+
+- Make combat interesting by providing more tactical choices
+- Make combat more memorable and conscious by making it more deadly
+
+Too many game systems that are not war related make combat a first choice option.  This is because in most systems, the
+characters can take multiple solid hits until they are hors de combat, and helpful healing spells or sci-fi med kits can
+instantaneously heal at least some of the damage done.  Also, many game systems don't take into account how being
+wounded or fatigued affects performance.  In many game systems as long as your "hit points" is not 0 or less, your
+character is functioning perfectly normal  This is not only unrealistic from a simulation point of view, it is boring
+from a story telling point of view.  How many stories are made more dramatic and memorable because the protagonist has
+to overcome pain, fatigue, or physical constraints imposed by wounds?  So I as the game author emphatically assert that
+hit point style systems without some kind of wounding effect are not just unrealistic and thus lead to one dimensional
+play, but poor at story telling as well.
+
+In other words, I want to dispell the myths that
+
+- realism is too time consuming
+- realism isn't fun or interesting because it doesn't let you do cool things
+
 
 ## Design philosophy of combat in retro
 
@@ -60,31 +88,33 @@ NPC B attacks
 Character A blocks/didges
 ```
 
-This is not only unrealistic, it is boring.  How many boxing matches or UFC fights do you see alternating like that?
-None.  In the real world, opponents size each other up, and then unleash a flurry of attacks, stopping only to rest,
-regain balance, or because the defender was able to counter and seize the initiative (for example, trapping the attack,
-sweeping, or side stepping out of the line of attack).  Or maybe one combatant only throws out an exploratory jab or
-thrust, perhaps as a feint, or perhaps to judge his opponents reflexes, and the other combatant may still just hold, 
-waiting for an opening to attack...or maybe escape.  
+This is not only unrealistic, it is narratively boring.  How many boxing matches or UFC fights do you see alternating
+like that? None.  In the real world, opponents size each other up then unleash a flurry of attacks, stopping only to
+rest, regain balance, or because the defender was able to counter and seize the initiative.  For example, the defender
+might be trapping the attack, sweeping the legs, or side stepping out of the line of attack.  Or maybe one combatant
+only throws out an exploratory jab or thrust, perhaps as a feint, or perhaps to judge his opponents reflexes, and the
+other combatant may still just hold, waiting for an opening to attack or escape.  
 
-In the latter scenario where a defender only defends, what is in it for him game-wise?  All he has done is allow the
-attacker a shot.  Without rules for fatigue, or looking for openings, there is absolutely no reason from a meta game
-perspective for a character to ever hold back attacks.  Or maybe the rules system in some other games gives a special
-rule (ala a Feat or Advantage) where if they defend for one round, they gain some kind of tactical advantage.  But
-then you have to lean the umpteen million special Feat rules, and how they interact with combat.  I will argue that 
-although retro initially looks more complex, in the long run it is actually simpler, because there are less special
+In the latter scenario where a defender only defends, what is in it for him game-wise in most systems?  All he has done
+is allow the attacker a shot.  Without rules for fatigue or tactical advantage, there is absolutely no reason from a
+meta game perspective for a character to ever hold back attacks.  Perhaps in other game systems, there is a special rule
+(ala a Feat or Advantage) where if they defend for one round, they gain some kind of tactical advantage. But then you
+have to learn the umpteen million special Feat rules, and how they interact with each other in combat.  I will argue
+that although retro initially looks more complex, in the long run it is actually simpler, because there are less special
 rules you need to learn or keep track of.
 
 Going back to the example fight, many fans of other game systems will simply tell you that all of the above _is_
 happening in those games, but the turn and initiative system simply abstracts it away.  In other words, a roll of the
 dice doesn't reflect a _single_ blow or a single defense.  Instead, the rolls are an abstraction of one or more attacks
 or defenses, and the result of the dice is the sum effect of the actions.  And yet, how often is the narrative described
-that way?  Also, even if the above is true, why does each side effectively always get to attack and defend?  That is not
-how real fights work, as when you hear in boxing "he's got him on the ropes", "he's on his last legs", "the enemy has
-seized the initiative", "the enemy is on the run", etc etc.
+that way?  Also, even if the above is true, why does each side effectively always get to attack and defend?  And why do
+the opponents each get the same number of chances to attack/defend?  That is not how real fights work, as when you hear
+in boxing "he's got him on the ropes", "he's on his last legs", "the enemy has seized the initiative", "the enemy is on
+the run", etc etc.  So I deny that even if you assume combat is abstracted into multiple blows, feints, parries, etc, it
+still allows for "fairness" by allowing each opponent similar opportunities.
 
-The way virtually every combat system works, is the combatants stand their ground, and trade blow for blow until someone
-gets a good shot in (ie, a good dice roll).  And if you argue that the combat is abstracted away, and the combatants are
+The way virtually every combat system works is the combatants stand their ground, and trade blow for blow until someone
+gets a good shot in (ie, a good dice roll).  If you argue that the combat is abstracted away, and the combatants are
 jockeying for advantageous position, sizing each other up, stepping back to take a breath etc, how often is that
 actually described?  I argue that you have just abstracted not only alot of the fun away (tactical decision making) but
 also much of the storytelling and the reward of victory (by making good choices, rather than letting the dice abstract
@@ -112,7 +142,11 @@ and "luck running out", eventually even very experienced characters will eventua
 This is horse crock.  Why then are there rules about number of hit points healed per day?  So it takes longer for a 
 character with high hit points to be healed because....it takes longer to heal their luck?  It's an abstraction so 
 leaky, that a little Dutch boy would feel at home.  But, because it has such a long hold in the industry, most players 
-dont give it a second thought.
+dont give it a second thought.  And it's not just bad from a realism point of view, it's bad from a gaming point of view
+due not just to the credibility strain, but because it fosters a cavalier attitude towards combat.  There's a reason
+that some games require your opponents to "level up" with your characters in order to make combat feel more dangerous.
+Secondly, from a gaming point of view, it can make combat take longer, because characters have more ability to soak up
+damage from "lesser" opponents.
 
 Some game systems have moved away from Hit Points, or at least a single "bag" of HP.  In retro, HP is replaced the 
 notion of damage tracks, with different kinds of damage.  It also pays a lot of attention to conditions and affects of
@@ -129,8 +163,8 @@ considered in games.  Retro is different, and many subtleties of combat are cons
 - Facing or positioning of opponents
 - How fatiguing is the maneuver?
 - How fast will the attack hit (not who started first)?
-- How to take advantage of openings
-- How to take advantage of telegraphing
+- How to take advantage of or create openings
+- How to take advantage of an opponent who telegraphs
 - Simultaneous attacks
 - Stability of an attack or defensive movement
 - Motivation to fight
@@ -160,7 +194,7 @@ rear guard to allow your comrades to escape, you will be much
 
 Some people are just more aggressive or violent than others.  Others are just more scrappy, and have a love of fighting.
 As Churchill famously said, "It's not the size of the dog in the fight, but the size of the fight in the dog".
-Conversely, some people are timid, meek, or even cowardly, and either have no heart to harm others, or are scared, too
+Conversely, some people are timid, meek, or even cowardly, and either have no heart to harm others, are scared, or too
 afraid of harm being done to themselves.
 
 Essentially, aggressiveness is the balance or ratio of desire to do harm to others, vs willingness to be harmed.  The
