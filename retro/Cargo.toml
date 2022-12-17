@@ -7,12 +7,9 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy = { version = "0.8", features = ["bevy_ui"] }
-serde_yaml = "0.9"
-rand = "0.8"
-num-traits = "0.2"
-wgpu = "0.14"
-
-[dependencies.serde]
-features = ["derive"]
-version = "1.0"
+bevy = { workspace = true }
+serde = { workspace = true }
+serde_yaml = { workspace = true }
+rand = { workspace = true }
+num-traits = { workspace = true }
+wgpu = { workspace = true }

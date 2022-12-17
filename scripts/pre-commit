@@ -11,7 +11,7 @@ fi
 
 echo "################################"
 echo "Running clippy..."
-cargo clippy --fix
+cargo clippy
 if [ $? != 0 ]; then
     echo "Please fix clippy errors"
 fi
