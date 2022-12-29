@@ -13,3 +13,4 @@ serde_yaml = { workspace = true }
 rand = { workspace = true }
 num-traits = { workspace = true }
 wgpu = { workspace = true }
+log = { workspace = true }

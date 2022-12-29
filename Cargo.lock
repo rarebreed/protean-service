@@ -2474,6 +2474,7 @@ name = "retro"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "log",
  "num-traits",
  "rand",
  "serde",

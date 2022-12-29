@@ -17,6 +17,7 @@
 //! println!("roll is {roll:#?}");
 //! ```
 
+use log::debug;
 use rand::Rng;
 
 /// The kind of a dice roll, either the original roll, or after checking for exploded values
@@ -109,7 +110,7 @@ pub trait DieTraits {
 
         // This is kind of expensive to do, but I think this is better than returning a reference
         roll.append(&mut exploded);
-        println!("after exploding: {roll:?}");
+        debug!("after exploding: {roll:?}");
         roll
     }
 }
@@ -181,7 +182,7 @@ impl DieTraits for DiePool {
             .into_iter()
             .map(|amt| (self.calculate)(amt))
             .collect();
-        println!("original roll: {roll:?}");
+        debug!("original roll: {roll:?}");
         if let Some(thresh) = self.exploding {
             let final_roll = self.exploding(&mut Roll::Original(roll), thresh, |_| (self.dice)(1));
             final_roll
@@ -345,7 +346,7 @@ mod tests {
         calculate_average(9, 7, 19);
         calculate_average(9, 8, 19);
         calculate_average(9, 9, 19);
-        calculate_average(5, 10, 19);
+        calculate_average(9, 10, 19);
         calculate_average(9, 11, 19);
         calculate_average(9, 12, 19);
         calculate_average(9, 13, 19);
