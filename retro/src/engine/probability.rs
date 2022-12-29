@@ -95,7 +95,7 @@ pub trait DieTraits {
         }
         // Take out any that have a 0
         let mut roll: Vec<(u32, u32)> = roll
-            .into_iter()
+            .iter_mut()
             .filter(|(orig, _)| *orig != 0)
             .map(|(orig, new)| (*orig, *new))
             .collect();
