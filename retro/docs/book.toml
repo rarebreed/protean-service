@@ -1,0 +1,6 @@
+[book]
+authors = ["Sean Toner"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Retro Game Engine"
