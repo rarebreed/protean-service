@@ -2,6 +2,8 @@
 
 This is a very rough roadmap of what to work on next
 
+## Game
+
 - Combat rules
     - Action sequencing
     - Morale and aggression
@@ -38,4 +40,18 @@ This is a very rough roadmap of what to work on next
     - Creation
 
 
-## 
+## Architecture
+
+Still need to flesh out all  the pieces
+
+- Backend:
+    - axum: 
+        - websocket for chat
+        - video relay
+        - interface to database
+    - data:
+        - parquet stored in cloud
+        - datafusion query engine 
+- Frontend:
+    - embedded bevy
+    

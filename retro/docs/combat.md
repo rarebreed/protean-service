@@ -39,11 +39,14 @@ above aspects, but I feel when they are factored in, they are handled in an indi
 bolted on (think Feats or Advantages in many systems) and therefore are handled in an incongruous way.  If it is done
 smartly and consistently, I believe that all the above can be factored in with the added benfits if:
 
-- make combat much more visceral and even exciting by having more tactical choices
+- make combat much more visceral and even narratively exciting by having more tactical choices
 - the realism will make victory all the more sweet
 - the added complexity will be compensated for by consistent rules
 - while each combat "turn" will be longer, time spent in combat overall will be the same due to it being more deadly
 - will make characters think twice about combat to resolve things
+
+I want to make a brief aside here and talk about the damage done by the D&D game system's popularity and its now entrenched
+concept of Hit Points.
 
 ## Design philosophy of combat in retro
 
@@ -71,7 +74,7 @@ In the latter scenario where a defender only defends, what is in it for him game
 attacker a shot.  Without rules for fatigue, or looking for openings, there is absolutely no reason from a meta game
 perspective for a character to ever hold back attacks.  Or maybe the rules system in some other games gives a special
 rule (ala a Feat or Advantage) where if they defend for one round, they gain some kind of tactical advantage.  But
-then you have to lean the umpteen million special Feat rules, and how they interact with combat.  I will argue that 
+then you have to learn the umpteen million special Feat rules, and how they interact with combat.  I will argue that 
 although retro initially looks more complex, in the long run it is actually simpler, because there are less special
 rules you need to learn or keep track of.
 
@@ -83,13 +86,13 @@ that way?  Also, even if the above is true, why does each side effectively alway
 how real fights work, as when you hear in boxing "he's got him on the ropes", "he's on his last legs", "the enemy has
 seized the initiative", "the enemy is on the run", etc etc.
 
-The way virtually every combat system works, is the combatants stand their ground, and trade blow for blow until someone
-gets a good shot in (ie, a good dice roll).  And if you argue that the combat is abstracted away, and the combatants are
+The way almost every combat system works is the combatants stand their ground and trade blow for blow until someone gets
+a good shot in (ie, a good dice roll).  If you argue that the combat details are abstracted away, and the combatants are
 jockeying for advantageous position, sizing each other up, stepping back to take a breath etc, how often is that
 actually described?  I argue that you have just abstracted not only alot of the fun away (tactical decision making) but
-also much of the storytelling and the reward of victory (by making good choices, rather than letting the dice abstract
-it away).  Wouldn't you rather actually make those distinctions _in the game rules_ rather than (forget) to make them up
-as flowery description?
+also much of the storytelling, narrative description, and the reward of victory (by making good choices, rather than
+letting the dice abstract it away).  Wouldn't you rather actually make those distinctions _in the game rules_ rather
+than (forget) to make them up as flowery description?
 
 The most common argument against such crunchy rules is that it makes combat take longer and thus takes away from the
 story by focusing too much time on combat.  Though combat will take more time due to this level of simulation, I feel it
@@ -148,6 +151,13 @@ Before going too deep, let's give an example of a fight
 Combat is greatly affected by the psychological state of the fighters.  The fighter's mind and will to fight will often
 be defeated before the body.
 
+In order to model the psychological state of combat for a character we have the following ratings:
+
+- Fight: how willing you are to do harm
+- Preservation: how needful you are to stay alive
+- Rage: 
+- Fear
+
 ### Motivation
 
 Fighters who have nothing to lose or are in a vengeful mood will be less affected by morale than fighters who don't know
@@ -156,6 +166,10 @@ rear guard to allow your comrades to escape, you will be much
 
 **TODO** What are the game mechanics for this?
 
+Motivation provides a defense against morale loss. Individually, or as a group, if morale drops, then the will to fight drops
+to 0, and no offensive moves can be taken, only moves for defense.  If morale drops to 0, then the character or unit has
+only self-preservation in mind.
+
 ### Mental state
 
 Some people are just more aggressive or violent than others.  Others are just more scrappy, and have a love of fighting.
@@ -163,11 +177,11 @@ As Churchill famously said, "It's not the size of the dog in the fight, but the 
 Conversely, some people are timid, meek, or even cowardly, and either have no heart to harm others, or are scared, too
 afraid of harm being done to themselves.
 
-Essentially, aggressiveness is the balance or ratio of desire to do harm to others, vs willingness to be harmed.  The
-higher this ratio is, the more you want to "dish it out".  The lower this ratio, the more defensive you become.  Notice
-the use of the words _desire_ and _willing_.  A character may be very willing and able to do harm to other NPCs, but
-may not have a particular _desire_ to do so.  A berserker can have a high aggression, where an assassin, who is more
-than willing or capable to kill someone, won't be aggressive unless there is a purpose or job for example.
+Essentially, aggressiveness is the ratio of desire to do harm to others, vs willingness to be harmed.  The higher this
+ratio is, the more you want to "dish it out".  The lower this ratio, the more defensive you become.  Notice the use of
+the words _desire_ and _willing_.  A character may be very willing and able to do harm to other NPCs, but may not have a
+particular _desire_ to do so.  A berserker can have a high aggression, where an assassin, who is more than willing or
+capable to kill someone, won't be aggressive unless there is a purpose or job for example.
 
 Aggressiveness is rated as Harm Other/Self Protection.  If you have a low Protect:Self, then it means you are more
 willing to sacrifice yourself or commit harm upon yourself to achieve some goal.  Think for example of suicide bombers
@@ -212,6 +226,8 @@ Training, discipline and personality traits can affect when and how much these v
 
 
 **TODO** What are the game mechanics for this?
+
+Aggressiveness comes with some pros and cons.
 
 #### Effects of aggression
 

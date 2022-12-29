@@ -1,7 +1,7 @@
 //! # This module declares a Task
 //!
 //! A Task defines anything which is uncertain in game terms and how to accomplish it.  Tasks revolve around a die pool
-//! and are always opposed.  The die pool is d20 based and is _exploding_.  If a 10 is rolled, the die can be rerolled
+//! and are always opposed.  The die pool is d20 based and is _exploding_.  If a 20 is rolled, the die can be rerolled
 //! again.
 //!
 //! ## Associated Characteristics and Skills
@@ -23,7 +23,7 @@
 //! - Persuasion
 //!
 //! There's always an advantage if one is skilled, but one's skill is based off of how competent the associated
-//! characteristic is.  It is thus possible, for someone extremely talented but not as skilled, to best someone who is
+//! characteristic is.  It is thus possible for someone extremely talented but not as skilled, to best someone who is
 //! more skilled, but not as talented.  Unlike most games which use an additive system where one adds the relevant skill
 //! to the appropriate characteristic(s), retro sets the characteristic as a target number, and one's skill as the
 //! number of dice rolled.  One counts how many successes are rolled and this count is compared against a competing
@@ -56,12 +56,12 @@
 //! | Simple      | Junior      | 1-2            | 2
 //! | Average     | High School | 2-3            | 3
 //! | Above Avg   | Bachelor    | 3-4            | 4
-//! | Difficult   | Post-Bacc   | 4-5            | 5
-//! | Challenging | Master      | 6-7            | 6
-//! | Epic        | Doctorate   | 8-9            | 8
-//! | Legendary   | Post-Doc    | 9+             | 10
-//! | Mythic      |             |                | 12
-//! | Impossible  |             |                | 14
+//! | Difficult   | Post-Bacc   | 4-5            | 6
+//! | Challenging | Master      | 6-7            | 8
+//! | Epic        | Doctorate   | 8-9            | 10
+//! | Legendary   | Post-Doc    | 9+             | 12
+//! | Mythic      |             |                | 14
+//! | Impossible  |             |                | 16
 //!
 //! When a system uses both a number of dice and a moveable target number (as retro does), it can be hard to determine
 //! how to modify the difficulty of a task.  

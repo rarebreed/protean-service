@@ -9,7 +9,6 @@
 //! println!("roll is {roll}");
 //!
 //! let d6 = DiePool::new(6)
-//!   .exploding(Some(6))
 //!   .value(Box::new(|amt| {
 //!      default_rng(amt, 5, 2)
 //!   }));
@@ -45,18 +44,17 @@ pub trait DieTraits {
         thresh: u32,
         die: impl Fn(u32) -> Vec<u32>,
     ) -> Vec<u32> {
-        //&mut let mut roll = self.roll(num);
         let mut eroll: Vec<u32> = vec![];
 
-        // Calculate which rolls are greater than threshold.  These dice will get extra rolls
         for d in roll.iter() {
-            if *d >= thresh {
+            if *d <= thresh {
                 eroll.append(&mut die(1));
             }
         }
 
-        let mut exploded = if !eroll.is_empty() {
-            let mut new_roll = exploding(&mut eroll, thresh, die);
+        let roll_more = eroll.iter().any(|result| *result <= thresh);
+        let mut exploded = if roll_more {
+            let mut new_roll = self.exploding(&mut eroll, thresh, die);
             eroll.append(&mut new_roll);
             eroll
         } else {
@@ -140,10 +138,8 @@ impl DieTraits for DiePool {
             .into_iter()
             .map(|amt| (self.calculate)(amt))
             .flat_map(|amt| match self.exploding {
-                Some(thresh) if amt >= thresh => {
-                    let mut additional = (self.dice)(1);
-                    additional.append(&mut vec![amt]);
-                    additional
+                Some(thresh) if amt <= thresh => {
+                    self.exploding(&mut vec![amt], thresh, |_| (self.dice)(1))
                 }
                 _ => {
                     vec![amt]
@@ -207,12 +203,12 @@ pub fn exploding(roll: &mut Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>
     let mut eroll: Vec<u32> = vec![];
 
     for d in roll.iter() {
-        if *d >= thresh {
+        if *d <= thresh {
             eroll.append(&mut die(1));
         }
     }
 
-    let roll_more = eroll.iter().any(|result| *result >= thresh);
+    let roll_more = eroll.iter().any(|result| *result <= thresh);
     let mut exploded = if roll_more {
         let mut new_roll = exploding(&mut eroll, thresh, die);
         eroll.append(&mut new_roll);
@@ -238,7 +234,7 @@ mod tests {
     #[test]
     fn pool4d20() {
         println!("Testing pool");
-        let pool = DiePool::new(20).exploding(Some(19));
+        let pool = DiePool::new(20).exploding(Some(2));
         let roll = pool.roll(4);
 
         println!("roll {:?}", roll);
@@ -262,10 +258,10 @@ mod tests {
     #[test]
     fn average10of20() {
         let mut avg: Vec<u32> = vec![];
-        let pool = DiePool::new(20).exploding(Some(19));
-        for n in 0..100 {
+        let pool = DiePool::new(20).exploding(Some(1));
+        for n in 0..1000 {
             let (successes, roll) =
-                pool.get_successes(6, |acc, next| if *next >= 11 { acc + 1 } else { acc });
+                pool.get_successes(5, |acc, next| if *next <= 10 { acc + 1 } else { acc });
             //let (successes, roll) = get_successes(&pool, 6, 10);
             avg.push(successes);
             println!("{}: Successes = {} from {:?}", n, successes, roll);
@@ -273,7 +269,7 @@ mod tests {
 
         //let sum_avg = avg.iter().fold(0u32, |acc, next| acc + next) as f32;
         let sum_avg: u32 = avg.iter().sum();
-        let calc_avg = sum_avg as f32 / 100.0;
+        let calc_avg = sum_avg as f32 / 1000.0;
         println!("Sum = {}, Calculated average is {}", sum_avg, calc_avg);
 
         let mut scores: HashMap<u32, u32> = HashMap::new();
@@ -282,5 +278,15 @@ mod tests {
             acc
         });
         println!("Score is {:#?}", scores);
+    }
+
+    #[test]
+    fn test_rng() {
+        let d6 = DiePool::new(6)
+            //.exploding(Some(0))
+            .value(Box::new(|amt| default_rng(amt, 5, 2)));
+
+        let roll = d6.roll(10);
+        println!("roll is {roll:#?}");
     }
 }
