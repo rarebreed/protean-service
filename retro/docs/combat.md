@@ -175,7 +175,13 @@ considered in games.  Retro is different, and many subtleties of combat are cons
 Before going too deep, let's give an example of a fight
 
 1. Determine psychological state
-2. 
+2. Determine awareness (surprise)
+3. Determine distance to contact
+4. Plan maneuver in secret
+    - Allocate pool to triad: power, movement/speed, accuracy
+5. Make combat awareness check to determine when opponent's move will be realized
+6. Make a skill and psychology check to determine what to do based on opponent
+    - Factor in any reaction time change if action is changed
 
 ## Psychological state of combat
 
