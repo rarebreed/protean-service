@@ -19,6 +19,14 @@
 
 use rand::Rng;
 
+/// The kind of a dice roll, either the original roll, or after checking for exploded values
+pub enum Roll {
+    /// the first roll
+    Original(Vec<u32>),
+    /// exploded rolls
+    Exploded(Vec<(u32, u32)>),
+}
+
 /// Functionality of a die
 pub trait DieTraits {
     // fn value(self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self;
@@ -34,36 +42,65 @@ pub trait DieTraits {
         (successes, roll)
     }
 
+    /// Rolls the poll, and returns a tuple of (success values, all_values)
+    fn get_all_successes(
+        &self,
+        dice: u32,
+        accum: impl FnMut(Vec<u32>, &u32) -> Vec<u32>,
+    ) -> (Vec<u32>, Vec<u32>) {
+        let roll = self.roll(dice);
+        let successes = roll.iter().fold(vec![], accum);
+        (successes, roll)
+    }
+
     /// A die can "explode", meaning if it rolls some value, it can be rerolled.
     ///
     /// How the re-rolling is accounted for is handled by the `die` fn.  In some cases you may want
     /// to sum up the values, in other cases, you may want to add to the number of successes.
     fn exploding(
         &self,
-        roll: &mut Vec<u32>,
+        orig_roll: &mut Roll,
         thresh: u32,
         die: impl Fn(u32) -> Vec<u32>,
-    ) -> Vec<u32> {
-        let mut eroll: Vec<u32> = vec![];
+    ) -> Vec<(u32, u32)> {
+        let mut eroll: Vec<(u32, u32)> = vec![];
 
-        for d in roll.iter() {
-            if *d <= thresh {
-                eroll.append(&mut die(1));
+        // convert orig_roll to a &mut Vec<(u32, u32)>
+        let mut converted = vec![];
+        let roll = match orig_roll {
+            Roll::Original(roll) => {
+                for val in roll {
+                    converted.push((*val, 0u32))
+                }
+                &mut converted
+            }
+            Roll::Exploded(roll) => roll,
+        };
+
+        // Calculate which elements in roll
+        for (orig, new) in roll.iter() {
+            if *new >= thresh {
+                let val = die(1)[0];
+                eroll.push((*orig + val - 1, val));
             }
         }
 
-        let roll_more = eroll.iter().any(|result| *result <= thresh);
+        let roll_more = eroll.iter().any(|(_, new)| *new <= thresh);
         let mut exploded = if roll_more {
-            let mut new_roll = self.exploding(&mut eroll, thresh, die);
-            eroll.append(&mut new_roll);
-            eroll
+            let mut extended = Roll::Exploded(eroll);
+            let mut new_roll = self.exploding(&mut extended, thresh, die);
+            let Roll::Exploded(mut roll) = extended else {
+                panic!("Somehow returned Roll::Original")
+            };
+            new_roll.append(&mut roll);
+            new_roll
         } else {
             eroll
         };
 
         // This is kind of expensive to do, but I think this is better than returning a reference
         roll.append(&mut exploded);
-        let mut final_roll: Vec<u32> = vec![];
+        let mut final_roll: Vec<(u32, u32)> = vec![];
         for r in roll {
             final_roll.push(*r);
         }
@@ -134,18 +171,19 @@ impl DiePool {
 impl DieTraits for DiePool {
     fn roll(&self, num: u32) -> Vec<u32> {
         let dice_roll = (self.dice)(num);
-        dice_roll
+        let roll: Vec<u32> = dice_roll
             .into_iter()
             .map(|amt| (self.calculate)(amt))
-            .flat_map(|amt| match self.exploding {
-                Some(thresh) if amt <= thresh => {
-                    self.exploding(&mut vec![amt], thresh, |_| (self.dice)(1))
-                }
-                _ => {
-                    vec![amt]
-                }
-            })
-            .collect()
+            .collect();
+        if let Some(thresh) = self.exploding {
+            let final_roll = self.exploding(&mut Roll::Original(roll), thresh, |_| (self.dice)(1));
+            final_roll
+                .into_iter()
+                .map(|(orig, _)| orig)
+                .collect::<Vec<u32>>()
+        } else {
+            roll
+        }
     }
 }
 
@@ -188,7 +226,7 @@ pub fn explode(roll: &Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>) -> V
     let mut eroll: Vec<u32> = vec![];
     for d in roll {
         eroll.push(*d);
-        if *d <= thresh {
+        if *d >= thresh {
             eroll.append(&mut die(1));
         }
     }
@@ -203,7 +241,7 @@ pub fn exploding(roll: &mut Vec<u32>, thresh: u32, die: impl Fn(u32) -> Vec<u32>
     let mut eroll: Vec<u32> = vec![];
 
     for d in roll.iter() {
-        if *d <= thresh {
+        if *d >= thresh {
             eroll.append(&mut die(1));
         }
     }
@@ -234,7 +272,7 @@ mod tests {
     #[test]
     fn pool4d20() {
         println!("Testing pool");
-        let pool = DiePool::new(20).exploding(Some(2));
+        let pool = DiePool::new(20).exploding(Some(19));
         let roll = pool.roll(4);
 
         println!("roll {:?}", roll);
@@ -255,13 +293,15 @@ mod tests {
         (successes, roll)
     }
 
-    #[test]
-    fn average10of20() {
+    fn calculate_average(dice: u32, target: u32, thresh: u32) {
         let mut avg: Vec<u32> = vec![];
         let pool = DiePool::new(20).exploding(Some(1));
-        for n in 0..1000 {
+        for n in 0..100 {
             let (successes, roll) =
-                pool.get_successes(5, |acc, next| if *next <= 10 { acc + 1 } else { acc });
+                pool.get_successes(
+                    dice,
+                    |acc, next| if *next >= target { acc + 1 } else { acc },
+                );
             //let (successes, roll) = get_successes(&pool, 6, 10);
             avg.push(successes);
             println!("{}: Successes = {} from {:?}", n, successes, roll);
@@ -269,7 +309,7 @@ mod tests {
 
         //let sum_avg = avg.iter().fold(0u32, |acc, next| acc + next) as f32;
         let sum_avg: u32 = avg.iter().sum();
-        let calc_avg = sum_avg as f32 / 1000.0;
+        let calc_avg = sum_avg as f32 / 100.0;
         println!("Sum = {}, Calculated average is {}", sum_avg, calc_avg);
 
         let mut scores: HashMap<u32, u32> = HashMap::new();
@@ -277,8 +317,237 @@ mod tests {
             acc.entry(next).and_modify(|e| *e += 1).or_insert(1);
             acc
         });
-        println!("Score is {:#?}", scores);
+
+        println!("Score for num dice {dice}, at target {target} with thresh {thresh}:");
+        let mut ordered_keys = scores.keys().collect::<Vec<&u32>>();
+        ordered_keys.sort();
+        for key in ordered_keys {
+            let val = scores.get(key).unwrap();
+            println!("    {key}: {val}");
+        }
     }
+
+    #[test]
+    fn test_9_dice() {
+        calculate_average(9, 1, 19);
+        calculate_average(9, 2, 19);
+        calculate_average(9, 3, 19);
+        calculate_average(9, 4, 19);
+        calculate_average(9, 5, 19);
+        calculate_average(9, 6, 19);
+        calculate_average(9, 7, 19);
+        calculate_average(9, 8, 19);
+        calculate_average(9, 9, 19);
+        calculate_average(5, 10, 19);
+        calculate_average(9, 11, 19);
+        calculate_average(9, 12, 19);
+        calculate_average(9, 13, 19);
+        calculate_average(9, 14, 19);
+        calculate_average(9, 15, 19);
+        calculate_average(9, 16, 19);
+        calculate_average(9, 17, 19);
+        calculate_average(9, 18, 19);
+        calculate_average(9, 19, 19);
+        calculate_average(9, 20, 19);
+    }
+
+    #[test]
+    fn test_8_dice() {
+        calculate_average(8, 1, 19);
+        calculate_average(8, 2, 19);
+        calculate_average(8, 3, 19);
+        calculate_average(8, 4, 19);
+        calculate_average(8, 5, 19);
+        calculate_average(8, 6, 19);
+        calculate_average(8, 7, 19);
+        calculate_average(8, 8, 19);
+        calculate_average(8, 9, 19);
+        calculate_average(8, 10, 19);
+        calculate_average(8, 11, 19);
+        calculate_average(8, 12, 19);
+        calculate_average(8, 13, 19);
+        calculate_average(8, 14, 19);
+        calculate_average(8, 15, 19);
+        calculate_average(8, 16, 19);
+        calculate_average(8, 17, 19);
+        calculate_average(8, 18, 19);
+        calculate_average(8, 19, 19);
+        calculate_average(8, 20, 19);
+    }
+
+    #[test]
+    fn test_7_dice() {
+        calculate_average(7, 1, 19);
+        calculate_average(7, 2, 19);
+        calculate_average(7, 3, 19);
+        calculate_average(7, 4, 19);
+        calculate_average(7, 5, 19);
+        calculate_average(7, 6, 19);
+        calculate_average(7, 7, 19);
+        calculate_average(7, 8, 19);
+        calculate_average(7, 9, 19);
+        calculate_average(7, 10, 19);
+        calculate_average(7, 11, 19);
+        calculate_average(7, 12, 19);
+        calculate_average(7, 13, 19);
+        calculate_average(7, 14, 19);
+        calculate_average(7, 15, 19);
+        calculate_average(7, 16, 19);
+        calculate_average(7, 17, 19);
+        calculate_average(7, 18, 19);
+        calculate_average(7, 19, 19);
+        calculate_average(7, 20, 19);
+    }
+
+    #[test]
+    fn test_6_dice() {
+        calculate_average(6, 1, 19);
+        calculate_average(6, 2, 19);
+        calculate_average(6, 3, 19);
+        calculate_average(6, 4, 19);
+        calculate_average(6, 5, 19);
+        calculate_average(6, 6, 19);
+        calculate_average(6, 7, 19);
+        calculate_average(6, 8, 19);
+        calculate_average(6, 9, 19);
+        calculate_average(6, 10, 19);
+        calculate_average(6, 11, 19);
+        calculate_average(6, 12, 19);
+        calculate_average(6, 13, 19);
+        calculate_average(6, 14, 19);
+        calculate_average(6, 15, 19);
+        calculate_average(6, 16, 19);
+        calculate_average(6, 17, 19);
+        calculate_average(6, 18, 19);
+        calculate_average(6, 19, 19);
+        calculate_average(6, 20, 19);
+    }
+
+    #[test]
+    fn test_5_dice() {
+        calculate_average(5, 1, 19);
+        calculate_average(5, 2, 19);
+        calculate_average(5, 3, 19);
+        calculate_average(5, 4, 19);
+        calculate_average(5, 5, 19);
+        calculate_average(5, 6, 19);
+        calculate_average(5, 7, 19);
+        calculate_average(5, 8, 19);
+        calculate_average(5, 9, 19);
+        calculate_average(5, 10, 19);
+        calculate_average(5, 11, 19);
+        calculate_average(5, 12, 19);
+        calculate_average(5, 13, 19);
+        calculate_average(5, 14, 19);
+        calculate_average(5, 15, 19);
+        calculate_average(5, 16, 19);
+        calculate_average(5, 17, 19);
+        calculate_average(5, 18, 19);
+        calculate_average(5, 19, 19);
+        calculate_average(5, 20, 19);
+    }
+
+    #[test]
+    fn test_4_dice() {
+        calculate_average(4, 1, 19);
+        calculate_average(4, 2, 19);
+        calculate_average(4, 3, 19);
+        calculate_average(4, 4, 19);
+        calculate_average(4, 5, 19);
+        calculate_average(4, 6, 19);
+        calculate_average(4, 7, 19);
+        calculate_average(4, 8, 19);
+        calculate_average(4, 6, 19);
+        calculate_average(4, 7, 19);
+        calculate_average(4, 8, 19);
+        calculate_average(4, 9, 19);
+        calculate_average(4, 10, 19);
+        calculate_average(4, 11, 19);
+        calculate_average(4, 12, 19);
+        calculate_average(4, 13, 19);
+        calculate_average(4, 14, 19);
+        calculate_average(4, 15, 19);
+        calculate_average(4, 16, 19);
+        calculate_average(4, 17, 19);
+        calculate_average(4, 18, 19);
+        calculate_average(4, 19, 19);
+        calculate_average(4, 20, 19);
+    }
+
+    #[test]
+    fn test_3_dice() {
+        calculate_average(3, 1, 19);
+        calculate_average(3, 2, 19);
+        calculate_average(3, 3, 19);
+        calculate_average(3, 4, 19);
+        calculate_average(3, 5, 19);
+        calculate_average(3, 6, 19);
+        calculate_average(3, 7, 19);
+        calculate_average(3, 8, 19);
+        calculate_average(3, 9, 19);
+        calculate_average(3, 10, 19);
+        calculate_average(3, 11, 19);
+        calculate_average(3, 12, 19);
+        calculate_average(3, 13, 19);
+        calculate_average(3, 14, 19);
+        calculate_average(3, 15, 19);
+        calculate_average(3, 16, 19);
+        calculate_average(3, 17, 19);
+        calculate_average(3, 18, 19);
+        calculate_average(3, 19, 19);
+        calculate_average(3, 20, 19);
+    }
+
+    #[test]
+    fn test_2_dice() {
+        calculate_average(2, 1, 19);
+        calculate_average(2, 2, 19);
+        calculate_average(2, 3, 19);
+        calculate_average(2, 4, 19);
+        calculate_average(2, 5, 19);
+        calculate_average(2, 6, 19);
+        calculate_average(2, 7, 19);
+        calculate_average(2, 8, 19);
+        calculate_average(2, 9, 19);
+        calculate_average(2, 10, 19);
+        calculate_average(2, 11, 19);
+        calculate_average(2, 12, 19);
+        calculate_average(2, 13, 19);
+        calculate_average(2, 14, 19);
+        calculate_average(2, 15, 19);
+        calculate_average(2, 16, 19);
+        calculate_average(2, 17, 19);
+        calculate_average(2, 18, 19);
+        calculate_average(2, 19, 19);
+        calculate_average(2, 20, 19);
+    }
+
+    #[test]
+    fn test_1_dice() {
+        calculate_average(1, 1, 19);
+        calculate_average(1, 2, 19);
+        calculate_average(1, 3, 19);
+        calculate_average(1, 4, 19);
+        calculate_average(1, 5, 19);
+        calculate_average(1, 6, 19);
+        calculate_average(1, 7, 19);
+        calculate_average(1, 8, 19);
+        calculate_average(1, 9, 19);
+        calculate_average(1, 10, 19);
+        calculate_average(1, 11, 19);
+        calculate_average(1, 12, 19);
+        calculate_average(1, 13, 19);
+        calculate_average(1, 14, 19);
+        calculate_average(1, 15, 19);
+        calculate_average(1, 16, 19);
+        calculate_average(1, 17, 19);
+        calculate_average(1, 18, 19);
+        calculate_average(1, 19, 19);
+        calculate_average(1, 20, 19);
+    }
+
+    #[test]
+    fn test_5_at_3() {}
 
     #[test]
     fn test_rng() {

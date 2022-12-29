@@ -24,10 +24,44 @@
 //!
 //! There's always an advantage if one is skilled, but one's skill is based off of how competent the associated
 //! characteristic is.  It is thus possible for someone extremely talented but not as skilled, to best someone who is
-//! more skilled, but not as talented.  Unlike most games which use an additive system where one adds the relevant skill
-//! to the appropriate characteristic(s), retro sets the characteristic as a target number, and one's skill as the
-//! number of dice rolled.  One counts how many successes are rolled and this count is compared against a competing
-//! value.
+//! more skilled, but not as talented.  
+//!
+//! Unlike most games which use an additive system where one adds the relevant skill to the appropriate
+//! characteristic(s), retro sets the characteristic as a target number, and one's skill as the number of dice rolled.
+//! One counts how many successes are rolled and this count is compared against a competing value.
+//!
+//! ## Task grade
+//!
+//! The first step in determining whether a task was successful or not is to determine the task grade.  This does
+//! not determine success, but merely how good the character did at his task.  The actual resolution is dtermined by
+//! comparing the performance of the character, versus the antagonist's grade.  The antagonizt could be an NPC, it
+//! could be the environment or just a generalized difficulty.
+//!
+//! The task grade is made by rolling the character's dice pool.  Tupically, this is the skill level for any tasks
+//! related to a skill, or to the attribute halved (rounded down) for tasks that are only based on a raw attribute.
+//!
+//! The values in the die pool are then added to the relevant attributes for the skill/task, and then compared to a
+//! Target Number which is typically 20.  Any values above 20 are successful.  
+//!
+//! ```ignore
+//! Kyle's character wants to shoot at a thug.  His skill level is 4 in rifles and his relevant attribute is 14.  Kyle
+//! rolls [16, 5, 14, 5].  Adding his 14 to the rolls, he gets [30, 19, 28, 19], so 2 of his rolls beat the Target
+//! Number of 20.
+//! ```
+//!
+//! Alternatively, subtract the controlling attribute from 20, and any values above that are successful.
+//!
+//! ```ignore
+//! From the example above, instead of comparing the Target Number to 20, we subtract the related attribute, So 20 - 14
+//! = 6.  Looking at his rolls, the two 5's aren't above the adjusted Target Number of 6, so we still have 2 successes.
+//! ```
+//!
+//! Because retro uses an exploding die pool, any die that rolls a natural 20 gets to do two things.  It first rolls a
+//! new d20.  This repeats if the next die is also a 20.  Add up the extra dies that were rolled, and subtract 1.
+//!
+//! ```ignore
+//! Kyle rolls again, and this time gets []
+//! ```
 //!
 //! ## Contests
 //!
@@ -49,19 +83,32 @@
 //!
 //! ### General Difficulty levels
 //!
-//! | Difficulty  | Academic    | years training | Successes | 5@10 | 9@18 |
-//! |-------------|-------------|----------------|-----------|------|--------------------
-//! | Trivial     | Untrained   | 0              | 0         
-//! | Easy        | Grade       | <1             | 1
-//! | Simple      | Junior      | 1-2            | 2
-//! | Average     | High School | 2-3            | 3
-//! | Above Avg   | Bachelor    | 3-4            | 4
-//! | Difficult   | Post-Bacc   | 4-5            | 6
-//! | Challenging | Master      | 6-7            | 8
-//! | Epic        | Doctorate   | 8-9            | 10
-//! | Legendary   | Post-Doc    | 9+             | 12
-//! | Mythic      |             |                | 14
+//! The table below assumes difficulties for an average skilled person (Skill level 3).
+//!
+//! | Difficulty  | Academic    | years training | Successes | Skill level | 3@10 | 4@12 | 5@14
+//! |-------------|-------------|----------------|-----------|-------------|--------------------
+//! | Trivial     | Untrained   | 0              | 0         | 0           |
+//! | Easy        | Grade       | <1             | 1         | 1
+//! | Simple      | Junior      | 1-2            | 2         | 2
+//! | Average     | High School | 2-3            | 3         | 3
+//! | Above Avg   | Bachelor    | 3-4            | 4         | 4
+//! | Difficult   | Post-Bacc   | 4-5            | 6         | 5
+//! | Challenging | Master      | 6-7            | 8         | 6
+//! | Epic        | Doctorate   | 8-9            | 10        | 7
+//! | Legendary   | Post-Doc    | 9+             | 12        | 8
+//! | Mythic      |             |                | 14        | 9
 //! | Impossible  |             |                | 16
+//!
+//! |    | 1     | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   |
+//! | 1  | 0.054
+//! | 2  | 0.118
+//! | 3  | 0.164
+//! | 4  | 0.216
+//! | 5  | 0.264
+//! | 6  | 0.329
+//! | 7  |
+//! | 8  |
+//! | 9  |
 //!
 //! When a system uses both a number of dice and a moveable target number (as retro does), it can be hard to determine
 //! how to modify the difficulty of a task.  
@@ -150,18 +197,11 @@
 //! and not a single die.  Also, adjustments to the TN never affect the exploding number.  The exploding value is always
 //! a _natural_ 19 or 20, never a modified result of 19 or better.
 //!
-//! Tasks define how actions are resolved
-//! Die examples:
+//! Tasks define how actions are resolved Die examples:
 //!
-//! let simpleD6 = die(6)
-//! let roll = simpleD6.roll(10)
+//! let simpleD6 = die(6) let roll = simpleD6.roll(10)
 //!
-//! let d6 = die(6)
-//!   .exploding(Some(6))
-//!   .value(|amt| {
-//!      default_rng(5, 2)
-//!   })
-//!   .roll(10)
+//! let d6 = die(6) .exploding(Some(6)) .value(|amt| { default_rng(5, 2) }) .roll(10)
 
 use std::time::Duration;
 
