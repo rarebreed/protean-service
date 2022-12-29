@@ -9,3 +9,11 @@ exclude = [
 ]
 
 resolver = "2"
+
+[workspace.dependencies]
+bevy = { version = "0.9", features = ["bevy_ui"] }
+serde =  { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"
+rand = "0.8"
+num-traits = "0.2"
+wgpu = "0.14"

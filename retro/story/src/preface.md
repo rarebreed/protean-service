@@ -166,13 +166,13 @@ I will endeavor to be socially sensitive for the setting and game.  This is not 
 police beating down my door, but simply because I want to show how we're all in this together.  That being said, I might
 say some things that will offend others.  This is not intentional.  I would ask you to also realize that it's impossible
 to appeal to everyone, and being offended is ultimately owned by the person feeling offended.  My purpose is to
-challenge the reader, to make them think.  Like exercising afetr a long time being inactive, it will hurt.  It will be
+challenge the reader, to make them think.  Like exercising after a long time being inactive, it will hurt.  It will be
 painful, and not feel good.  But exercise is meant to tear yo down a little bit, so that you are rebuilt stronger.  If
-however you give in, and do not allow yourself to heal, adapt and change, your body wull wear down.  The mind is no
+however you give in, and do not allow yourself to heal, adapt and change, your body will wear down.  The mind is no
 different.
 
 There is a great story about the Buddha, where the Buddha gets insulted by a Brahman zealot.  Basically, the Buddha
-just listens, and then asks the Brahman if he has a guest, and the guest does not take the food that is offered.  What
+just listens, and then asks the Brahman if he has a guest, and the guest does not take the food that is offered, what
 happens to the food that is not taken?  The Brahman said that the food will come back to him.  So the Buddha said, it is
 with insults
 
@@ -205,7 +205,7 @@ those who think you a fool
 know nothing of Dhamma. 
 ```
 
-If you feel insulted at something someone says, this says as much about you, as it does the insulter.  Yes, this is a 
+If you feel insulted at something someone says, this says as much about you as it does the insulter.  Yes, this is a 
 difficult practice, but it is one we must cultivate in today's world.
 
 ### About being racist
