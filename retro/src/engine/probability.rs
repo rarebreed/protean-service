@@ -70,7 +70,11 @@ pub trait DieTraits {
         let roll = match orig_roll {
             Roll::Original(roll) => {
                 for val in roll {
-                    converted.push((*val, 0u32))
+                    if *val >= thresh {
+                        converted.push((0u32, *val))
+                    } else {
+                        converted.push((*val, 0u32))
+                    }
                 }
                 &mut converted
             }
@@ -78,33 +82,35 @@ pub trait DieTraits {
         };
 
         // Calculate which elements in roll
-        for (orig, new) in roll.iter() {
+        for (orig, new) in roll.iter_mut() {
             if *new >= thresh {
                 let val = die(1)[0];
-                eroll.push((*orig + val - 1, val));
+                if *orig == 0 {
+                    eroll.push((*new + val - 1, val));
+                } else {
+                    eroll.push((*orig + val - 1, val));
+                }
             }
         }
+        // Take out any that have a 0
+        let mut roll: Vec<(u32, u32)> = roll
+            .into_iter()
+            .filter(|(orig, _)| *orig != 0)
+            .map(|(orig, new)| (*orig, *new))
+            .collect();
 
-        let roll_more = eroll.iter().any(|(_, new)| *new <= thresh);
+        let roll_more = eroll.iter().any(|(_, new)| *new >= thresh);
         let mut exploded = if roll_more {
             let mut extended = Roll::Exploded(eroll);
-            let mut new_roll = self.exploding(&mut extended, thresh, die);
-            let Roll::Exploded(mut roll) = extended else {
-                panic!("Somehow returned Roll::Original")
-            };
-            new_roll.append(&mut roll);
-            new_roll
+            self.exploding(&mut extended, thresh, die)
         } else {
             eroll
         };
 
         // This is kind of expensive to do, but I think this is better than returning a reference
         roll.append(&mut exploded);
-        let mut final_roll: Vec<(u32, u32)> = vec![];
-        for r in roll {
-            final_roll.push(*r);
-        }
-        final_roll
+        println!("after exploding: {roll:?}");
+        roll
     }
 }
 
@@ -175,6 +181,7 @@ impl DieTraits for DiePool {
             .into_iter()
             .map(|amt| (self.calculate)(amt))
             .collect();
+        println!("original roll: {roll:?}");
         if let Some(thresh) = self.exploding {
             let final_roll = self.exploding(&mut Roll::Original(roll), thresh, |_| (self.dice)(1));
             final_roll
@@ -295,7 +302,7 @@ mod tests {
 
     fn calculate_average(dice: u32, target: u32, thresh: u32) {
         let mut avg: Vec<u32> = vec![];
-        let pool = DiePool::new(20).exploding(Some(1));
+        let pool = DiePool::new(20).exploding(Some(thresh));
         for n in 0..100 {
             let (successes, roll) =
                 pool.get_successes(
