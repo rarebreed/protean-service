@@ -81,19 +81,19 @@
 //! Contested tasks are relatively easy to figure out when it is one character against another.  But how would one
 //! determine the contested roll for say, remembering a detail?  This is where difficulty levels come in.  They always
 //! start with a target number of 10, and the number of dice is what will normally vary.  However, there are occasions
-//! where the target number may also be adjusted.  This is generally avoided though except for rare circumstances.  This
-//! is because it is harder for the human mind to try to estimate the odds of a roll based on 2 changing variables: the
-//! number of dice rolled, and the target number for each.  This is exacerbated by the fact that there is more
-//! uncertainty induced by having the rolls be contested.
+//! where the target number may also be adjusted.  This is generally avoided except for rare circumstances.  This is
+//! because it is harder for the human mind to estimate the odds of a roll based on 2 changing variables: the number of
+//! dice rolled, and the target number for each.  This is exacerbated by the fact that there is more uncertainty from
+//! having the rolls be contested.
 //!
 //! ### Comparing grades
 //!
 //! Resolving a task involves comparing the grades of both opponents.  Whomever has the most successes wins, and both
 //! the number of successes and the values of the successes determines the final outcome.
 //!
-//! First, for any roll above 20, find the highest value (and only the highest value) above 20 for either opponent.
-//! They may remove the opponents highest rolls by up to that value.  The highest value is then taken off.  The
-//! remaining rolls are then compared.  The opponent with the most successes wins.
+//! First, for any roll above 20, find the highest value (and only the highest value) above 20 for either opponent. They
+//! may remove the opponents highest rolls by up to that value.  The highest value is then taken off.  The remaining
+//! rolls are then compared.  The opponent with the most successes wins.
 //!
 //! ```ignore
 //! Kyle is facing off against a warrior in hand to hand combat.  Kyle's skill in martial arts is a 5, and from his
@@ -129,8 +129,7 @@
 //! | Mythic      |             |                | 14        | 9
 //! | Impossible  |             |                | 16
 //!
-//! |    | 1     | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | | 1  | 0.054 | 2  | 0.118 | 3  | 0.164 | 4  | 0.216 |
-//! 5  | 0.264 | 6  | 0.329 | 7  | | 8  | | 9  |
+//! ## Modifiers
 //!
 //! When a system uses both a number of dice and a moveable target number (as retro does), it can be hard to determine
 //! how to modify the difficulty of a task.  
@@ -138,20 +137,38 @@
 //! - Do you adjust the number of dice rolled (for the character, the adversary, or both)?
 //! - Do you adjust the target number (for the character, the adversary or both)?
 //!
-//! Since retro always uses an opposed system, there is never a fixed target.  Rather, the GM should consider the
-//! following:
+//! Since retro always uses an opposed system, there is never a fixed number of successes beeded.  Rather, the GM should
+//! consider the following:
 //!
 //! - If there is an inherent or internal modifier, it should adjust that actor's roll
-//! - If there is an external modifier can adjust either party's roll but never both
+//! - If there is an external modifier, follow the table below
+//!
+//! | External   | antag/adv | antag/dis | antag/neu
+//! |------------|-----------|-----------|-----------|
+//! | protag/adv | + to both | - to ant  | + to pro  |
+//! | protag/dis | - to pro  | - to both | - to pro
+//! | protag/neu | + to ant  | - to ant  | no adjust
 //!
 //! Examples of external factors are visibility, footing, timing or distance.  Examples of internal factors are being
-//! wounded, fatigued, or dizzy.  If someone is shooting in poor visibility, this will be bonus to the defenders roll
-//! rather than a minus to the shooter's roll.  Conversely, if the defender is wounded, it will reduce his roll. Another
-//! example would be the use of superior tools to perform a task.  Since this is an externl modifier, it reduces the
-//! opposing roll.
+//! wounded, fatigued, or dizzy.  If someone is shooting in poor visibility, this will be minus to the attackers roll
+//! rather than a bonus to the shooter's roll because shooting in poor visibility is an advantage for the defender for
+//! the antagonist (the defender) and a disadvantage for the protagonist (the attacker).  Looking at the table, we see
+//! that in that case, we should apply a negative modifier to the attacker.
 //!
-//! Take for example shooting at a non-moving distant target.  In broad daylight with minimal winds, the various factors
-//! are:
+//! On the other, if two combatants were fighting on slippery ice, both would get a minus.  Since this would be
+//! disadvantageous to both the protagonist and antagonist, they each get a minus adjustment for their task grade.
+//!
+//! In some cases, an external modifier may only affect one side, and have no effect the other.  For example, firing a
+//! braced weapon is advantageous for the protagonist, but has no effect on the defender, and thus would be a bonus for
+//! the attacker.
+//!
+//! Internal modifiers only ever adjust the task grade of the one affected.  For example, a wounded opponent in a fight
+//! will only ever be a minus for that opponent, never a bonus for his antagonist.
+//!
+//! ### Example
+//!
+//! Here is an example shooting at a non-moving distant target.  In broad daylight with minimal winds, the various
+//! factors are:
 //!
 //! - distance
 //! - size of the target
@@ -159,7 +176,8 @@
 //! - accuracy of the weapon
 //! - how much time spent aiming
 //!
-//! Notice that all of these factors are external, and thus become adjustments to the opposing roll.
+//! Notice that all of these factors are external, and furthermore, since we have a non-moving non-active target, the
+//! opposed role will be
 //!
 //! For a moving target we would also factor in:
 //!
@@ -178,17 +196,20 @@
 //! As mentioned above, determining how many dice to roll and what the target number is can be unintuitive.  There's
 //! also a mathematical affect which must be considered.
 //!
-//! Increasing the number of dice rolled has two ramifications.  The first, is it improves the odds of getting more
-//! successes than the opposition.  The second ramification is implicit from the first: it means you can have better
+//! Increasing the number of dice rolled has several ramifications.  The first, is it improves the odds of getting more
+//! successes than the opposition.  Another ramification is implicit from the first: it means you can have better
 //! margins of success.  It is not enough to know that you have more successes than your opponent, but also how _many_
-//! more successes you have.  Increasing the number of dice rolled means you increase your odds of getting another
-//! additional success.
+//! more successes you have.  
+//!
+//! Increasing the number of dice rolled means you increase your odds of getting another additional success. If you
+//! increase the number of dice, you also increase the odds of exploding dice getting very good results.  This is for
+//! example, reflected by higher skill levels having better odds of exploding, and can be thought of as being better
+//! able to exploit opportunities or disadvantages.
 //!
 //! Therefore, only increase the number of dice if there is a reason to think that the task modifier would increase not
-//! just the likelihood of success, but also better quality of success.  In contrast, increasing the target number only
-//! increases the likelihood that you will get more successes in the pool of dice that you already have.  Adjust the TN
-//! if you think the odds of getting successes in your pool should be adjusted, but not increasing the total amount of
-//! possible successes.
+//! just the likelihood of success, but also better quality of success.  In contrast, changing the target number only
+//! changes the amount of successes in the pool of dice that you already have.  Adjust the TN if you think the odds of
+//! getting successes in your pool should be adjusted, but not the qualitative value of the successes.
 //!
 //! To think of it another way, imagine if instead of having 5 cards in your hand in poker, you had 6 or 7 cards.  Now,
 //! you increase the odds not only of getting a 2, 3 or 4 of a kind, (and assuming you need only 5 cards) it also
@@ -197,7 +218,7 @@
 //! Some examples of when you would adjust the number of pool in the dice is when:
 //!
 //! - You lack tools for a technical task
-//! - You are fighting unarmed while injured or immobilized
+//! - You are fighting unarmed while injured or partially immobilized
 //! - You have a status condition applied
 //! - The equipment you are using is in poor condition
 //!
@@ -221,9 +242,13 @@
 //!
 //! Tasks define how actions are resolved Die examples:
 //!
-//! let simpleD6 = die(6) let roll = simpleD6.roll(10)
+//! let simpleD6 = die(6);
+//! let roll = simpleD6.roll(10);
 //!
-//! let d6 = die(6) .exploding(Some(6)) .value(|amt| { default_rng(5, 2) }) .roll(10)
+//! let d6mod = die(6)
+//!     .exploding(Some(6))
+//!     .value(|amt| { default_rng(5, 2) });
+//! let roll = d6mod.roll(10)
 
 use std::time::Duration;
 

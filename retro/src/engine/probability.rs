@@ -68,7 +68,7 @@ pub trait DieTraits {
 
         // convert orig_roll to a &mut Vec<(u32, u32)>
         let mut converted = vec![];
-        let roll = match orig_roll {
+        let (roll, subtract) = match orig_roll {
             Roll::Original(roll) => {
                 for val in roll {
                     if *val >= thresh {
@@ -77,9 +77,9 @@ pub trait DieTraits {
                         converted.push((*val, 0u32))
                     }
                 }
-                &mut converted
+                (&mut converted, 1)
             }
-            Roll::Exploded(roll) => roll,
+            Roll::Exploded(roll) => (roll, 0),
         };
 
         // Calculate which elements in roll
@@ -87,9 +87,9 @@ pub trait DieTraits {
             if *new >= thresh {
                 let val = die(1)[0];
                 if *orig == 0 {
-                    eroll.push((*new + val - 1, val));
+                    eroll.push((*new + val - subtract, val));
                 } else {
-                    eroll.push((*orig + val - 1, val));
+                    eroll.push((*orig + val - subtract, val));
                 }
             }
         }
@@ -303,7 +303,7 @@ mod tests {
 
     fn calculate_average(dice: u32, target: u32, thresh: u32) {
         let mut avg: Vec<u32> = vec![];
-        let pool = DiePool::new(20).exploding(Some(thresh));
+        let pool = DiePool::new(10).exploding(Some(thresh));
         for n in 0..100 {
             let (successes, roll) =
                 pool.get_successes(
@@ -333,6 +333,11 @@ mod tests {
             let val = scores.get(key).unwrap();
             println!("    {key}: {val}");
         }
+    }
+
+    #[test]
+    fn test_simple() {
+        calculate_average(9, 1, 10);
     }
 
     #[test]
