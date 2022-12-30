@@ -32,16 +32,16 @@
 //!
 //! ## Task grade
 //!
-//! The first step in determining whether a task was successful or not is to determine the task grade.  This does
-//! not determine success, but merely how good the character did at his task.  The actual resolution is dtermined by
-//! comparing the performance of the character, versus the antagonist's grade.  The antagonizt could be an NPC, it
-//! could be the environment or just a generalized difficulty.
+//! The first step in determining whether a task was successful or not is to determine the task grade.  This does not
+//! determine success, but merely how good or bad the character did at the task.  The actual resolution is dtermined by
+//! comparing the performance of the character versus the antagonist's grade.  The antagonizt could be an NPC, the
+//! environment or just a generalized difficulty.
 //!
-//! The task grade is made by rolling the character's dice pool.  Tupically, this is the skill level for any tasks
+//! The task grade is made by rolling the character's dice pool.  Typically, this is the skill level for any tasks
 //! related to a skill, or to the attribute halved (rounded down) for tasks that are only based on a raw attribute.
 //!
 //! The values in the die pool are then added to the relevant attributes for the skill/task, and then compared to a
-//! Target Number which is typically 20.  Any values above 20 are successful.  
+//! Target Number which is typically 20.  Any values above this Target Number are successful.  
 //!
 //! ```ignore
 //! Kyle's character wants to shoot at a thug.  His skill level is 4 in rifles and his relevant attribute is 14.  Kyle
@@ -56,16 +56,25 @@
 //! = 6.  Looking at his rolls, the two 5's aren't above the adjusted Target Number of 6, so we still have 2 successes.
 //! ```
 //!
-//! Because retro uses an exploding die pool, any die that rolls a natural 20 gets to do two things.  It first rolls a
-//! new d20.  This repeats if the next die is also a 20.  Add up the extra dies that were rolled, and subtract 1.
+//! Because retro uses an exploding die pool, any die that rolls a natural 19 or 20 gets to do two things.  It first
+//! rolls a new d20.  This repeats if the next die is also a 19+  Add the original value to the extra die that was
+//! rolled, and subtract 1.  If the new die is also a 19+, add a new score, which is the previous score + the new die
+//! roll. This contingues, until the new die roll is less than 19.
 //!
 //! ```ignore
-//! Kyle rolls again, and this time gets []
+//! Kyle rolls again, and this time gets [19, 8, 12, 14, 11].  Because he rolled a 19, he gets to roll it again, and
+//! luckily enough, the second roll is a 20!.  So at this point, Kyle now has [8, 12, 14, 11, 38].  The 38 comes from
+//! his original roll of 19 + 20 -1 = 38.  Since the additional die was also greater than 19, he gets to add a new
+//! score by rolling a new die.  This new die comes up an 11.  So this new value is now 38 + 11 - 1 = 48.  Since the
+//! additional die roll was an 11, we stop rolling extra dice.  Kyle's final roll is therefore [8, 12, 14, 11, 38. 48]
 //! ```
 //!
-//! ## Contests
+//! ## Task Resolution
 //!
-//! Therefore, all tasks are contested rolls, there is no fixed _threshold_ one must achieve.  Just because the player
+//! Resolution of a task is made by comparing the task grade of the protagonist against the task grade of the
+//! antagonist.  A comparison is made against the grades of each opponent to determine the outcome.
+//!
+//! Therefore, all tasks are contested rolls; there is no fixed _threshold_ one must achieve.  Just because the player
 //! rolled well doesn't mean he knows if he succeeded or not, because the GM might also have rolled very well.  This
 //! design introduces an air of uncertainty about knowing whether the player actually succeeded or not.
 //!
@@ -76,6 +85,27 @@
 //! is because it is harder for the human mind to try to estimate the odds of a roll based on 2 changing variables: the
 //! number of dice rolled, and the target number for each.  This is exacerbated by the fact that there is more
 //! uncertainty induced by having the rolls be contested.
+//!
+//! ### Comparing grades
+//!
+//! Resolving a task involves comparing the grades of both opponents.  Whomever has the most successes wins, and both
+//! the number of successes and the values of the successes determines the final outcome.
+//!
+//! First, for any roll above 20, find the highest value (and only the highest value) above 20 for either opponent.
+//! They may remove the opponents highest rolls by up to that value.  The highest value is then taken off.  The
+//! remaining rolls are then compared.  The opponent with the most successes wins.
+//!
+//! ```ignore
+//! Kyle is facing off against a warrior in hand to hand combat.  Kyle's skill in martial arts is a 5, and from his
+//! chosen move, his relevant attribute average is a 13.  Kyle ultimate rolls a [12, 17, 9, 16, 26].  His adversary
+//! has a skill of 4/12, and in his maneuver to defend rolls [18, 10, 4, 30].  While Kyle has more successes than his
+//! adversary, the adversary rolled the highest at 30.  So the adversary's roll of 30 can be used to remove 30 points
+//! from Kyle's rolls, starting with his highest.  This removes his 26, and takes 4 off his next highest of 17, which
+//! becomes a 13.  So Kyle's effective roll becomes [9, 12, 13, 16].  Since his attribute is 13,his effective Target
+//! Number is 7 (20 - 13).  Therefore, Kyle has 4 successes.
+//!
+//! The adversary has to remove his highest roll, so he now has
+//! ```
 //!
 //! ## Law of Averages
 //!
@@ -99,16 +129,8 @@
 //! | Mythic      |             |                | 14        | 9
 //! | Impossible  |             |                | 16
 //!
-//! |    | 1     | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   |
-//! | 1  | 0.054
-//! | 2  | 0.118
-//! | 3  | 0.164
-//! | 4  | 0.216
-//! | 5  | 0.264
-//! | 6  | 0.329
-//! | 7  |
-//! | 8  |
-//! | 9  |
+//! |    | 1     | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | | 1  | 0.054 | 2  | 0.118 | 3  | 0.164 | 4  | 0.216 |
+//! 5  | 0.264 | 6  | 0.329 | 7  | | 8  | | 9  |
 //!
 //! When a system uses both a number of dice and a moveable target number (as retro does), it can be hard to determine
 //! how to modify the difficulty of a task.  
