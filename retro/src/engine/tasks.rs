@@ -113,21 +113,23 @@
 //!
 //! ### General Difficulty levels
 //!
-//! The table below assumes difficulties for an average skilled person (Skill level 3).
+//! The table below shows how to map "difficulty" ratings, academic degrees, and years spent training to an equivalent
+//! of each other.  This is useful if you want to know how many dice to roll against a passive "opponent".  For example
+//! scaling an icy cliff with high winds might be Difficult or even Challenging and the character would be competing
+//! against a die pool of 6-8 dice.
 //!
-//! | Difficulty  | Academic    | years training | Successes | Skill level | 3@10 | 4@12 | 5@14
-//! |-------------|-------------|----------------|-----------|-------------|--------------------
-//! | Trivial     | Untrained   | 0              | 0         | 0           |
-//! | Easy        | Grade       | <1             | 1         | 1
-//! | Simple      | Junior      | 1-2            | 2         | 2
-//! | Average     | High School | 2-3            | 3         | 3
-//! | Above Avg   | Bachelor    | 3-4            | 4         | 4
-//! | Difficult   | Post-Bacc   | 4-5            | 6         | 5
-//! | Challenging | Master      | 6-7            | 8         | 6
-//! | Epic        | Doctorate   | 8-9            | 10        | 7
-//! | Legendary   | Post-Doc    | 9+             | 12        | 8
-//! | Mythic      |             |                | 14        | 9
-//! | Impossible  |             |                | 16
+//! | Difficulty  | Academic    | years training | Die Pool |
+//! |-------------|-------------|----------------|----------|
+//! | Trivial     | Untrained   | 0              | 1        |
+//! | Easy        | Grade       | <1             | 2        |
+//! | Simple      | Junior      | 1-2            | 3        |
+//! | Average     | High School | 2-3            | 4        |
+//! | Above Avg   | Bachelor    | 3-5            | 6        |
+//! | Difficult   | Post-Bacc   | 5-7            | 8        |
+//! | Challenging | Master      | 7-10           | 10       |
+//! | Epic        | Doctorate   | 10-14          | 12       |
+//! | Legendary   | Post-Doc    | 15+            | 14       |
+//! | Mythic      |             |                | 16       |
 //!
 //! ## Modifiers
 //!
@@ -202,12 +204,12 @@
 //! more successes you have.  
 //!
 //! Increasing the number of dice rolled means you increase your odds of getting another additional success. If you
-//! increase the number of dice, you also increase the odds of exploding dice getting very good results.  This is for
+//! increase the number of dice, you also increase the odds of exploding dice getting very good results.  This is, for
 //! example, reflected by higher skill levels having better odds of exploding, and can be thought of as being better
-//! able to exploit opportunities or disadvantages.
+//! able to exploit opportunities or disadvantages from experience.
 //!
 //! Therefore, only increase the number of dice if there is a reason to think that the task modifier would increase not
-//! just the likelihood of success, but also better quality of success.  In contrast, changing the target number only
+//! just the likelihood of success, but also the quality of success.  In contrast, changing the target number only
 //! changes the amount of successes in the pool of dice that you already have.  Adjust the TN if you think the odds of
 //! getting successes in your pool should be adjusted, but not the qualitative value of the successes.
 //!
@@ -242,13 +244,9 @@
 //!
 //! Tasks define how actions are resolved Die examples:
 //!
-//! let simpleD6 = die(6);
-//! let roll = simpleD6.roll(10);
+//! let simpleD6 = die(6); let roll = simpleD6.roll(10);
 //!
-//! let d6mod = die(6)
-//!     .exploding(Some(6))
-//!     .value(|amt| { default_rng(5, 2) });
-//! let roll = d6mod.roll(10)
+//! let d6mod = die(6) .exploding(Some(6)) .value(|amt| { default_rng(5, 2) }); let roll = d6mod.roll(10)
 
 use std::time::Duration;
 
