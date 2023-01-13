@@ -349,6 +349,21 @@ melee combats
 
 ### Tactical choices: GRAMS
 
+Power, Speed, and Root.  These are the legs on which melee combat rests.  But as in all things, a price must be pais.
+
+- The more power behind a technique, the more open and less guarded you become.  Therefore you become easier to hit.
+- The faster your technique is, the less accurate it becomes (but also the harder to defend against)
+- If you must move, then you become less rooted and easier to take down
+
+Because the character combatant must divide his dice pool between these categories, you cant have it all.  At most, you can
+pick two out of 3.  Some examples:
+
+- Power and Speed: Flying kicks, Lunges, Spinning kicks, Shoot take down
+- Power and Root: Haymaker, Side Kick, Fireman Throw, Grapple
+- Speed and Root: Jab, Snap kick, Hip throw
+
+
+
 What makes retro somewhat unique is that it revolves around a tactical pool that must be split among different
 values.  Pick 3 out of 5:
 
@@ -451,7 +466,7 @@ A combatant will start with a mode.
 - Opportunistic: 
 - Offensive
 - Aggressive
-
+   
 ## Ranged combat
 
 Ranged:

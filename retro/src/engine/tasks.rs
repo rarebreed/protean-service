@@ -89,22 +89,31 @@
 //! ### Comparing grades
 //!
 //! Resolving a task involves comparing the grades of both opponents.  Whomever has the most successes wins, and both
-//! the number of successes and the values of the successes determines the final outcome.
+//! the number of successes and the values of the successes determines the final outcome.  In the event of a tie, count
+//! the highest roll made.  If that is still a tie, then find who has the highest Target Number.
+//!
+//! Optional: Removing
 //!
 //! First, for any roll above 20, find the highest value (and only the highest value) above 20 for either opponent. They
-//! may remove the opponents highest rolls by up to that value.  The highest value is then taken off.  The remaining
-//! rolls are then compared.  The opponent with the most successes wins.
+//! may remove the opponents highest rolls by up to that value.  The highest value is then taken off.  The remainder can
+//! then be subtracted from the opponent's next highest value and this process repeats if there is still any remainder.
+//! The rolls are then compared.  The opponent with the most successes wins or in the event of a tie, the highest value
+//! in the roll wins.
 //!
 //! ```ignore
 //! Kyle is facing off against a warrior in hand to hand combat.  Kyle's skill in martial arts is a 5, and from his
-//! chosen move, his relevant attribute average is a 13.  Kyle ultimate rolls a [12, 17, 9, 16, 26].  His adversary
-//! has a skill of 4/12, and in his maneuver to defend rolls [18, 10, 4, 30].  While Kyle has more successes than his
-//! adversary, the adversary rolled the highest at 30.  So the adversary's roll of 30 can be used to remove 30 points
-//! from Kyle's rolls, starting with his highest.  This removes his 26, and takes 4 off his next highest of 17, which
-//! becomes a 13.  So Kyle's effective roll becomes [9, 12, 13, 16].  Since his attribute is 13,his effective Target
-//! Number is 7 (20 - 13).  Therefore, Kyle has 4 successes.
+//! chosen move, his relevant attribute average is a 13.  Kyle first rolls a [12, 17, 9, 16, 16].  His adversary
+//! has a skill of 4/12, and in his maneuver to defend rolls [18, 10, 8, 30].  
 //!
-//! The adversary has to remove his highest roll, so he now has
+//! While Kyle has more successes than his adversary, the adversary rolled the highest at 30.  So the adversary's roll
+//! of 30 can be used to remove 30 points from Kyle's rolls, starting with his highest.  This removes his 17, and can
+//! therefore take off 13 more points from the next highest roll, which is a 16.  So this becomes a 3, which is now
+//! no longer a success.  So Kyle's effective roll becomes [3, 12, 13, 16].  Since his attribute is 13, his effective
+//! Target Number is 7 (20 - 13).  Therefore, Kyle has 3 successes.
+//!
+//! The adversary has to remove his highest roll, so he now has [8, 10, 18].  All three are successes, which means they
+//! are now tied.  However, the opponent's highest roll is an 18 vs Kyle's 16, which means that the opponent succeeds,
+//! albeit barely.
 //! ```
 //!
 //! ## Law of Averages

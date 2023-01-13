@@ -26,46 +26,57 @@ of this time was playing the pulp era RPG Justice Inc around about 1984, and lat
 give you an idea of what we played, here are examples I can recall off the top of my head in the halcyon days of 1983 to
 1987:
 
-- Champions
-- Villains and Vigilantes
-- Justice Inc
-- Top Secret 1st ed
-- James Bond
-- Aftermath
-- Bushido
-- Twilight 2000 1st ed
-- Traveller
-- Traveller 2300
-- MegaTraveller
-- Battletech
-- Ghostbusters
-- The Morrow Project
-- Marvel Super Hero RPG
-- M.E.R.P: Middle Earth Role Playing
-- Call of Cthulhu
-- Stormbringer
-- Phoenix Command
-- Living Steel
-- Paranoia
-- Chill
+Mechwarrior
+Pendragon
+HarnMaster
+
 - AD&D 1st edition
+- Aftermath
+- Battletech
+- Bushido
+- Call of Cthulhu 2e
 - Car Wars
+- Champions
+- Chill
+- Cyberpunk 1st ed (aka 2013)
+- Gamma World 3e
+- Ghostbusters
+- James Bond
+- Justice Inc
+- Living Steel
+- Marvel Super Hero RPG
+- Mechwarrior
+- MegaTraveller
+- M.E.R.P: Middle Earth Role Playing
+- Paranoia
+- Phoenix Command
+- Villains and Vigilantes
 - Recon 1st edition (by RPG games)
 - Recon 2nd edition (aka Revised Recon by Palladium)
-- TMNT
-- Cyberpunk 1st ed (pre 2020)
+- Teenage Mutant Ninja Turtles
+- Timelords
+- Top Secret 1st ed
+- The Morrow Project
+- Traveller
+- Traveller 2300
+- Twilight 2000 1st ed
+- Stormbringer
 
 I probably played scores of 1 or 2-shot games, only a few of which I can remember:
 
-- Skyrealms of Jorune
 - Boot Hill
-- Runequest 1st ed
-- Pirates (Yaquinto)
-- Task Force Delta
 - Daredevil
+- Doctor Who 1e
+- Mechwarrior
+- Palladium Fabtasy RPG 1e
+- Pendragon
+- Pirates (Yaquinto)
+- Runequest 1st ed
+- Skyrealms of Jorune
+- SpaceMaster
 - Superworld
 - Talislanta
-- Palladium RPG
+- Task Force Delta
 
 I slowly started getting out of RPG's starting around 1988.  I still played, but I guess at that point I was 16 and able
 to drive, and RPG's lost some of their importance to me.  I still played once in a blue moon, but not like before. I

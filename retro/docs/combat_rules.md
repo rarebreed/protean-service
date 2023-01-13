@@ -29,10 +29,16 @@ All forms of combat are broken up into several steps:
 
 One of the most important concepts to understand for combat of any kind is the Action Economy
 
-### Action Economy
+## Actions
 
 Unlike most games that have an initiative phase which determines who gets to go in what order, retro takes its cue from
-the woefully maligned Phoenix Command Combat System of the 1980s.
+the woefully maligned Phoenix Command Combat System of the 1980s.  Actions have a cost, called a Count, which determines
+how long it takes to perform the action.  Then of course, there are the actions themselves.
+
+The act of deciding what Actions to take and calculating the cost is called the "Action Economy".  Knowing what Actions do
+in order to choose one will be covered in the Actions section.
+
+### Action Economy
 
 In this system, every action has an Action Count.  This, and an added reaction cost (determined by your character's Wit,
 Speed and Coolness) determines how long a particular action will take.  What matters more is not when an action
@@ -72,6 +78,41 @@ Speed) and lastly Janissary 1.
 Tyco's actions will be resolved, and then he will begin at Step 1.
 ```
 
+### Actions
+
+These are General Actions.  
+
+- Change Stance
+    - Prone (back)
+    - Prone
+    - Full Crouch
+    - Half Crouch
+    - Standing
+- Retrieve - Pocket
+- Retrieve - Slung
+- Retrieve - Backpack
+- Ready Weapon - Safety
+- Ready Weapon - Slung,Front
+- Ready Weapon - Slung,Back
+- Ready Weapon - Holster,Hip
+- Ready Weapon - Holster,Thigh
+- Ready Weapon - Holster,Ankle
+- Ready Weapon - Holster,Underarm
+- Ready Weapon - Holster,Back
+- Ready Weapon - Scabbard,Hip
+- Ready Weapon - Scabbard,Chest
+- Reload - per weapon
+- Apply Bandage
+- Apply Medkit
+
+### Melee Actions
+
+Melee combat is special in that the Action Count cost can vary depending on how exactly a manuever is performed.  The basic
+Action types are listed here, but more detail is in the Melee section
+
+- 
+
+
 ### Mental state and awareness
 
 Sometimes, it's easier to break an opponent's will than his body.  The mental state of an actor in combat is of vital
@@ -81,17 +122,22 @@ the actor will make.  For example, a panicking character is very likely not goin
 To account for this, we need to consider the mental and emotional state of a participant in combat.  To do this, there
 are several states each with associated benefits and drawbacks
 
-| Name          | Condition
-|---------------|-------------------
-| Overconfident | Overzealous and dismissive of enemy.  Bonus to attack, Bonus to fear. Penalty to defend
-| Confident     | Feels good about the odds. Bonus to attack
-| Determined    | Last Stand, cover the rear attitude.  Bonus to defend, Bonus to fear
-| Normal        | no bonuses or penalties
-| Grim          | Seeing the odds not in favor.  Bonus to defend, penalty to attack
-| Broken        | Confused and beginning to panic.  Penalty to attack
-| Panicked      | Cowering in fear.  Difficult to attack 
-| Routing       
-| Berserk
+| Name          | Condition                           | Attack | Defend | Fear | Actions
+|---------------|-------------------------------------|--------|--------|------|----------------------
+| Overconfident | Overzealous and dismissive of enemy | +2     | -1     | +2   | Can not Disengage or Retreat
+| Confident     | Feels good about the odds           | +1     |        | +1   |
+| Determined    | Last Stand, Sacrifice attitude      |        | +1     | Imm  | Can not Retreat
+| Normal        | no bonuses or penalties             |        |        |      |
+| Surprised     | Ambushed or caught unaware          | NA     | -2     | -1   | Can not attack yet
+| Grim          | Seeing the odds not in favor        | -1     | +1     | -1   |
+| Broken        | Confused and beginning to panic     | -1     | -1     | -1   |
+| Panicked      | Frozen in fear                      | -3     | -2     | -2   | Can not initiate attacks
+| Routing       | Full retreat                        | None   | None   | NA   | Only thought is to run away 
+| Berserk       | Blind rage                          | +2     | -2     | Imm  | Must engage enemy
+
+
+#### Overconfidence
+
 
 
 

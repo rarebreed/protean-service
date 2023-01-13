@@ -30,9 +30,6 @@ pub enum Roll {
 
 /// Functionality of a die
 pub trait DieTraits {
-    // fn value(self: Self, calc: Box<dyn Fn(u32) -> u32>) -> Self;
-    // fn exploding(self: Self, opt: Option<u32>) -> Self;
-
     /// Generates a roll of the die
     fn roll(&self, num: u32) -> Vec<u32>;
 
@@ -70,6 +67,7 @@ pub trait DieTraits {
         let mut converted = vec![];
         let (roll, subtract) = match orig_roll {
             Roll::Original(roll) => {
+                println!("Original roll: {roll:?}");
                 for val in roll {
                     if *val >= thresh {
                         converted.push((0u32, *val))
@@ -93,6 +91,9 @@ pub trait DieTraits {
                 }
             }
         }
+        if !eroll.is_empty() {
+            println!("    Rolled an extra {eroll:?}");
+        };
         // Take out any that have a 0
         let mut roll: Vec<(u32, u32)> = roll
             .iter_mut()
@@ -158,22 +159,6 @@ impl DiePool {
         self
     }
 }
-
-// impl DieTraits for DiePool {
-//     fn roll(&self, num: u32) -> Vec<u32> {
-//         let dice_roll = (self.dice)(num);
-//         let mut rolled = dice_roll
-//             .into_iter()
-//             .map(|amt| (self.calculate)(amt))
-//             .collect();
-
-//         if let Some(thresh) = self.exploding {
-//             exploding(&mut rolled, thresh, |num_d| dice(num_d, self.facings))
-//         } else {
-//             rolled
-//         }
-//     }
-// }
 
 impl DieTraits for DiePool {
     fn roll(&self, num: u32) -> Vec<u32> {
@@ -280,25 +265,27 @@ mod tests {
     #[test]
     fn pool4d20() {
         println!("Testing pool");
-        let pool = DiePool::new(20).exploding(Some(19));
-        let roll = pool.roll(4);
+        let pool = DiePool::new(6);
+        //.exploding(Some(20));
+        let roll = pool.roll(2);
 
         println!("roll {:?}", roll);
     }
 
-    fn _get_successes(pool: &DiePool, dice: u32, target: u32) -> (u32, Vec<u32>) {
-        let roll = pool.roll(dice);
-        let successes = roll.iter().fold(
-            0u32,
-            |acc, next| {
-                if *next >= target {
-                    acc + 1
-                } else {
-                    acc
-                }
-            },
-        );
+    /// keep highest X
+    fn get_highest(pool: &DiePool, dice: u32, take: usize) -> (Vec<u32>, Vec<u32>) {
+        let mut roll = pool.roll(dice);
+        roll.sort_unstable();
+        roll.reverse();
+        let successes = roll.iter().take(take).map(|r| *r).collect::<Vec<u32>>();
         (successes, roll)
+    }
+
+    #[test]
+    fn test_3_of_6() {
+        let pool = DiePool::new(10).exploding(Some(10));
+        let (highest, roll) = get_highest(&pool, 6, 3);
+        println!("{highest:?}, {roll:?}");
     }
 
     fn calculate_average(dice: u32, target: u32, thresh: u32) {

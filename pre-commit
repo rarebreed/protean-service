@@ -1,0 +1,55 @@
+#!/bin/zsh
+
+# githook to run before pushing 
+# - Check if we need to run cargo fmt
+# - cargo build
+# - cargo test
+# - cargo audit 
+
+echo "################################"
+echo "Checking if there are updated crates..."
+cargo update --dry-run
+
+# get files which have changed and are rust files
+echo "################################"
+echo "Checking formatting..."
+cargo fmt --check
+if [ $? != 0 ]; then
+    echo "Run cargo fmt, commit, and try again"
+    exit 1
+fi
+
+echo "################################"
+echo "Running clippy..."
+cargo clippy -- -D warnings -A clippy::too_many_arguments
+if [ $? !- 0 ]; then
+    echo "One or more cargo lints failed...please fix"
+    exit 1
+fi
+
+
+echo "################################"
+echo "Building debug..."
+cargo build
+if [ $? != 0 ]; then
+   echo "Build failed for debug, please fix"
+   exit 1
+fi
+
+echo "################################"
+echo "Building debug..."
+cargo build --release
+if [ $? != 0 ]; then
+   echo "Build failed for release, please fix"
+   exit 1
+fi
+
+
+
+echo "################################"
+echo "Running tests..."
+cargo test -- --nocapture
+
+echo "################################"
+echo "Running audit check..."
+cargo audit
