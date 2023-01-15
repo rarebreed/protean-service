@@ -11,7 +11,7 @@ fi
 
 echo "################################"
 echo "Running clippy..."
-cargo clippy
+cargo clippy -Dwarnings
 if [ $? != 0 ]; then
     echo "Please fix clippy errors"
 fi
@@ -28,10 +28,11 @@ cargo build --release
 # should be excluded from testing
 echo "################################"
 echo "Running tests..."
-tester="test"
 cargo nextest --help 2&>1 /dev/null
 if [ $? == 0 ]; then
-    tester="nextest run"
+    cargo nextest run -- --nocapture
+    cargo test --doc
+else
+    cargo test -- --nocapture
 fi
-cargo ${tester} -- --nocapture
 
