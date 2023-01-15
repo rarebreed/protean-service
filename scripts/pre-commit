@@ -28,5 +28,10 @@ cargo build --release
 # should be excluded from testing
 echo "################################"
 echo "Running tests..."
-cargo test -- --nocapture
+tester="test"
+cargo nextest --help 2&>1 /dev/null
+if [ $? == 0 ]; then
+    tester="nextest run"
+fi
+cargo ${tester} -- --nocapture
 

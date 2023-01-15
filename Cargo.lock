@@ -2479,6 +2479,7 @@ dependencies = [
  "rand",
  "serde",
  "serde_yaml",
+ "thiserror",
  "wgpu",
 ]
 

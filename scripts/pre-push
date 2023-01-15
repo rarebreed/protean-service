@@ -14,3 +14,7 @@ cargo update --dry-run
 echo "################################"
 echo "Running audit check..."
 cargo audit
+
+echo "################################"
+echo "Checking for duplicate dependencies..."
+cargo tree -d
