@@ -46,7 +46,7 @@ impl Error for IoResourceError {
 
 impl ReadableIo for String {
     fn read(&self) -> Result<String, Box<dyn Error + Send + Sync + 'static>> {
-        let file = File::open(&self)?;
+        let file = File::open(self)?;
         let mut reader = BufReader::new(file);
         let mut buff = vec![];
         let result = reader.read_to_end(&mut buff)?;
@@ -57,7 +57,7 @@ impl ReadableIo for String {
     }
 
     fn read_u8(&self) -> Result<Vec<u8>, DynError> {
-        let file = File::open(&self)?;
+        let file = File::open(self)?;
         let mut reader = BufReader::new(file);
         let mut buff = vec![];
         let result = reader.read_to_end(&mut buff)?;
