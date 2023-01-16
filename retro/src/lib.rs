@@ -194,7 +194,8 @@ pub enum Senses {
     Taste,
 }
 
+pub mod character;
 pub mod characteristics;
 pub mod engine;
 pub mod equipment;
-mod io;
+pub mod io;
