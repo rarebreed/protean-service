@@ -37,7 +37,7 @@ fi
 # should be excluded from testing
 echo "################################"
 echo "Running tests..."
-cargo nextest --help 2&> /dev/null
+cargo nextest --help 2&>1 1>/dev/null
 if [ $? == 0 ]; then
     cargo nextest run 
     cargo test --doc
