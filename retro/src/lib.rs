@@ -197,3 +197,4 @@ pub enum Senses {
 pub mod characteristics;
 pub mod engine;
 pub mod equipment;
+mod io;

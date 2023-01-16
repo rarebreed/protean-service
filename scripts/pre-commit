@@ -11,22 +11,37 @@ fi
 
 echo "################################"
 echo "Running clippy..."
-cargo clippy
+cargo clippy -- -Dwarnings
 if [ $? != 0 ]; then
     echo "Please fix clippy errors"
+    exit 1
 fi
 
 echo "################################"
 echo "Building debug..."
 cargo build
+if [ $? != 0 ]; then
+    echo "Debug build failed, fix code and try again"
+    exit 1
+fi
 
 echo "################################"
 echo "Building release..."
 cargo build --release
+if [ $? != 0 ]; then
+    echo "Release build failed, fix code and try again"
+    exit 1
+fi
 
 # This should be edited for your project if you have a workspace, and if you have any members in the workspace that 
 # should be excluded from testing
 echo "################################"
 echo "Running tests..."
-cargo test -- --nocapture
+cargo nextest --help 2>&1 1>/dev/null
+if [ $? == 0 ]; then
+    cargo nextest run 
+    cargo test --doc
+else
+    cargo test
+fi
 
