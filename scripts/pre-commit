@@ -19,10 +19,18 @@ fi
 echo "################################"
 echo "Building debug..."
 cargo build
+if [ $? != 0 ]; then
+    echo "Debug build failed, fix code and try again"
+    exit 1
+fi
 
 echo "################################"
 echo "Building release..."
 cargo build --release
+if [ $? != 0 ]; then
+    echo "Release build failed, fix code and try again"
+    exit 1
+fi
 
 # This should be edited for your project if you have a workspace, and if you have any members in the workspace that 
 # should be excluded from testing
