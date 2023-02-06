@@ -3,7 +3,7 @@
 # get files which have changed and are rust files
 echo "################################"
 echo "Checking formatting..."
-cargo +nightly fmt --check
+cargo fmt --check
 if [ $? != 0 ]; then
     echo "Run cargo fmt, commit, and try again"
     exit 1

@@ -197,10 +197,7 @@ pub fn dice(num: u32, size: u32) -> Vec<u32> {
 /// Returns 2 if val >= thresh_high, 1 if val <= thresh_low, and 0 otherwise  
 pub fn default_rng(val: u32, thresh_high: u32, thresh_low: u32) -> u32 {
     if thresh_low >= thresh_high {
-        panic!(
-            "thresh_low {} can not be >= to thresh_high {}",
-            thresh_low, thresh_high
-        );
+        panic!("thresh_low {thresh_low} can not be >= to thresh_high {thresh_high}");
     }
     match val {
         x if x >= thresh_high => 2,
@@ -269,7 +266,7 @@ mod tests {
         //.exploding(Some(20));
         let roll = pool.roll(2);
 
-        println!("roll {:?}", roll);
+        println!("roll {roll:?}");
     }
 
     /// keep highest X
@@ -277,7 +274,7 @@ mod tests {
         let mut roll = pool.roll(dice);
         roll.sort_unstable();
         roll.reverse();
-        let successes = roll.iter().take(take).map(|r| *r).collect::<Vec<u32>>();
+        let successes = roll.iter().take(take).copied().collect::<Vec<u32>>();
         (successes, roll)
     }
 
@@ -299,13 +296,13 @@ mod tests {
                 );
             //let (successes, roll) = get_successes(&pool, 6, 10);
             avg.push(successes);
-            println!("{}: Successes = {} from {:?}", n, successes, roll);
+            println!("{n}: Successes = {successes} from {roll:?}");
         }
 
         //let sum_avg = avg.iter().fold(0u32, |acc, next| acc + next) as f32;
         let sum_avg: u32 = avg.iter().sum();
         let calc_avg = sum_avg as f32 / 100.0;
-        println!("Sum = {}, Calculated average is {}", sum_avg, calc_avg);
+        println!("Sum = {sum_avg}, Calculated average is {calc_avg}");
 
         let mut scores: HashMap<u32, u32> = HashMap::new();
         let scores = avg.into_iter().fold(&mut scores, |acc, next| {
