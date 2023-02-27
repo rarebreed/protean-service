@@ -19,7 +19,7 @@ jobs:
     - uses: taiki-e/install-action@nextest
     - name: Prerequisites
       run: sudo apt-get install clang pkg-config libx11-dev libasound2-dev libudev-dev mesa-vulkan-drivers
-    - uses: ./.github/actions/rust-actions.yml
+    - uses: ./.github/actions/clippy/action.yml
     - name: Build
       run: cargo build --verbose
     - name: Run tests
