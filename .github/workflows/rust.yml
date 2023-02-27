@@ -20,7 +20,7 @@ jobs:
     - name: Prerequisites
       run: sudo apt-get install clang pkg-config libx11-dev libasound2-dev libudev-dev mesa-vulkan-drivers
     - name: Clippy check
-      run: cargo clippy --all-targets --all-features -- -Dwarning
+      run: cargo clippy --all-targets --all-features -- -Dwarnings
     - name: Build
       run: cargo build --verbose
     - name: Run tests
