@@ -12,15 +12,14 @@ env:
 jobs:
   build:
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - uses: taiki-e/install-action@nextest
     - name: Prerequisites
       run: sudo apt-get install clang pkg-config libx11-dev libasound2-dev libudev-dev mesa-vulkan-drivers
-    - name: Cargo plugins
-      run: cargo install cargo-audit 
+    - uses: ./.github/actions/rust-actions.yml
     - name: Build
       run: cargo build --verbose
     - name: Run tests
