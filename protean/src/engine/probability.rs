@@ -1,5 +1,5 @@
 //! Tasks define how actions are resolved
-//! 
+//!
 //! Die examples:
 //!
 //! ```

@@ -28,5 +28,5 @@ cargo build --release
 # should be excluded from testing
 echo "################################"
 echo "Running tests..."
-cargo test -- --nocapture
-
+cargo test --doc
+cargo nextest run
