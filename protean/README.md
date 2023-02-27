@@ -1,4 +1,4 @@
-# Welcome to retro
+# Welcome to protean
 
 This is the beginning of a RPG that I've had in the back of mind for close to 30 years now.  This is a library for
 building an RPG game suitable either for CRPG's or PPRPG's.  It is far more crunchy and realistic than pretty much any
@@ -20,8 +20,8 @@ game you will have seen before.  Are you tired of:
 - Skill systems that do not distinguish between breadth and depth?
 - Systems that encourage min-maxing by having cutoffs (eg, a 10 is as good as a 13, because they both give you +2)?
 
-And that's just a few of the pain points that retro is trying to solve.  Another point retro is trying to solve may seem
-a bit counter intuitive, given that it will stress realism and simulation.  Retro is designed to be small and modular,
+And that's just a few of the pain points that protean is trying to solve.  Another point protean is trying to solve may seem
+a bit counter intuitive, given that it will stress realism and simulation.  protean is designed to be small and modular,
 so that you only need what you need.
 
 Are you tired of reading through a wall of text to find the actual meaning or game functionality that you need?  Some
@@ -47,21 +47,29 @@ If you aren't familiar with those acronyms, the first 2 are probably somewhat co
 
 The last one, CARPG, is probably new because AFAIK, I just made it up.  It stands for Computer Assisted Role Playing
 Game.  In a TTRPG, you don't need anything electronic at all.  Just some paper, pens, the rules, dice, and possibly
-maps, screens, and other gaming miscellania.  Retro isn't really meant for this kind of play style, though in theory,
+maps, screens, and other gaming miscellania.  protean isn't really meant for this kind of play style, though in theory,
 you could print out the rules and character sheets.
 
 In a CRPG, you are playing either a single player RPG, like Skyrim, or a multiplayer RPG, like World of Warcraft.  For
-CRPG's, retro is designed to be a library that you can use to define your character.  It defines things like Attributes,
+CRPG's, protean is designed to be a library that you can use to define your character.  It defines things like Attributes,
 personality traits, damage classes, equipment building, etc, that you can use to help speed up the build of your game.
 
-The primary mode of retro however, is as a CARPG.  So what is a CARPG?  A CARPG is sort of a hybrid between a CRPG and a
+The primary mode of protean however, is as a CARPG.  So what is a CARPG?  A CARPG is sort of a hybrid between a CRPG and a
 PPRPG.  You use a web browser or app as your "map and miniatures", and your character sheet and dice rolling can be done
 via the app as well.  If you have used Roll 20, then it's very much in the same vein.  The main difference is that you
 the user can design your own game rules, expansions, adventures etc.  It's all pluggable and modular.
 
+## Solo playing
+
+Many gamers are not able, or even desire, to play with groups of other gamers.  Even in this day and age of virtual table top
+systems that allow gamers to play together remotely, there is still a not insignificant niche of players who do solo
+playing.  The Mythic game system is a great example, and it has been a best seller on drivethrurpg.com for several weeks now.
+
+protean also caters to this crowd by making it easier to do solo playing.  This includes tables
+
 ## Design
 
-retro will fit into a larger eco system which will include kubernetes services to set up everything needed to play from
+protean will fit into a larger eco system which will include kubernetes services to set up everything needed to play from
 the web:
 
 - Web server backend for websockets, authentication and WebRTC
@@ -75,7 +83,7 @@ the web:
   - chatbot
 - AI enemies and chatbots for single player play
 
-Most likely, I will retrofit the existing khadga app for this.  In fact, I may wind up adding this to the multirepo in
+Most likely, I will proteanfit the existing khadga app for this.  In fact, I may wind up adding this to the multirepo in
 the khadga project.
 
 ## Programming language consideration

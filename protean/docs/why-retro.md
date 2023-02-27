@@ -1,6 +1,6 @@
 # An RPG for a more civilized age
 
-So, what's so special about retro?  Is this some old-skool OD&D clone?  To explain what retro is, and the audience this
+So, what's so special about protean?  Is this some old-skool OD&D clone?  To explain what protean is, and the audience this
 game is catering to, I need to tell a little story first.
 
 I actually haven't played a role-playing session in close to 30 years now.  My gaming career technically started back
@@ -185,11 +185,11 @@ capabilities they have at hand.  If you think that sounds boring, then you are s
 people with amazing abilities, they are people who make tough choices in tough situations to help people in need. It is
 in fact, the difficulty of what the hero faces that makes them and their action amazing, not always how they did it.
 
-## Goals of retro
+## Goals of protean
 
-Retro has been in the back of my mind for over 25 years.  While I don't play as many games as I used to, I am still an
+protean has been in the back of my mind for over 25 years.  While I don't play as many games as I used to, I am still an
 avid reader and buyer of games.  I still see the same designs over and over which I have become disillusioned with.
-So it might be easiest to describe the things I don't like about many game systems, and how retro improves on it.
+So it might be easiest to describe the things I don't like about many game systems, and how protean improves on it.
 
 - Not granular enough in attributes
 - Not granular enough in attribute ratings or skill levels
@@ -218,9 +218,9 @@ what happens when your system is relegated to just a few attributes.
 
 Another disadvantage of having too few attributes is that many characters start to feel the same.
 
-#### How retro solves this
+#### How protean solves this
 
-I think that many will balk when they first see how many attributes retro has.  But this amount of detail gives more
+I think that many will balk when they first see how many attributes protean has.  But this amount of detail gives more
 flavor and variance between characters.  It also makes it clear that a character can be lean but powerful, but lacking
 in raw strength, or someone who has a superb memory, but might not be able to think outside of the box.
 
@@ -235,9 +235,9 @@ rated in 6 buckets?  Having too narrow a range means that your probability of su
 there's not enough variance possible when you roll dice.  The difference between an "average" rating of 2 and 5 either
 becomes too small to make a noticeable difference, or too large.
 
-#### How retro solves this
+#### How protean solves this
 
-In retro, both attributes are rated from 1-20 and skills from 0-10.  This gives enough variance to make the difference
+In protean, both attributes are rated from 1-20 and skills from 0-10.  This gives enough variance to make the difference
 between a neophyte and a master much more clear.
 
 ### Artificial cutoffs
@@ -247,6 +247,6 @@ the number of dice you can roll to 5.  The Hero System makes you divide some att
 determine some other value.  The consequence of these cutoffs is it creates a min-maxers dream.  Why buy a level of 15
 when a 13 will give you the same?
 
-#### How retro solves this
+#### How protean solves this
 
-Precision is always kept in retro.
+Precision is always kept in protean.

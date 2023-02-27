@@ -13,7 +13,7 @@ This folder contains files that will setup the entire service for us.  We will h
 
 Each of the services will run in their respective pods and will perform the following duties:
 
-- khadga-deploy: backend server written in warp for chatting, to serve up the retro SPA, and as webrtc relay
+- khadga-deploy: backend server written in warp for chatting, to serve up the protean SPA, and as webrtc relay
   - Uses 2 nodes for availability
   - Deployment type
 - nginx: load balancer for khadga

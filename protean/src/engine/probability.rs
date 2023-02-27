@@ -1,8 +1,9 @@
 //! Tasks define how actions are resolved
+//! 
 //! Die examples:
 //!
 //! ```
-//! use retro::engine::probability::{default_rng, die, DieTraits, DiePool};
+//! use protean::engine::probability::{default_rng, die, DieTraits, DiePool};
 //!
 //! let simpleD6 = die(6);
 //! let roll = simpleD6();

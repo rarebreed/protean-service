@@ -1,16 +1,16 @@
-# Combat in retro
+# Combat in protean
 
-Because I have always been fond of simulation style games, combat is a large part of the design of retro.  Combat is
+Because I have always been fond of simulation style games, combat is a large part of the design of protean.  Combat is
 really just a specialized and detailed type of Task Resolution.  As in all Task Resolutions, it is a contested system.
 Even ranged combat is a contested roll.
 
-But what really separates combat in retro is the detail and level of choice in combat compared to other systems. 
-Almost everything about combat in retro is different compared to mainstream RPG's.  I know this system will not be for 
+But what really separates combat in protean is the detail and level of choice in combat compared to other systems. 
+Almost everything about combat in protean is different compared to mainstream RPG's.  I know this system will not be for 
 everyone, but for those who are into detail, crunch and simulation, I hope this will feel right at home.
 
 ## Aspects of combat
 
-So what makes retro different?
+So what makes protean different?
 
 Most games only factor in skill of the adversaries, how fast they are, weapon damage and armor. Most games typically
 do combat along these lines:
@@ -47,7 +47,7 @@ smartly and consistently, I believe that all the above can be factored in with t
 
 ## Genre support
 
-Retro is not a super-hero fantasy type system at its heart.  While it could model such things, retro is geared towards
+protean is not a super-hero fantasy type system at its heart.  While it could model such things, protean is geared towards
 modelling real-world human level skills.  Moreover, player characters do not have any inherent advantages over NPCs.
 They do not get to dodge bullets, and most solid gun shots (a decent margin of success) will incapacitate a character no
 matter how much experience and training they have.
@@ -73,7 +73,7 @@ In other words, I want to dispell the myths that
 - realism isn't fun or interesting because it doesn't let you do cool things
 
 
-## Design philosophy of combat in retro
+## Design philosophy of combat in protean
 
 Most combat in RPG's are not realistic or even narratively interesting at all.  Most games typically allow each
 participant in the combat an equal number of actions and reactions.  And even games that let characters have more
@@ -100,7 +100,7 @@ is allow the attacker a shot.  Without rules for fatigue or tactical advantage, 
 meta game perspective for a character to ever hold back attacks.  Perhaps in other game systems, there is a special rule
 (ala a Feat or Advantage) where if they defend for one round, they gain some kind of tactical advantage. But then you
 have to learn the umpteen million special Feat rules, and how they interact with each other in combat.  I will argue
-that although retro initially looks more complex, in the long run it is actually simpler, because there are less special
+that although protean initially looks more complex, in the long run it is actually simpler, because there are less special
 rules you need to learn or keep track of.
 
 Going back to the example fight, many fans of other game systems will simply tell you that all of the above _is_
@@ -125,7 +125,7 @@ The most common argument against such crunchy rules is that it makes combat take
 story by focusing too much time on combat.  Though combat will take more time due to this level of simulation, I feel it
 is a worthwhile trade.  As I mentioned earlier, I think it is actually better for storytelling than the too abstracted
 combat systems of other games.  I also will argue that victory will feel more sweet, because you have put more thought
-and effort into it.  I will also argue that combat may not take as much time as other systems, because combat in retro
+and effort into it.  I will also argue that combat may not take as much time as other systems, because combat in protean
 will be more lethal or at least render characters hors de combat much faster than most games.  While simulating the
 action may take longer, successful hits will be more brutal than most games (especially ones using hit points) and thus
 combatants will be taken out of combat with fewer hits (often just one).
@@ -148,7 +148,7 @@ that some games require your opponents to "level up" with your characters in ord
 Secondly, from a gaming point of view, it can make combat take longer, because characters have more ability to soak up
 damage from "lesser" opponents.
 
-Some game systems have moved away from Hit Points, or at least a single "bag" of HP.  In retro, HP is replaced the 
+Some game systems have moved away from Hit Points, or at least a single "bag" of HP.  In protean, HP is replaced the 
 notion of damage tracks, with different kinds of damage.  It also pays a lot of attention to conditions and affects of
 damage types.
 ```
@@ -156,7 +156,7 @@ damage types.
 ## Combat factors
 
 Considerations of fatigue, distancing, aggressiveness, morale, psychology and looking for openings is almost never
-considered in games.  Retro is different, and many subtleties of combat are considered.  Most games dont factor in:
+considered in games.  protean is different, and many subtleties of combat are considered.  Most games dont factor in:
 
 - What is the attack's reach?
 - Distancing between opponents
@@ -349,7 +349,7 @@ melee combats
 
 ### Tactical choices: GRAMS
 
-What makes retro somewhat unique is that it revolves around a tactical pool that must be split among different
+What makes protean somewhat unique is that it revolves around a tactical pool that must be split among different
 values.  Pick 3 out of 5:
 
 - Guard: How open are you leaving yourself?

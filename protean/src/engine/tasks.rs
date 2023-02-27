@@ -25,7 +25,7 @@
 //! There's always an advantage if one is skilled, but one's skill is based off of how competent the associated
 //! characteristic is.  It is thus possible for someone extremely talented but not as skilled, to best someone who is
 //! more skilled, but not as talented.  Unlike most games which use an additive system where one adds the relevant skill
-//! to the appropriate characteristic(s), retro sets the characteristic as a target number, and one's skill as the
+//! to the appropriate characteristic(s), protean sets the characteristic as a target number, and one's skill as the
 //! number of dice rolled.  One counts how many successes are rolled and this count is compared against a competing
 //! value.
 //!
@@ -63,13 +63,13 @@
 //! | Mythic      |             |                | 14
 //! | Impossible  |             |                | 16
 //!
-//! When a system uses both a number of dice and a moveable target number (as retro does), it can be hard to determine
+//! When a system uses both a number of dice and a moveable target number (as protean does), it can be hard to determine
 //! how to modify the difficulty of a task.  
 //!
 //! - Do you adjust the number of dice rolled (for the character, the adversary, or both)?
 //! - Do you adjust the target number (for the character, the adversary or both)?
 //!
-//! Since retro always uses an opposed system, there is never a fixed target.  Rather, the GM should consider the
+//! Since protean always uses an opposed system, there is never a fixed target.  Rather, the GM should consider the
 //! following:
 //!
 //! - If there is an inherent or internal modifier, it should adjust that actor's roll
@@ -146,7 +146,7 @@
 //!     - Fighting in poor visibility
 //!     - Chase on rainy roads
 //!
-//! Because retro uses d20 for rolls, each adjust for a single die is a 5% reduction.  However, we roll pools of dice,
+//! Because protean uses d20 for rolls, each adjust for a single die is a 5% reduction.  However, we roll pools of dice,
 //! and not a single die.  Also, adjustments to the TN never affect the exploding number.  The exploding value is always
 //! a _natural_ 19 or 20, never a modified result of 19 or better.
 //!

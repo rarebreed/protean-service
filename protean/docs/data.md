@@ -1,11 +1,11 @@
-# Data for retro
+# Data for protean
 
-Data storage and retrieval for retro will not be your standard web server backed by a database.  Instead, a more big
+Data storage and retrieval for protean will not be your standard web server backed by a database.  Instead, a more big
 data approach will be taken.
 
 At a high level we will have the following architecture
 
-![data-flow-architecture](./images/retro.png)
+![data-flow-architecture](./images/protean.png)
 
 ## Source of truth
 
