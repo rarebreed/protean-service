@@ -1,7 +1,8 @@
 [workspace]
 
 members = [
-  "protean"
+  "protean",
+  "guro"
 ]
 
 exclude = [
