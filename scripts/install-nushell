@@ -10,32 +10,27 @@
 # Check version OS and install nushell
 os=`uname`
 echo "os is $os"
-#if [ $os == "Darwin" ]; then
-#    brew install nushell
-#elif [ $os == "Linux" ]; then
+if [ $os = "Darwin" ]; then
+   brew install nushell
+   brew install pyenv
+elif [ $os = "Linux" ]; then
     # Check if apt exists
-#    packman=`which apt`
-#    if [ $? != 0 ]; then
-#        sudo dnf install libxcb openssl-devel libX11-devel
-#    else
-        sudo apt install build-essential pkg-config libssl-dev cmake  
-    cargo install nu --features=extra
-#fi
+    packman=`which apt`
+    if [ $? != 0 ]; then
+       sudo dnf install libxcb openssl-devel libX11-devel zsh
+    else
+        sudo apt install build-essential pkg-config libssl-dev cmake zsh
+    fi
+    curl https://pyenv.run | zsh
+fi
 
 # install mononoki nerd font
-#if [ $os == "Darwin" ]; then
-#    brew tap homebrew/cask-fonts && brew install --cask font-mononoki-nerd-font
-#else
-    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Mononoki.zip
+if [ $os = "Darwin" ]; then
+    brew tap homebrew/cask-fonts && brew install --cask font-mononoki-nerd-font
+else
+    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Mononoki.zip
     unzip Mononoki.zip -e ~/.local/share/fonts
-#fi
-
-# install starship rs
-cargo install starship --locked
-nu ./starship.nu
-
-# install git-delta
-cargo install git-delta
+fi
 
 # install helix
 #git clone https://github.com/helix-editor/helix
@@ -45,23 +40,43 @@ cargo install git-delta
 #ln -s $PWD/runtime ~/.config/helix/runtime
 #cd -
 
+# Install helix
+sudo dnf copr enable varlad/helix
+sudo dnf install helix
+
 # install misc rust tools
-cargo install cargo-binstall
-cargo install cargo-update
-cargo install cargo-udeps
-cargo install cargo-bloat
-cargo install cargo-audit
-cargo install cargo-semver-checks --locked
-cargo install topgrade
-cargo install ripgrep
+cargo install nu --features=extra
+cargo install starship --locked
+cargo install cargo-binstall  # Downloads binaries if it can
+cargo install cargo-update    # plugin to upgrade cargo deps from CLI
+cargo install cargo-udeps     # find unused dependencies
+cargo install cargo-bloat     # Find which deps taking up the most space
+cargo install cargo-audit     # find CVE's in deps
+cargo install cargo-semver-checks --locked  # helps spot breaking API changes
+cargo install cargo-wasi      # Builds wasi skeleton
+cargo install cargo-editor    # Ability to add, remove update deps from CLI
+cargo install cargo-nextest --locked
+cargo install topgrade        # upgrade them all!
+cargo install ripgrep     
+cargo install git-delta    
 cargo install procs
 cargo install bottom
 cargo install mdbook
 cargo install fd-find
-cargo install --locked broot
-cargo install cargo-wasi
-cargo install cargo-editor
+cargo install fnm
+cargo install du-dust
 cargo install evcxr_jupyter
 cargo install evcxr_repl
-cargo binstall nextest
+cargo install --locked trunk
 cargo install --locked tokio-console
+cargo install --locked zellij
+cargo install --locked --features clipboard broot
+
+# Install wasmtime
+curl https://wasmtime.dev/install.sh -sSf | bash
+
+# Install starship for nu
+nu ./starship.nu
+
+# Install pyenv
+
