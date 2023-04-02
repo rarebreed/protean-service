@@ -1,67 +1,147 @@
 #!/bin/zsh
 #
 # This script will install some useful rust dev tools for you
-# - rustup check
-# - starship prompt editor
-# - nushell
-
 
 
 # Check version OS and install nushell
 os=`uname`
 echo "os is $os"
-#if [ $os == "Darwin" ]; then
-#    brew install nushell
-#elif [ $os == "Linux" ]; then
+if [ $os = "Darwin" ]; then
+   brew install nushell
+   brew install pyenv
+elif [ $os = "Linux" ]; then
     # Check if apt exists
-#    packman=`which apt`
-#    if [ $? != 0 ]; then
-#        sudo dnf install libxcb openssl-devel libX11-devel
-#    else
-        sudo apt install build-essential pkg-config libssl-dev cmake  
-    cargo install nu --features=extra
-#fi
+    packman=`which apt`
+    if [ $? != 0 ]; then
+       sudo dnf install libxcb openssl-devel libX11-devel zsh
+    else
+        sudo apt install build-essential pkg-config libssl-dev cmake zsh
+    fi
+    echo "=> Installing pyenv"
+    curl https://pyenv.run | zsh
+fi
 
 # install mononoki nerd font
-#if [ $os == "Darwin" ]; then
-#    brew tap homebrew/cask-fonts && brew install --cask font-mononoki-nerd-font
-#else
-    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Mononoki.zip
-    unzip Mononoki.zip -e ~/.local/share/fonts
-#fi
-
-# install starship rs
-cargo install starship --locked
-nu ./starship.nu
-
-# install git-delta
-cargo install git-delta
+echo "=> installing mononoki nerd fonts"
+if [ $os = "Darwin" ]; then
+    brew tap homebrew/cask-fonts && brew install --cask font-mononoki-nerd-font
+else
+    if [[ ! -a "${HOME}/.local/share/fonts/DejaVu Sans Mono for Powerline.ttf" ]]; then
+        wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Mononoki.zip
+        unzip Mononoki.zip -e ~/.local/share/fonts
+        rm Mononoki.zip
+    else
+        echo "=> nerd font already exists"
+    fi
+fi
 
 # install helix
-#git clone https://github.com/helix-editor/helix
-#cd helix
-#cargo install --path helix-term
-#mkdir ~/.config/helix
-#ln -s $PWD/runtime ~/.config/helix/runtime
-#cd -
+if [[ ! -a "${HOME}/Projects/helix" ]]; then
+    echo "=> Installing helix editor"
+    mkdir -p ~/Projects
+    owd=`pwd`
+    cd ~/Projects
+    git clone https://github.com/helix-editor/helix
+    cd helix
+    cargo install --path helix-term
+    rm -rf runtime/sources
+    mkdir ~/.config/helix
+    ln -s $PWD/runtime ~/.config/helix/runtime
+    cd $owd
+else
+    echo "=> helix is already installed"
+fi
 
 # install misc rust tools
-cargo install cargo-binstall
-cargo install cargo-update
-cargo install cargo-udeps
-cargo install cargo-bloat
-cargo install cargo-audit
-cargo install cargo-semver-checks --locked
-cargo install topgrade
-cargo install ripgrep
-cargo install procs
-cargo install bottom
-cargo install mdbook
-cargo install fd-find
-cargo install --locked broot
-cargo install cargo-wasi
-cargo install cargo-editor
-cargo install evcxr_jupyter
-cargo install evcxr_repl
-cargo binstall nextest
-cargo install --locked tokio-console
+topgrade_exists=$(which topgrade)
+if [ $? != 0 ]; then
+    echo "=> Installing rust based tooling"
+    cargo install nu --features=extra
+    cargo install starship --locked
+    cargo install cargo-binstall  # Downloads binaries if it can
+    cargo install cargo-update    # plugin to upgrade cargo deps from CLI
+    cargo install cargo-udeps     # find unused dependencies
+    cargo install cargo-bloat     # Find which deps taking up the most space
+    cargo install cargo-audit     # find CVE's in deps
+    cargo install cargo-semver-checks --locked  # helps spot breaking API changes
+    cargo install cargo-wasi      # Builds wasi skeleton
+    cargo install cargo-editor    # Ability to add, remove update deps from CLI
+    cargo install cargo-nextest --locked
+    cargo install topgrade        # upgrade them all!
+    cargo install ripgrep     
+    cargo install git-delta    
+    cargo install procs
+    cargo install bottom
+    cargo install mdbook
+    cargo install fd-find
+    cargo install fnm
+    cargo install du-dust
+    cargo install evcxr_jupyter
+    cargo install evcxr_repl
+    cargo install --locked trunk
+    cargo install --locked tokio-console
+    cargo install --locked zellij
+    cargo install --locked --features clipboard broot
+else
+    echo "=> updating rust tools"
+    # topgrade -y
+fi
+
+# Install wasmtime
+wasmtime_exists=$(which wasmtime)
+if [ $? != 0 ]; then
+    echo "=> Installing wasmtime"
+    curl https://wasmtime.dev/install.sh -sSf | zsh
+else
+    echo "=> wasmtime already exists"
+fi
+
+# Install pyenv update plugin
+pyenv_update_exists=$(pyenv update)
+if [ $? != 0 ]; then
+    echo "=> updating pyenv"
+    git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-update
+    pyenv update
+fi
+
+if [[ -a "$(pyenv root)/plugins/pyenv-virtualenv" ]]; then
+    echo "=> pyenv-virtualenv plugin already installed"
+else
+    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+fi
+
+# Install python 11
+latest_python=$(pyenv latest 3.11)
+if [ $? != 0 ]; then
+    echo "=> installing python 3.11"
+    pyenv install 3.11
+else
+    echo "=> python 3.11 already installed"
+fi
+
+# install a pyenv virtualenv
+activate_ds=$(pyenv activate datascience)
+if [ $? != 0 ]; then
+    echo "=> creating datascience virtualenv"
+    pyenv virtualenv 3.11.2 datascience
+    pyenv activate datascience
+else
+    echo "=> datascience virtualenv activated"
+fi
+
+echo "=> pip installing common datascience packages"
+pip install jupyterlab
+pip install datafusion
+pip install polars
+
+echo "=> installed evcxr jupyter"
+evcxr_jupyter --install
+
+pyenv deactivate datascience
+
+# Install poetry
+echo "=> installing python poetry"
+curl -sSL https://install.python-poetry.org | python3 -
+
+# Copying helix config
+echo "=> copying helix config files for rust"
