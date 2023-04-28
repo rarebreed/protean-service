@@ -9,17 +9,20 @@ trait MVec<T: Num> {
     //fn add(&self, rhs: &Self) -> Self;
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Vec64 {
     pub v: Box<[f64]>,
 }
 
 /// A vector of n-dimensions (shape of [dimensions])
+/// 
+/// This Vector type has the array allocated on the stack, therefore it's only good for relatively small vectors due to
+/// stack size limits.
+#[derive(Debug, Clone)]
 pub struct Vector<T, const N: usize>
 where
     T: Num + Copy,
 {
-    pub dimensions: usize,
     pub vec: [T; N],
 }
 
@@ -27,11 +30,14 @@ impl<T, const N: usize> Vector<T, N>
 where
     T: Num + Copy,
 {
+    /// Creates a new Vector
     pub fn new(v: [T; N]) -> Self {
-        Vector {
-            dimensions: v.len(),
-            vec: v,
-        }
+        Vector { vec: v }
+    }
+
+    /// Returns the dimensions
+    pub fn dims(&self) -> usize {
+        self.vec.len()
     }
 }
 
@@ -42,14 +48,14 @@ where
     fn dot(&self, rhs: &Self) -> T {
         //let v = *self.vec;
         let mut dot_prod = T::zero();
-        for ind in 0..self.dimensions {
+        for ind in 0..self.dims() {
             dot_prod = dot_prod + self.vec[ind] * rhs.vec[ind]
         }
         dot_prod
     }
 
     fn mult(&self, scalar: T) -> Self {
-        //let new_v: Vec<T> = self.vec.iter().map(|i| *i * scalar).collect();
+        // let new_v: Vec<T> = self.vec.iter_mut().map(|i| *i * scalar).collect();
         let mut new_v: [T; N] = [T::zero(); N];
         let mut ind = 0;
         for i in self.vec.iter() {
@@ -60,9 +66,11 @@ where
     }
 }
 
+#[derive(Debug, Clone)]
 pub struct Matrixf64<'a> {
     pub m: &'a [[f64; 3]],
 }
+
 
 // pub struct Matrix<T: Num> {
 //     pub shape: (usize, usize),
@@ -102,5 +110,7 @@ mod tests {
         let x3 = Vector::new(x_);
 
         //let n3 = v3 + x3;
+        let dot = v3.dot(&x3);
+        println!("{dot}");
     }
 }
