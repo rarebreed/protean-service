@@ -84,7 +84,7 @@ if [ $? != 0 ]; then
     cargo install --locked --features clipboard broot
 else
     echo "=> updating rust tools"
-    # topgrade -y
+    topgrade -y
 fi
 
 # Install wasmtime
@@ -145,3 +145,4 @@ curl -sSL https://install.python-poetry.org | python3 -
 
 # Copying helix config
 echo "=> copying helix config files for rust"
+cp config.toml ~/.config/helix
