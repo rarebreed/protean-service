@@ -15,7 +15,7 @@ pub struct Vec64 {
 }
 
 /// A vector of n-dimensions (shape of [dimensions])
-/// 
+///
 /// This Vector type has the array allocated on the stack, therefore it's only good for relatively small vectors due to
 /// stack size limits.
 #[derive(Debug, Clone)]
@@ -71,7 +71,6 @@ pub struct Matrixf64<'a> {
     pub m: &'a [[f64; 3]],
 }
 
-
 // pub struct Matrix<T: Num> {
 //     pub shape: (usize, usize),
 //     pub mat: [Vector<T>],
@@ -98,7 +97,7 @@ mod tests {
     #[test]
     fn test_mat() {
         let m = make_mat();
-        let i = m.m[0][3];
+        let i = m.m[0][2];
         println!("i is {i}");
     }
 
