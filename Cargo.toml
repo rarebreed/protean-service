@@ -15,7 +15,7 @@ resolver = "2"
 [workspace.package]
 version = "0.1.0"
 authors = ["Sean Toner <plaveoftheway@gmail.com>"]
-rust-version = "1.64"
+rust-version = "1.69"
 description = "Virtual Table Top RPG service and modular game engine"
 edition = "2021"
 
@@ -27,5 +27,5 @@ serde =  { version = "1.0", features = ["derive"] }
 serde_yaml = "0.9"
 rand = "0.8"
 num-traits = "0.2"
-tokio = { version = "1.27", features = ["rt-multi-thread", "macros"] }
+tokio = { version = "1.28", features = ["rt-multi-thread", "macros"] }
 wgpu = "0.16"
