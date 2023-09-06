@@ -130,28 +130,28 @@ will be more lethal or at least render characters hors de combat much faster tha
 action may take longer, successful hits will be more brutal than most games (especially ones using hit points) and thus
 combatants will be taken out of combat with fewer hits (often just one).
 
-```
-Side rant: hit points
 
-The popularity of that other game has made the notion of hit points ubiquitous. It also strains versimilitude to the
-breaking point when you have an assassination, coup de grace, or some other situation where a high hit point character
-should be killed very easily.  The old tired excuse is that hit points reflect skill and fortitude of more experienced
-characters, who are therefore able to turn a mighty blow into, essentially a scratch.  But over time, due to fatigue
-and "luck running out", eventually even very experienced characters will eventually succumb to their wounds.
+> **Side rant: hit points**
+> 
+> The popularity of that other game has made the notion of hit points ubiquitous. It also strains versimilitude to the
+> breaking point when you have an assassination, coup de grace, or some other situation where a high hit point character
+> should be killed very easily.  The old tired excuse is that hit points reflect skill and fortitude of more experienced
+> characters, who are therefore able to turn a mighty blow into, essentially a scratch.  But over time, due to fatigue
+> and "luck running out", eventually even very experienced characters will eventually succumb to their wounds.
+>
+> This is horse crock.  Why then are there rules about number of hit points healed per day?  So it takes longer for a 
+> character with high hit points to be healed because....it takes longer to heal their luck?  It's an abstraction so 
+> leaky, that a little Dutch boy would feel at home.  But, because it has such a long hold in the industry, most players 
+> dont give it a second thought.  And it's not just bad from a realism point of view, it's bad from a gaming point of view
+> due not just to the credibility strain, but because it fosters a cavalier attitude towards combat.  There's a reason
+> that some games require your opponents to "level up" with your characters in order to make combat feel more dangerous.
+> Secondly, from a gaming point of view, it can make combat take longer, because characters have more ability to soak up
+> damage from "lesser" opponents.
+> 
+> Some game systems have moved away from Hit Points, or at least a single "bag" of HP.  In protean, HP is replaced the 
+> notion of damage tracks, with different kinds of damage.  It also pays a lot of attention to conditions and affects of
+> damage types.
 
-This is horse crock.  Why then are there rules about number of hit points healed per day?  So it takes longer for a 
-character with high hit points to be healed because....it takes longer to heal their luck?  It's an abstraction so 
-leaky, that a little Dutch boy would feel at home.  But, because it has such a long hold in the industry, most players 
-dont give it a second thought.  And it's not just bad from a realism point of view, it's bad from a gaming point of view
-due not just to the credibility strain, but because it fosters a cavalier attitude towards combat.  There's a reason
-that some games require your opponents to "level up" with your characters in order to make combat feel more dangerous.
-Secondly, from a gaming point of view, it can make combat take longer, because characters have more ability to soak up
-damage from "lesser" opponents.
-
-Some game systems have moved away from Hit Points, or at least a single "bag" of HP.  In protean, HP is replaced the 
-notion of damage tracks, with different kinds of damage.  It also pays a lot of attention to conditions and affects of
-damage types.
-```
 
 ## Combat factors
 
